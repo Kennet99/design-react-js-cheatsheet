@@ -38,95 +38,99 @@ function HooksSection() {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> useState is like having interactive properties in Figma - values that can change and update the UI.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Basic useState</h4>
+              <p><code>const [count, setCount] = useState(0);</code></p>
+              <p>Creates a state variable <code>count</code> starting at 0, and a function <code>setCount</code> to update it. Like creating a dynamic property in Figma.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Object State</h4>
+              <p><code>const [user, setUser] = useState({`{name: '', email: ''}`});</code></p>
+              <p>Stores multiple related values in one object. When updating, you must spread the previous values to avoid losing data.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Array State</h4>
+              <p><code>const [todos, setTodos] = useState([]);</code></p>
+              <p>Stores a list of items. Use spread operator <code>...</code> to add new items without mutating the original array.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Functional Updates</h4>
+              <p><code>setCount(prevCount =&gt; prevCount + 1);</code></p>
+              <p>Safer way to update state when the new value depends on the previous value. Prevents race conditions.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// 1. Basic useState
-const [count, setCount] = useState(0);
+              code={`// State variables used in the demo above
+const [useStateDemoCounter, setUseStateDemoCounter] = useState(0);
+const [useStateDemoUser, setUseStateDemoUser] = useState({ name: '', email: '' });
+const [useStateDemoTodoInput, setUseStateDemoTodoInput] = useState('');
+const [useStateDemoTodos, setUseStateDemoTodos] = useState([]);
 
-// 2. Multiple state variables
-const [name, setName] = useState('');
-const [email, setEmail] = useState('');
-const [isSubscribed, setIsSubscribed] = useState(false);
+// Counter controls
+&lt;button onClick={() =&gt; setUseStateDemoCounter(useStateDemoCounter - 1)}&gt;
+  &lt;Minus size={16} /&gt;
+&lt;/button&gt;
+&lt;button onClick={() =&gt; setUseStateDemoCounter(useStateDemoCounter + 1)}&gt;
+  &lt;Plus size={16} /&gt;
+&lt;/button&gt;
 
-// 3. Object state
-const [user, setUser] = useState({
-  name: '',
-  email: '',
-  preferences: {}
-});
+// User form with object state
+&lt;input 
+  value={useStateDemoUser.name} 
+  onChange={(e) =&gt; setUseStateDemoUser(prev =&gt; ({...prev, name: e.target.value}))}
+  placeholder="Name"
+/&gt;
+&lt;input 
+  value={useStateDemoUser.email} 
+  onChange={(e) =&gt; setUseStateDemoUser(prev =&gt; ({...prev, email: e.target.value}))}
+  placeholder="Email"
+/&gt;
 
-// 4. Array state
-const [todos, setTodos] = useState([]);
+// Todo list with array state
+const addTodo = () =&gt; {
+  if (useStateDemoTodoInput.trim()) {
+    setUseStateDemoTodos(prev =&gt; [...prev, {
+      id: Date.now(),
+      text: useStateDemoTodoInput,
+      completed: false
+    }]);
+    setUseStateDemoTodoInput('');
+  }
+};
 
-// 5. Functional initial state (lazy initialization)
-const [expensiveValue, setExpensiveValue] = useState(() => {
-  return computeExpensiveValue();
-});
+const toggleTodo = (id) =&gt; {
+  setUseStateDemoTodos(prev =&gt; prev.map(todo =&gt;
+    todo.id === id ? {...todo, completed: !todo.completed} : todo
+  ));
+};
 
-// 6. State updates
-// Direct update
-setCount(count + 1);
+// Todo input and list
+&lt;input 
+  value={useStateDemoTodoInput} 
+  onChange={(e) =&gt; setUseStateDemoTodoInput(e.target.value)}
+  placeholder="Add todo"
+/&gt;
+&lt;button onClick={addTodo}&gt;Add&lt;/button&gt;
 
-// Functional update (safer for multiple updates)
-setCount(prevCount => prevCount + 1);
-
-// Object update (preserve other properties)
-setUser(prevUser => ({
-  ...prevUser,
-  name: 'New Name'
-}));
-
-// Array update
-setTodos(prevTodos => [...prevTodos, newTodo]);
-
-// 7. State update patterns
-function TodoApp() {
-  const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-
-  const addTodo = () => {
-    if (inputValue.trim()) {
-      setTodos(prev => [...prev, {
-        id: Date.now(),
-        text: inputValue,
-        completed: false
-      }]);
-      setInputValue(''); // Clear input
-    }
-  };
-
-  const toggleTodo = (id) => {
-    setTodos(prev => prev.map(todo =>
-      todo.id === id 
-        ? { ...todo, completed: !todo.completed }
-        : todo
-    ));
-  };
-
-  return (
-    <div>
-      <input
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Add todo..."
-      />
-      <button onClick={addTodo}>Add</button>
-      <ul>
-        {todos.map(todo => (
-          <li 
-            key={todo.id}
-            onClick={() => toggleTodo(todo.id)}
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          >
-            {todo.text}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}`}
-              explanation="useState is the most fundamental hook for managing component state. It returns the current state and a function to update it."
+{useStateDemoTodos.map(todo =&gt; (
+  &lt;li 
+    key={todo.id}
+    onClick={() =&gt; toggleTodo(todo.id)}
+    style={{textDecoration: todo.completed ? 'line-through' : 'none'}}
+  &gt;
+    {todo.text}
+  &lt;/li&gt;
+))}`}
+              explanation="This shows the actual useState hooks and state management code used in the interactive demo above."
             />
           </div>
           <div className="output-panel">
@@ -197,83 +201,86 @@ function TodoApp() {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> useEffect is like auto-layout or smart animate in Figma - it runs code when something changes.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Basic useEffect</h4>
+              <p><code>useEffect(() =&gt; {'{'} console.log('Component rendered'); {'}'});</code></p>
+              <p>Runs after every render. Like an auto-layout rule in Figma that updates every time you change something.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Empty Dependencies</h4>
+              <p><code>useEffect(() =&gt; {'{'} ... {'}'}, []);</code></p>
+              <p>Runs only once when component mounts. The empty array <code>[]</code> means "no dependencies to watch".</p>
+            </div>
+            <div className="explanation-item">
+              <h4>With Dependencies</h4>
+              <p><code>useEffect(() =&gt; {'{'} fetchUserData(userId); {'}'}, [userId]);</code></p>
+              <p>Runs when <code>userId</code> changes. Like a smart animate that triggers when a specific property changes.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Cleanup Function</h4>
+              <p><code>return () =&gt; {'{'} clearInterval(timer); {'}'};</code></p>
+              <p>Runs before the component unmounts or before the effect runs again. Prevents memory leaks by cleaning up resources.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// 1. Basic useEffect (runs after every render)
-useEffect(() => {
-  console.log('Component rendered');
+              code={`// useEffect hooks used in the demo above
+
+// State for the demo
+const [useEffectDemoTitle, setUseEffectDemoTitle] = useState('React Cheatsheet');
+const [useEffectDemoCount, setUseEffectDemoCount] = useState(0);
+const [useEffectDemoWindowSize, setUseEffectDemoWindowSize] = useState({ 
+  width: window.innerWidth, 
+  height: window.innerHeight 
 });
 
-// 2. Empty dependency array (runs only once)
-useEffect(() => {
-  console.log('Component mounted');
+// Effect 1: Update document title when title changes
+useEffect(() =&gt; {
+  document.title = useEffectDemoTitle;
+}, [useEffectDemoTitle]);
+
+// Effect 2: Track window resize with cleanup
+useEffect(() =&gt; {
+  const handleResize = () =&gt; {
+    setUseEffectDemoWindowSize({ 
+      width: window.innerWidth, 
+      height: window.innerHeight 
+    });
+  };
+  
+  window.addEventListener('resize', handleResize);
+  
   // Cleanup function
-  return () => {
-    console.log('Component will unmount');
-  };
+  return () =&gt; window.removeEventListener('resize', handleResize);
 }, []);
 
-// 3. With dependencies (runs when dependencies change)
-useEffect(() => {
-  fetchUserData(userId);
-}, [userId]);
+// Input field that triggers the title effect
+&lt;input 
+  value={useEffectDemoTitle} 
+  onChange={(e) =&gt; setUseEffectDemoTitle(e.target.value)}
+  placeholder="Enter page title"
+/&gt;
 
-// 4. Cleanup function
-useEffect(() => {
-  const timer = setInterval(() => {
-    console.log('Timer tick');
-  }, 1000);
+// Counter that shows effect dependency
+&lt;button onClick={() =&gt; setUseEffectDemoCount(useEffectDemoCount + 1)}&gt;
+  &lt;Plus size={16} /&gt;
+&lt;/button&gt;
+&lt;span&gt;{useEffectDemoCount}&lt;/span&gt;
 
-  return () => {
-    clearInterval(timer); // Cleanup
-  };
-}, []);
+// Display that shows effect result
+&lt;div&gt;Effect runs when count changes: {useEffectDemoCount % 2 === 0 ? 'Even' : 'Odd'}&lt;/div&gt;
 
-// 5. Multiple effects
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  // Effect for user data
-  useEffect(() => {
-    setLoading(true);
-    fetchUser(userId)
-      .then(data => setUser(data))
-      .finally(() => setLoading(false));
-  }, [userId]);
-
-  // Effect for user posts
-  useEffect(() => {
-    if (user) {
-      fetchUserPosts(user.id)
-        .then(data => setPosts(data));
-    }
-  }, [user]);
-
-  // Effect for document title
-  useEffect(() => {
-    if (user) {
-      document.title = \`Profile - \${user.name}\`;
-    }
-  }, [user]);
-
-  if (loading) return <div>Loading...</div>;
-  if (!user) return <div>User not found</div>;
-
-  return (
-    <div>
-      <h1>{user.name}</h1>
-      <p>{user.email}</p>
-      <h2>Posts ({posts.length})</h2>
-      {posts.map(post => (
-        <div key={post.id}>{post.title}</div>
-      ))}
-    </div>
-  );
-}`}
-              explanation="useEffect handles side effects in functional components, such as data fetching, subscriptions, or DOM manipulation."
+// Display window size (updated by effect)
+&lt;div&gt;Window size: {useEffectDemoWindowSize.width} x {useEffectDemoWindowSize.height}&lt;/div&gt;`}
+              explanation="This shows the actual useEffect hooks and side effects used in the interactive demo above."
             />
           </div>
           <div className="output-panel">

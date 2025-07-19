@@ -626,4 +626,61 @@
 
 .todo-list li:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Syntax example styling */
+.syntax-example {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 6px;
+  border-left: 4px solid #3b82f6;
+  border: 1px solid #334155;
+}
+
+.syntax-example h4 {
+  margin: 0 0 0.5rem 0;
+  color: #60a5fa;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.syntax-code {
+  background: #1e293b;
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #e2e8f0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  border: 1px solid #475569;
+  margin: 0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Syntax highlighting for better readability */
+.syntax-code .keyword {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.syntax-code .string {
+  color: #34d399;
+}
+
+.syntax-code .comment {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.syntax-code .function {
+  color: #60a5fa;
+}
+
+.syntax-code .number {
+  color: #f472b6;
 } 

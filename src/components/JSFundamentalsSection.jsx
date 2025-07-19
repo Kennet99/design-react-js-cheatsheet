@@ -28,6 +28,35 @@ function JSFundamentalsSection() {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Variables are like text styles in Figma - they store values that you can reuse throughout your design.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>let Declaration</h4>
+              <p><code>let userName = "Sarah";</code></p>
+              <p>Creates a variable that can be changed later. Like a text style in Figma that you can update throughout your design.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>const Declaration</h4>
+              <p><code>const userAge = 28;</code></p>
+              <p>Creates a variable that cannot be changed. Like a locked property in Figma that stays the same.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>var Declaration</h4>
+              <p><code>var oldWay = "avoid this";</code></p>
+              <p>Old way of declaring variables. Has issues with scope and hoisting. Use <code>let</code> or <code>const</code> instead.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Reassignment</h4>
+              <p><code>userName = "Sarah Johnson"; // ✅ Works with let</code><br/>
+                 <code>userAge = 29; // ❌ Error with const</code></p>
+              <p>You can change <code>let</code> variables but not <code>const</code> variables. This helps prevent accidental changes.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -78,6 +107,35 @@ userName = "Sarah Johnson";      // ✅ This works
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Objects are like component properties in Figma - they group related data together.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Object Creation</h4>
+              <p><code>const user = {'{'} name: "Sarah", age: 28 {'}'};</code></p>
+              <p>Objects group related data using key-value pairs. Like having multiple properties for a component in Figma.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Property Access</h4>
+              <p><code>user.name // "Sarah"</code><br/>
+                 <code>user["age"] // 28</code></p>
+              <p>Two ways to access object properties: dot notation and bracket notation. Bracket notation is useful when the property name is dynamic.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Adding Properties</h4>
+              <p><code>user.skills = ["Figma", "React"];</code></p>
+              <p>You can add new properties to objects at any time. Like adding new properties to a component in Figma.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Destructuring</h4>
+              <p><code>const {`{name, age}`} = user;</code></p>
+              <p>Extract specific properties from an object into separate variables. Makes your code cleaner and more readable.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -132,6 +190,35 @@ console.log(name);               // "Sarah"`}
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Functions are like reusable actions in Figma - they perform specific tasks when called.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Function Declaration</h4>
+              <p><code>function greetUser(name) {'{'} return "Hello, " + name + "!"; {'}'}</code></p>
+              <p>Traditional way to create functions. The function is "hoisted" (available before it's declared in the code).</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Function Expression</h4>
+              <p><code>const calculateArea = function(width, height) {'{'} return width * height; {'}'};</code></p>
+              <p>Function assigned to a variable. Must be declared before it can be used. More flexible than function declarations.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Arrow Function</h4>
+              <p><code>const double = (num) =&gt; num * 2;</code></p>
+              <p>Modern, concise syntax for functions. The <code>=&gt;</code> arrow replaces the <code>function</code> keyword. Automatically returns the result.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Function Calls</h4>
+              <p><code>greetUser("Sarah"); // "Hello, Sarah!"</code><br/>
+                 <code>calculateArea(5, 3); // 15</code></p>
+              <p>Call functions by using their name followed by parentheses. Pass arguments inside the parentheses.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample

@@ -13,6 +13,34 @@ function ComponentsSection() {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Props are like component properties in Figma - they allow you to customize instances with different values.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Basic Props</h4>
+              <p><code>function Button({`{text, variant, size, disabled}`}) {'{'} ... {'}'}</code></p>
+              <p>Props are passed as parameters to components. The curly braces <code>{`{}`}</code> destructure the props object, making it easier to use individual properties.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Default Props</h4>
+              <p><code>Button.defaultProps = {'{'} variant: 'primary', size: 'medium' {'}'};</code></p>
+              <p>Provides fallback values when props aren't passed. Like having default values for component properties in Figma.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Props Validation</h4>
+              <p><code>Button.propTypes = {'{'} text: PropTypes.string.isRequired {'}'};</code></p>
+              <p>Checks that props have the correct type and are required. Helps catch bugs early during development.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Children Prop</h4>
+              <p><code>function Container({`{children}`}) {'{'} return &lt;div&gt;{`{children}`}&lt;/div&gt;; {'}'}</code></p>
+              <p>Allows you to pass JSX content between component tags. Like nesting elements inside a frame in Figma.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -88,6 +116,34 @@ function Container({ children, title, className }) {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Component composition is like building complex designs in Figma by combining and nesting simple components.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Children Composition</h4>
+              <p><code>function Layout({`{header, sidebar, main, footer}`}) {'{'} ... {'}'}</code></p>
+              <p>Pass different components as props to create flexible layouts. Like using frames in Figma to organize your design elements.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Render Props</h4>
+              <p><code>function DataFetcher({`{url, children}`}) {'{'} return children({`{data, loading}`}); {'}'}</code></p>
+              <p>Pass a function as a prop that returns JSX. The parent component controls what gets rendered based on data or state.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Higher-Order Components</h4>
+              <p><code>function withLoading(Component) {'{'} return function WrappedComponent(...) {'{'} ... {'}'} {'}'}</code></p>
+              <p>Functions that take a component and return a new component with additional functionality. Like adding effects to components in Figma.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Compound Components</h4>
+              <p><code>Form.Input = function FormInput(...) {'{'} ... {'}'}</code></p>
+              <p>Related components that work together. The main component has sub-components attached to it as properties.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample

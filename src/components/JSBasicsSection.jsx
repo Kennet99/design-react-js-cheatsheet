@@ -21,20 +21,67 @@ function JSBasicsSection() {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Variables are like text styles or color styles in Figma - they store reusable values.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>useState Hook</h4>
+              <p><code>const [counter, setCounter] = useState(0)</code></p>
+              <p>This creates a variable called <code>counter</code> that starts at 0, and a function <code>setCounter</code> to update it. Think of it like creating a dynamic text field in Figma that can change.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Object State</h4>
+              <p><code>const [user, setUser] = useState({'{'} name: 'Sarah', role: 'UX Designer' {'}'})</code></p>
+              <p>This stores an object with multiple properties. Like having a component in Figma with multiple properties (name, role, etc.) that can all be updated together.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Array State</h4>
+              <p><code>const [colors, setColors] = useState(['red', 'blue', 'green'])</code></p>
+              <p>This stores a list of values. Similar to a color palette in Figma where you can add, remove, or reorder colors.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Boolean State</h4>
+              <p><code>const [isVisible, setIsVisible] = useState(true)</code></p>
+              <p>This stores true/false values. Like the visibility toggle in Figma - something is either visible (true) or hidden (false).</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// React state (like dynamic properties in Figma)
+              code={`// State variables used in the demo above
 const [counter, setCounter] = useState(0);
 const [userName, setUserName] = useState('Designer');
 const [isVisible, setIsVisible] = useState(true);
+const [user, setUser] = useState({ name: 'Sarah', role: 'UX Designer' });
 
-// Objects (like component properties in Figma)
-const user = { name: 'Sarah', role: 'UX Designer' };
+// Counter controls
+&lt;button onClick={() =&gt; setCounter(counter - 1)}&gt;&lt;Minus size={16} /&gt;&lt;/button&gt;
+&lt;button onClick={() =&gt; setCounter(counter + 1)}&gt;&lt;Plus size={16} /&gt;&lt;/button&gt;
+&lt;button onClick={() =&gt; setCounter(0)}&gt;&lt;RotateCcw size={16} /&gt;&lt;/button&gt;
 
-// Arrays (like color palettes in Figma)
-const colors = ['red', 'blue', 'green'];`}
-              explanation="State variables can change over time, just like how you can update text or colors in Figma."
+// Input field for user name
+&lt;input 
+  value={userName} 
+  onChange={(e) =&gt; setUserName(e.target.value)}
+  placeholder="Enter name"
+/&gt;
+
+// Visibility toggle
+&lt;button onClick={() =&gt; setIsVisible(!isVisible)}&gt;
+  {isVisible ? &lt;Eye size={16} /&gt; : &lt;EyeOff size={16} /&gt;}
+  {isVisible ? ' Hide' : ' Show'}
+&lt;/button&gt;
+
+// Display user object
+&lt;div className="object-display"&gt;
+  &lt;span&gt;Name: {user.name}&lt;/span&gt;
+  &lt;span&gt;Role: {user.role}&lt;/span&gt;
+&lt;/div&gt;`}
+              explanation="This shows the actual state variables and event handlers used in the interactive demo above."
             />
           </div>
           <div className="output-panel">
@@ -82,33 +129,69 @@ const colors = ['red', 'blue', 'green'];`}
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Arrow functions are like quick actions in Figma - shorter, more concise ways to perform tasks.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Traditional Function</h4>
+              <p><code>function calculateArea(width, height) {'{'} return width * height; {'}'}</code></p>
+              <p>This is the old way of writing functions. It's like creating a full plugin in Figma - more verbose but very clear about what it does.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Arrow Function (Full)</h4>
+              <p><code>const calculateArea = (width, height) =&gt; {'{'} return width * height; {'}'}</code></p>
+              <p>This is the modern way. The <code>=&gt;</code> arrow replaces the <code>function</code> keyword. It's shorter and cleaner.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Arrow Function (Short)</h4>
+              <p><code>const calculateArea = (width, height) =&gt; width * height;</code></p>
+              <p>When you only have one line that returns a value, you can skip the <code>{'{'}</code> and <code>return</code> keyword. It automatically returns the result.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Single Parameter</h4>
+              <p><code>const double = x =&gt; x * 2;</code></p>
+              <p>When you only have one parameter, you can skip the parentheses around it. This makes it even shorter.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// Traditional function (like a full plugin in Figma)
-function calculateArea(width, height) {
-  return width * height;
-}
+              code={`// Functions used in the demo above
 
-// Arrow function (like a quick action in Figma)
-const calculateArea = (width, height) => {
-  return width * height;
-};
+// Area calculation function
+const calculateArea = (width, height) =&gt; width * height;
 
-// Shorter arrow function (implicit return)
-const calculateArea = (width, height) => width * height;
+// Double function
+const double = x =&gt; x * 2;
 
-// Single parameter (parentheses optional)
-const double = x => x * 2;
+// Random number function
+const getRandomNumber = () =&gt; Math.random();
 
-// No parameters
-const getRandomNumber = () => Math.random();
+// Event handlers using arrow functions
+&lt;button onClick={() =&gt; {
+  const width = document.getElementById('width').value;
+  const height = document.getElementById('height').value;
+  alert(\`Area: \${width * height}\`);
+}}&gt;Calculate&lt;/button&gt;
 
-// Usage examples
-console.log(calculateArea(10, 5));  // 50
-console.log(double(8));            // 16
-console.log(getRandomNumber());    // 0.123...`}
-              explanation="Arrow functions provide a shorter, more modern syntax for writing functions in JavaScript."
+&lt;button onClick={() =&gt; {
+  const num = document.getElementById('doubleInput').value;
+  alert(\`Double: \${num * 2}\`);
+}}&gt;Double&lt;/button&gt;
+
+&lt;button onClick={() =&gt; alert(\`Random: \${Math.random().toFixed(3)}\`)}&gt;
+  Generate
+&lt;/button&gt;
+
+// Input fields
+&lt;input type="number" placeholder="Width" id="width" defaultValue="10" /&gt;
+&lt;input type="number" placeholder="Height" id="height" defaultValue="5" /&gt;
+&lt;input type="number" placeholder="Number" id="doubleInput" defaultValue="8" /&gt;`}
+              explanation="This shows the actual arrow functions and event handlers used in the interactive demo above."
             />
           </div>
           <div className="output-panel">
@@ -169,28 +252,72 @@ console.log(getRandomNumber());    // 0.123...`}
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Ternary operators are like conditional visibility in Figma - show one thing if true, another if false.
         </div>
+        
+        {/* Code Explanation Section */}
+        <div className="code-explanation-section">
+          <h3>📝 Code Explanation</h3>
+          <div className="explanation-grid">
+            <div className="explanation-item">
+              <h4>Basic Ternary</h4>
+              <p><code>condition ? valueIfTrue : valueIfFalse</code></p>
+              <p>This is a shorthand way to write an if/else statement. If the condition is true, use the first value. If false, use the second value.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Real Example</h4>
+              <p><code>const message = userRole === "Designer" ? "Show design tools" : "Show general tools";</code></p>
+              <p>If the user is a designer, show "Show design tools". Otherwise, show "Show general tools". Much shorter than writing a full if/else block.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>Multiple Conditions</h4>
+              <p><code>const status = user.isActive ? "Online" : user.lastSeen ? "Last seen recently" : "Offline";</code></p>
+              <p>You can chain ternaries together. First check if active, if not, check if last seen, if not, show offline. Like nested if statements but in one line.</p>
+            </div>
+            <div className="explanation-item">
+              <h4>In JSX</h4>
+              <p><code>{`const buttonText = isLoading ? "Loading..." : "Submit";`}</code></p>
+              <p>Very useful in React for showing different text or styles based on conditions. Like changing button text when a form is submitting.</p>
+            </div>
+          </div>
+        </div>
+
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// Ternary operator: condition ? valueIfTrue : valueIfFalse
-const userRole = "Designer";
+              code={`// Ternary operators used in the demo above
+
+// Role-based message
 const message = userRole === "Designer" ? "Show design tools" : "Show general tools";
 
-// Multiple conditions
-const status = user.isActive 
-  ? "Online" 
-  : user.lastSeen 
-    ? "Last seen recently" 
-    : "Offline";
-
-// In JSX (React)
+// Loading state toggle
 const buttonText = isLoading ? "Loading..." : "Submit";
-const buttonColor = isError ? "red" : "blue";
+const buttonColor = isLoading ? "#f59e0b" : "#3b82f6";
 
-// Usage examples
-console.log(message);  // "Show design tools"
-console.log(status);   // "Online" or "Last seen recently" or "Offline"`}
-              explanation="Ternary operators provide a concise way to write conditional logic in a single line."
+// Theme toggle
+const themeText = currentTheme === "Light" ? "Dark" : "Light";
+const themeColor = currentTheme === "Dark" ? "#fbbf24" : "#1f2937";
+
+// Event handlers using ternary operators
+&lt;select onChange={(e) =&gt; {
+  const role = e.target.value;
+  const message = role === "Designer" ? "Show design tools" : "Show general tools";
+  document.getElementById('roleMessage').textContent = message;
+}}&gt;
+  &lt;option value="Designer"&gt;Designer&lt;/option&gt;
+  &lt;option value="Developer"&gt;Developer&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;button onClick={() =&gt; {
+  const btn = document.getElementById('loadingBtn');
+  btn.textContent = btn.textContent === 'Submit' ? 'Loading...' : 'Submit';
+  btn.style.backgroundColor = btn.textContent === 'Loading...' ? '#f59e0b' : '#3b82f6';
+}}&gt;Submit&lt;/button&gt;
+
+&lt;button onClick={() =&gt; {
+  const theme = document.getElementById('themeDisplay');
+  theme.textContent = theme.textContent === 'Light' ? 'Dark' : 'Light';
+  theme.style.color = theme.textContent === 'Dark' ? '#fbbf24' : '#1f2937';
+}}&gt;Toggle Theme&lt;/button&gt;`}
+              explanation="This shows the actual ternary operators and conditional logic used in the interactive demo above."
             />
           </div>
           <div className="output-panel">
