@@ -975,143 +975,143 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Enhanced Syntax highlighting for better readability */
+/* VS Code Dark Mode with React JSX Syntax Highlighting */
 .syntax-code .keyword,
 .syntax-code .hljs-keyword {
-  color: #f472b6;
+  color: #569cd6; /* VS Code blue for keywords */
   font-weight: 600;
 }
 
 .syntax-code .string,
 .syntax-code .hljs-string {
-  color: #34d399;
+  color: #ce9178; /* VS Code orange for strings */
 }
 
 .syntax-code .comment,
 .syntax-code .hljs-comment {
-  color: #94a3b8;
+  color: #6a9955; /* VS Code green for comments */
   font-style: italic;
 }
 
 .syntax-code .function,
 .syntax-code .hljs-function,
 .syntax-code .hljs-title {
-  color: #60a5fa;
+  color: #dcdcaa; /* VS Code yellow for functions */
 }
 
 .syntax-code .number,
 .syntax-code .hljs-number {
-  color: #f472b6;
+  color: #b5cea8; /* VS Code light green for numbers */
 }
 
 .syntax-code .operator,
 .syntax-code .hljs-operator {
-  color: #fbbf24;
+  color: #d4d4d4; /* VS Code light gray for operators */
 }
 
 .syntax-code .punctuation,
 .syntax-code .hljs-punctuation {
-  color: #e5e7eb;
+  color: #d4d4d4; /* VS Code light gray for punctuation */
 }
 
 .syntax-code .variable,
 .syntax-code .hljs-variable {
-  color: #f9fafb;
+  color: #9cdcfe; /* VS Code light blue for variables */
 }
 
 .syntax-code .property,
 .syntax-code .hljs-property {
-  color: #a78bfa;
+  color: #9cdcfe; /* VS Code light blue for properties */
 }
 
 .syntax-code .built_in,
 .syntax-code .hljs-built_in {
-  color: #fbbf24;
+  color: #dcdcaa; /* VS Code yellow for built-ins */
 }
 
 .syntax-code .literal,
 .syntax-code .hljs-literal {
-  color: #34d399;
+  color: #569cd6; /* VS Code blue for literals */
 }
 
 .syntax-code .params,
 .syntax-code .hljs-params {
-  color: #f9fafb;
+  color: #9cdcfe; /* VS Code light blue for parameters */
 }
 
 .syntax-code .attr,
 .syntax-code .hljs-attr {
-  color: #a78bfa;
+  color: #9cdcfe; /* VS Code light blue for attributes */
 }
 
 .syntax-code .tag,
 .syntax-code .hljs-tag {
-  color: #ef4444;
+  color: #569cd6; /* VS Code blue for JSX tags */
 }
 
 .syntax-code .name,
 .syntax-code .hljs-name {
-  color: #ef4444;
+  color: #569cd6; /* VS Code blue for JSX names */
 }
 
 .syntax-code .attr-value,
 .syntax-code .hljs-attr-value {
-  color: #34d399;
+  color: #ce9178; /* VS Code orange for attribute values */
 }
 
 .syntax-code .template-string,
 .syntax-code .hljs-template-string {
-  color: #34d399;
+  color: #ce9178; /* VS Code orange for template strings */
 }
 
 .syntax-code .subst,
 .syntax-code .hljs-subst {
-  color: #f9fafb;
+  color: #9cdcfe; /* VS Code light blue for template substitutions */
 }
 
 .syntax-code .regexp,
 .syntax-code .hljs-regexp {
-  color: #fbbf24;
+  color: #d16969; /* VS Code red for regex */
 }
 
 .syntax-code .symbol,
 .syntax-code .hljs-symbol {
-  color: #a78bfa;
+  color: #4ec9b0; /* VS Code teal for symbols */
 }
 
 .syntax-code .class,
 .syntax-code .hljs-class {
-  color: #60a5fa;
+  color: #4ec9b0; /* VS Code teal for classes */
 }
 
 .syntax-code .title.class_,
 .syntax-code .hljs-title.class_ {
-  color: #60a5fa;
+  color: #4ec9b0; /* VS Code teal for class titles */
 }
 
 .syntax-code .type,
 .syntax-code .hljs-type {
-  color: #fbbf24;
+  color: #4ec9b0; /* VS Code teal for types */
 }
 
 .syntax-code .meta,
 .syntax-code .hljs-meta {
-  color: #94a3b8;
+  color: #9cdcfe; /* VS Code light blue for meta */
 }
 
 .syntax-code .section,
 .syntax-code .hljs-section {
-  color: #60a5fa;
+  color: #dcdcaa; /* VS Code yellow for sections */
 }
 
 .syntax-code .deletion,
 .syntax-code .hljs-deletion {
-  color: #ef4444;
+  color: #f44747; /* VS Code red for deletions */
 }
 
 .syntax-code .addition,
 .syntax-code .hljs-addition {
-  color: #10b981;
+  color: #4ec9b0; /* VS Code teal for additions */
 }
 
 /* Ensure all syntax elements are visible */
@@ -1121,208 +1121,208 @@
   color: inherit;
 }
 
-/* Comprehensive IDE-level syntax highlighting */
+/* VS Code Dark Mode IDE-level syntax highlighting */
 .syntax-code .hljs-punctuation,
 .code-example .hljs-punctuation,
 .reference-code .hljs-punctuation {
-  color: #e5e7eb !important;
+  color: #d4d4d4 !important; /* VS Code light gray */
 }
 
 .syntax-code .hljs-operator,
 .code-example .hljs-operator,
 .reference-code .hljs-operator {
-  color: #fbbf24 !important;
+  color: #d4d4d4 !important; /* VS Code light gray */
 }
 
 .syntax-code .hljs-keyword,
 .code-example .hljs-keyword,
 .reference-code .hljs-keyword {
-  color: #f472b6 !important;
+  color: #569cd6 !important; /* VS Code blue */
   font-weight: 600;
 }
 
 .syntax-code .hljs-string,
 .code-example .hljs-string,
 .reference-code .hljs-string {
-  color: #34d399 !important;
+  color: #ce9178 !important; /* VS Code orange */
 }
 
 .syntax-code .hljs-comment,
 .code-example .hljs-comment,
 .reference-code .hljs-comment {
-  color: #94a3b8 !important;
+  color: #6a9955 !important; /* VS Code green */
   font-style: italic;
 }
 
 .syntax-code .hljs-function,
 .code-example .hljs-function,
 .reference-code .hljs-function {
-  color: #60a5fa !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 .syntax-code .hljs-number,
 .code-example .hljs-number,
 .reference-code .hljs-number {
-  color: #f472b6 !important;
+  color: #b5cea8 !important; /* VS Code light green */
 }
 
 .syntax-code .hljs-variable,
 .code-example .hljs-variable,
 .reference-code .hljs-variable {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 .syntax-code .hljs-property,
 .code-example .hljs-property,
 .reference-code .hljs-property {
-  color: #a78bfa !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 .syntax-code .hljs-built_in,
 .code-example .hljs-built_in,
 .reference-code .hljs-built_in {
-  color: #fbbf24 !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 .syntax-code .hljs-literal,
 .code-example .hljs-literal,
 .reference-code .hljs-literal {
-  color: #34d399 !important;
+  color: #569cd6 !important; /* VS Code blue */
 }
 
 .syntax-code .hljs-params,
 .code-example .hljs-params,
 .reference-code .hljs-params {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 .syntax-code .hljs-attr,
 .code-example .hljs-attr,
 .reference-code .hljs-attr {
-  color: #a78bfa !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 .syntax-code .hljs-tag,
 .code-example .hljs-tag,
 .reference-code .hljs-tag {
-  color: #ef4444 !important;
+  color: #569cd6 !important; /* VS Code blue */
 }
 
 .syntax-code .hljs-name,
 .code-example .hljs-name,
 .reference-code .hljs-name {
-  color: #ef4444 !important;
+  color: #569cd6 !important; /* VS Code blue */
 }
 
 .syntax-code .hljs-attr-value,
 .code-example .hljs-attr-value,
 .reference-code .hljs-attr-value {
-  color: #34d399 !important;
+  color: #ce9178 !important; /* VS Code orange */
 }
 
 .syntax-code .hljs-template-string,
 .code-example .hljs-template-string,
 .reference-code .hljs-template-string {
-  color: #34d399 !important;
+  color: #ce9178 !important; /* VS Code orange */
 }
 
 .syntax-code .hljs-subst,
 .code-example .hljs-subst,
 .reference-code .hljs-subst {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 .syntax-code .hljs-regexp,
 .code-example .hljs-regexp,
 .reference-code .hljs-regexp {
-  color: #fbbf24 !important;
+  color: #d16969 !important; /* VS Code red */
 }
 
 .syntax-code .hljs-symbol,
 .code-example .hljs-symbol,
 .reference-code .hljs-symbol {
-  color: #a78bfa !important;
+  color: #4ec9b0 !important; /* VS Code teal */
 }
 
 .syntax-code .hljs-class,
 .code-example .hljs-class,
 .reference-code .hljs-class {
-  color: #60a5fa !important;
+  color: #4ec9b0 !important; /* VS Code teal */
 }
 
 .syntax-code .hljs-title.class_,
 .code-example .hljs-title.class_,
 .reference-code .hljs-title.class_ {
-  color: #60a5fa !important;
+  color: #4ec9b0 !important; /* VS Code teal */
 }
 
 .syntax-code .hljs-type,
 .code-example .hljs-type,
 .reference-code .hljs-type {
-  color: #fbbf24 !important;
+  color: #4ec9b0 !important; /* VS Code teal */
 }
 
 .syntax-code .hljs-meta,
 .code-example .hljs-meta,
 .reference-code .hljs-meta {
-  color: #94a3b8 !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 .syntax-code .hljs-section,
 .code-example .hljs-section,
 .reference-code .hljs-section {
-  color: #60a5fa !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 .syntax-code .hljs-deletion,
 .code-example .hljs-deletion,
 .reference-code .hljs-deletion {
-  color: #ef4444 !important;
+  color: #f44747 !important; /* VS Code red */
 }
 
 .syntax-code .hljs-addition,
 .code-example .hljs-addition,
 .reference-code .hljs-addition {
-  color: #10b981 !important;
+  color: #4ec9b0 !important; /* VS Code teal */
 }
 
-/* Additional IDE-level highlighting for variables and identifiers */
+/* VS Code Dark Mode IDE-level highlighting for variables and identifiers */
 .syntax-code .hljs-title,
 .code-example .hljs-title,
 .reference-code .hljs-title {
-  color: #60a5fa !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 .syntax-code .hljs-title.function_,
 .code-example .hljs-title.function_,
 .reference-code .hljs-title.function_ {
-  color: #60a5fa !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 .syntax-code .hljs-title.method_,
 .code-example .hljs-title.method_,
 .reference-code .hljs-title.method_ {
-  color: #60a5fa !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 .syntax-code .hljs-title.class_,
 .code-example .hljs-title.class_,
 .reference-code .hljs-title.class_ {
-  color: #60a5fa !important;
+  color: #4ec9b0 !important; /* VS Code teal */
 }
 
 /* Variable declarations and assignments */
 .syntax-code .hljs-variable.language_,
 .code-example .hljs-variable.language_,
 .reference-code .hljs-variable.language_ {
-  color: #f472b6 !important;
+  color: #569cd6 !important; /* VS Code blue */
   font-weight: 600;
 }
 
 .syntax-code .hljs-variable.constant_,
 .code-example .hljs-variable.constant_,
 .reference-code .hljs-variable.constant_ {
-  color: #f472b6 !important;
+  color: #569cd6 !important; /* VS Code blue */
   font-weight: 600;
 }
 
@@ -1330,42 +1330,42 @@
 .syntax-code .hljs-variable:not(.language_):not(.constant_),
 .code-example .hljs-variable:not(.language_):not(.constant_),
 .reference-code .hljs-variable:not(.language_):not(.constant_) {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 /* Object property names */
 .syntax-code .hljs-property,
 .code-example .hljs-property,
 .reference-code .hljs-property {
-  color: #a78bfa !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 /* Array and object literals */
 .syntax-code .hljs-literal,
 .code-example .hljs-literal,
 .reference-code .hljs-literal {
-  color: #34d399 !important;
+  color: #569cd6 !important; /* VS Code blue */
 }
 
 /* Template literal expressions */
 .syntax-code .hljs-subst,
 .code-example .hljs-subst,
 .reference-code .hljs-subst {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 /* JSX attributes */
 .syntax-code .hljs-attr,
 .code-example .hljs-attr,
 .reference-code .hljs-attr {
-  color: #a78bfa !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 /* JSX attribute values */
 .syntax-code .hljs-string.attr-value,
 .code-example .hljs-string.attr-value,
 .reference-code .hljs-string.attr-value {
-  color: #34d399 !important;
+  color: #ce9178 !important; /* VS Code orange */
 }
 
 /* Ensure all text elements have proper highlighting */
@@ -1397,11 +1397,11 @@
   color: #f9fafb !important;
 }
 
-/* Additional specific highlighting for React patterns */
+/* VS Code Dark Mode specific highlighting for React patterns */
 .syntax-code .hljs-keyword,
 .code-example .hljs-keyword,
 .reference-code .hljs-keyword {
-  color: #f472b6 !important;
+  color: #569cd6 !important; /* VS Code blue */
   font-weight: 600;
 }
 
@@ -1409,49 +1409,49 @@
 .syntax-code .hljs-built_in,
 .code-example .hljs-built_in,
 .reference-code .hljs-built_in {
-  color: #fbbf24 !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 /* Highlight function names and method calls */
 .syntax-code .hljs-title,
 .code-example .hljs-title,
 .reference-code .hljs-title {
-  color: #60a5fa !important;
+  color: #dcdcaa !important; /* VS Code yellow */
 }
 
 /* Ensure all identifiers are visible */
 .syntax-code .hljs,
 .code-example .hljs,
 .reference-code .hljs {
-  color: #f9fafb !important;
+  color: #d4d4d4 !important; /* VS Code light gray */
 }
 
 /* Force highlighting for all text elements */
 .syntax-code code,
 .code-example code,
 .reference-code code {
-  color: #f9fafb !important;
+  color: #d4d4d4 !important; /* VS Code light gray */
 }
 
 /* Specific highlighting for destructuring patterns */
 .syntax-code .hljs-variable,
 .code-example .hljs-variable,
 .reference-code .hljs-variable {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 /* Ensure parentheses content is highlighted */
 .syntax-code .hljs-punctuation + .hljs-variable,
 .code-example .hljs-punctuation + .hljs-variable,
 .reference-code .hljs-punctuation + .hljs-variable {
-  color: #f9fafb !important;
+  color: #9cdcfe !important; /* VS Code light blue */
 }
 
 /* Highlight array destructuring */
 .syntax-code .hljs-punctuation + .hljs-variable + .hljs-punctuation,
 .code-example .hljs-punctuation + .hljs-variable + .hljs-punctuation,
 .reference-code .hljs-punctuation + .hljs-variable + .hljs-punctuation {
-  color: #e5e7eb !important;
+  color: #d4d4d4 !important; /* VS Code light gray */
 }
 
 /* HTML & CSS Section */

@@ -6522,7 +6522,7 @@ function SyntaxHighlightedCode({ code, language = 'javascript', explanation }) {
   return (
     <div className="code-example">
       <pre>
-        <code ref={codeRef} className={`language-${detectedLanguage}`} style={{ color: '#f9fafb' }}>
+        <code ref={codeRef} className={`language-${detectedLanguage}`} style={{ color: '#d4d4d4' }}>
           {code}
         </code>
       </pre>
@@ -6562,7 +6562,7 @@ function SyntaxExample({ code, language = 'javascript' }) {
 
   return (
     <pre className="syntax-code">
-      <code ref={codeRef} className={`language-${detectedLanguage}`} style={{ color: '#f9fafb' }}>
+      <code ref={codeRef} className={`language-${detectedLanguage}`} style={{ color: '#d4d4d4' }}>
         {code}
       </code>
     </pre>
@@ -6581,7 +6581,7 @@ function ReferenceCode({ code, language = 'javascript' }) {
 
   return (
     <pre className="reference-code">
-      <code ref={codeRef} className={`language-${language}`} style={{ color: '#f9fafb' }}>
+      <code ref={codeRef} className={`language-${language}`} style={{ color: '#d4d4d4' }}>
         {code}
       </code>
     </pre>
