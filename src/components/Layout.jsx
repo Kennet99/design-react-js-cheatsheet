@@ -28,7 +28,7 @@ function Layout({ children }) {
   const navItems = [
     { id: 'home', label: 'Home', icon: Home, path: '/' },
     { id: 'js-fundamentals', label: 'JS Fundamentals', icon: FileText, path: '/js-fundamentals' },
-    { id: 'js-basics', label: 'React Basics', icon: Code, path: '/js-basics' },
+
     { id: 'react-core', label: 'React Core', icon: Zap, path: '/react-core' },
     { id: 'components', label: 'Components', icon: Layers, path: '/components' },
     { id: 'hooks', label: 'Hooks', icon: Settings, path: '/hooks' },

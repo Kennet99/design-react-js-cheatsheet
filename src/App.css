@@ -2281,9 +2281,7 @@
   transition: transform 0.3s ease;
 }
 
-.back-to-top:hover .back-to-top-icon {
-  transform: rotate(-180deg);
-}
+/* Removed rotation on hover for better UX */
 
 @keyframes fadeIn {
   from {

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import JSFundamentals from './pages/JSFundamentals'
-import JSBasics from './pages/JSBasics'
+
 import ReactCore from './pages/ReactCore'
 import Components from './pages/Components'
 import Hooks from './pages/Hooks'
@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/js-fundamentals" element={<JSFundamentals />} />
-          <Route path="/js-basics" element={<JSBasics />} />
+
           <Route path="/react-core" element={<ReactCore />} />
           <Route path="/components" element={<Components />} />
           <Route path="/hooks" element={<Hooks />} />
