@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SyntaxExample, CodeExample } from '../components/SyntaxHighlightedCode'
+import { SyntaxExample, CodeExample, ReferenceCode } from '../components/SyntaxHighlightedCode'
 import { Plus, Minus, RotateCcw, Eye, EyeOff, BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Navigation, Paintbrush, Globe, Type, Sparkles } from 'lucide-react'
 
 function CSSFrameworks() {

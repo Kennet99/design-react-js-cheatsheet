@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { SyntaxExample, CodeExample } from '../components/SyntaxHighlightedCode'
+import React, { useState, useEffect } from 'react'
+import { SyntaxExample, CodeExample, ReferenceCode } from '../components/SyntaxHighlightedCode'
 import { Plus, Minus, RotateCcw, Eye, EyeOff, BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Navigation, Paintbrush, Globe, Type, Sparkles } from 'lucide-react'
 
 function HTMLCSS() {
@@ -478,7 +478,7 @@ function HTMLCSS() {
   }
 
   // Auto-expand sections that contain search results
-  React.useEffect(() => {
+  useEffect(() => {
     if (searchTerm.trim()) {
       const sectionsToExpand = new Set()
       
