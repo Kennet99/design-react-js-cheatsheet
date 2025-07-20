@@ -1543,10 +1543,10 @@
 .io-input strong,
 .io-output strong {
   color: #60a5fa;
+  display: block;
+  margin-bottom: 12px;
   font-size: 14px;
   font-weight: 600;
-  display: block;
-  margin-bottom: 8px;
 }
 
 .io-input ul,
@@ -1558,8 +1558,8 @@
 .io-input li,
 .io-output li {
   color: #d1d5db;
+  margin-bottom: 8px;
   font-size: 14px;
-  margin-bottom: 6px;
   line-height: 1.4;
 }
 
@@ -1570,6 +1570,7 @@
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 13px;
+  font-family: 'Fira Code', monospace;
 }
 
 /* Responsive design for I/O grid */
