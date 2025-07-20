@@ -152,7 +152,7 @@ function BookComponent() {
   return (
     <div>
       <h1>{book.title}</h1>
-      <p>Price: ${price}</p>
+      <p>Price: \${price}</p>
       <button onClick={() => setPrice(price + 1)}>
         Increase Price
       </button>
