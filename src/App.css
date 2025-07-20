@@ -126,6 +126,168 @@
   flex-shrink: 0;
 }
 
+/* Global Search Styles */
+.global-search {
+  position: relative;
+  margin-bottom: var(--spacing-4);
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--spacing-3);
+  color: var(--text-secondary);
+  width: 16px;
+  height: 16px;
+  z-index: 1;
+}
+
+.global-search-input {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3) var(--spacing-2) var(--spacing-8);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.global-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.global-search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: var(--spacing-2);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-1);
+  border-radius: var(--radius-sm);
+  transition: color 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  color: var(--text-primary);
+}
+
+.clear-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: var(--spacing-1);
+}
+
+.search-results-header {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.search-results-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-result-item:hover {
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.result-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-title {
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-1);
+  color: var(--text-primary);
+}
+
+.result-page {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.result-type {
+  font-size: var(--font-size-xs);
+  color: var(--primary);
+  font-weight: 500;
+  padding: var(--spacing-1) var(--spacing-2);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  margin-left: var(--spacing-2);
+}
+
+.no-results {
+  padding: var(--spacing-4);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.no-results span {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--spacing-1);
+}
+
+.no-results p {
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.search-section {
+  padding: var(--spacing-3);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--spacing-2);
+}
+
 /* Main Content */
 .main-content {
   grid-area: main;
@@ -695,6 +857,38 @@
   .nav-icon {
     width: 24px;
     height: 24px;
+  }
+
+  /* Mobile Global Search */
+  .search-section {
+    padding: var(--spacing-2);
+  }
+
+  .global-search-input {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-3) var(--spacing-4) var(--spacing-3) var(--spacing-10);
+  }
+
+  .search-icon {
+    left: var(--spacing-4);
+    width: 18px;
+    height: 18px;
+  }
+
+  .search-results-dropdown {
+    max-height: 300px;
+  }
+
+  .search-result-item {
+    padding: var(--spacing-4);
+  }
+
+  .result-title {
+    font-size: var(--font-size-base);
+  }
+
+  .result-page {
+    font-size: var(--font-size-sm);
   }
 
   /* Mobile Tab Navigation */

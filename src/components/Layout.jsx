@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X, ArrowUp } from 'lucide-react'
+import GlobalSearch from './GlobalSearch'
 
 function Layout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -63,6 +64,12 @@ function Layout({ children }) {
       {/* Navigation - like the left sidebar in Figma */}
       <nav className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="nav-items">
+          {/* Global Search */}
+          <div className="search-section">
+            <GlobalSearch />
+          </div>
+          
+          {/* Navigation Items */}
           {navItems.map((item) => {
             const Icon = item.icon
             const isActive = location.pathname === item.path
