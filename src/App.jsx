@@ -2152,6 +2152,31 @@ const element = (
             language="javascript"
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>JSX Input:</strong>
+              <ul>
+                <li><code>userName</code> (string) - User's name variable</li>
+                <li><code>count</code> (number) - Counter value</li>
+                <li><code>handleClick</code> (function) - Event handler</li>
+                <li><code>className</code> (string) - CSS class name</li>
+                <li><code>{}</code> - JavaScript expression syntax</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>JSX Output:</strong>
+              <ul>
+                <li><code>JSX.Element</code> - React element object</li>
+                <li><code>string</code> - Interpolated text content</li>
+                <li><code>number</code> - Rendered numeric values</li>
+                <li><code>function</code> - Event handler binding</li>
+                <li><code>DOM</code> - Rendered HTML elements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -2251,6 +2276,31 @@ const PureComponent = React.memo(({ prop1 }) => {
 });`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Component Input:</strong>
+              <ul>
+                <li><code>props</code> (object) - Component properties</li>
+                <li><code>prop1, prop2</code> (any) - Destructured props</li>
+                <li><code>children</code> (JSX) - Child components</li>
+                <li><code>state</code> (any) - Internal component state</li>
+                <li><code>context</code> (any) - React context values</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Component Output:</strong>
+              <ul>
+                <li><code>JSX.Element</code> - Rendered component</li>
+                <li><code>null</code> - No rendering</li>
+                <li><code>string</code> - Text content</li>
+                <li><code>array</code> - Multiple elements</li>
+                <li><code>Fragment</code> - Wrapper-free elements</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -2474,6 +2524,31 @@ ComponentName.propTypes = {
 };`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Props Input:</strong>
+              <ul>
+                <li><code>text</code> (string) - Button text content</li>
+                <li><code>variant</code> (string) - Button style variant</li>
+                <li><code>size</code> (string) - Button size</li>
+                <li><code>disabled</code> (boolean) - Disabled state</li>
+                <li><code>children</code> (JSX) - Child components</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Props Usage:</strong>
+              <ul>
+                <li><code>string</code> - Text content rendering</li>
+                <li><code>className</code> - Dynamic CSS classes</li>
+                <li><code>boolean</code> - Conditional rendering</li>
+                <li><code>function</code> - Event handler binding</li>
+                <li><code>JSX</code> - Rendered component structure</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4334,6 +4409,31 @@ const handleEvent = (event) => {
 // onClick, onChange, onSubmit, onKeyDown, onMouseEnter, onMouseLeave`}
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Event Handler Input:</strong>
+              <ul>
+                <li><code>event</code> (Event) - DOM event object</li>
+                <li><code>event.target</code> (Element) - Triggered element</li>
+                <li><code>event.target.value</code> (string) - Input value</li>
+                <li><code>event.clientX/Y</code> (number) - Mouse coordinates</li>
+                <li><code>event.key</code> (string) - Key pressed</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Event Handler Output:</strong>
+              <ul>
+                <li><code>void</code> - Most event handlers</li>
+                <li><code>boolean</code> - Return false to prevent default</li>
+                <li><code>undefined</code> - Implicit return</li>
+                <li><code>string</code> - Input value processing</li>
+                <li><code>number</code> - Calculated values</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -4468,6 +4568,31 @@ const handleSubmit = (e) => {
   />
 </form>`}
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Form Handler Input:</strong>
+              <ul>
+                <li><code>e.target.name</code> (string) - Input field name</li>
+                <li><code>e.target.value</code> (string) - Input field value</li>
+                <li><code>formData</code> (object) - Current form state</li>
+                <li><code>e.preventDefault()</code> - Prevent form submission</li>
+                <li><code>validation</code> (function) - Input validation</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Form Handler Output:</strong>
+              <ul>
+                <li><code>object</code> - Updated form data</li>
+                <li><code>boolean</code> - Validation result</li>
+                <li><code>void</code> - Form submission handler</li>
+                <li><code>string</code> - Error messages</li>
+                <li><code>Promise</code> - Async form submission</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -5155,6 +5280,31 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 <Link to="/about">About</Link>
 <Link to="/contact">Contact</Link>`}
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Router Input:</strong>
+              <ul>
+                <li><code>path</code> (string) - URL path pattern</li>
+                <li><code>element</code> (JSX) - Component to render</li>
+                <li><code>to</code> (string) - Navigation destination</li>
+                <li><code>navigate</code> (function) - Programmatic navigation</li>
+                <li><code>params</code> (object) - Route parameters</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Router Output:</strong>
+              <ul>
+                <li><code>JSX.Element</code> - Rendered route component</li>
+                <li><code>string</code> - Current URL path</li>
+                <li><code>object</code> - Route parameters</li>
+                <li><code>function</code> - Navigation function</li>
+                <li><code>history</code> - Navigation history</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
