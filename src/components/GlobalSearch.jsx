@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Search, X } from 'lucide-react'
 import { searchPages } from '../data/searchData'
 
@@ -8,6 +8,7 @@ function GlobalSearch() {
   const [searchResults, setSearchResults] = useState([])
   const [isOpen, setIsOpen] = useState(false)
   const searchRef = useRef(null)
+  const navigate = useNavigate()
 
   // Handle search input changes
   const handleSearchChange = (e) => {
@@ -59,9 +60,67 @@ function GlobalSearch() {
     setIsOpen(false)
   }
 
-  const handleResultClick = () => {
+  /**
+   * When a search result is clicked, if it's a section, append a hash to the URL (e.g., /page#SectionTitle)
+   * and after navigation, scroll to the section heading.
+   */
+  const handleResultClick = (result) => {
     setIsOpen(false)
     setSearchQuery('')
+    // If it's a section, append hash and scroll after navigation
+    if (result.type === 'section') {
+      navigate(result.path + '#' + encodeURIComponent(result.title))
+      setTimeout(() => {
+        // Try to scroll to the section after navigation
+        const sectionTitle = result.title
+        let element = null
+        // Try h2, h3, h1, then partial match
+        const h2Elements = document.querySelectorAll('h2')
+        for (const el of h2Elements) {
+          if (el.textContent.trim() === sectionTitle) {
+            element = el
+            break
+          }
+        }
+        if (!element) {
+          const h3Elements = document.querySelectorAll('h3')
+          for (const el of h3Elements) {
+            if (el.textContent.trim() === sectionTitle) {
+              element = el
+              break
+            }
+          }
+        }
+        if (!element) {
+          const h1Elements = document.querySelectorAll('h1')
+          for (const el of h1Elements) {
+            if (el.textContent.trim() === sectionTitle) {
+              element = el
+              break
+            }
+          }
+        }
+        if (!element) {
+          const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+          for (const el of allHeadings) {
+            if (el.textContent.trim().includes(sectionTitle) || sectionTitle.includes(el.textContent.trim())) {
+              element = el
+              break
+            }
+          }
+        }
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          element.style.transition = 'background-color 0.3s ease'
+          element.style.backgroundColor = 'rgba(99, 102, 241, 0.1)'
+          setTimeout(() => {
+            element.style.backgroundColor = ''
+          }, 2000)
+        }
+      }, 300)
+    } else {
+      navigate(result.path)
+    }
   }
 
   return (
@@ -90,18 +149,17 @@ function GlobalSearch() {
           </div>
           <div className="search-results-list">
             {searchResults.map((result, index) => (
-              <Link
+              <button
                 key={index}
-                to={result.path}
                 className="search-result-item"
-                onClick={handleResultClick}
+                onClick={() => handleResultClick(result)}
               >
                 <div className="result-content">
                   <div className="result-title">{result.title}</div>
                   <div className="result-page">{result.page}</div>
                 </div>
                 <div className="result-type">{result.type === 'page-title' ? 'Page' : 'Section'}</div>
-              </Link>
+              </button>
             ))}
           </div>
         </div>

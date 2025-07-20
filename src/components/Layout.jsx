@@ -30,6 +30,11 @@ function Layout({ children }) {
     }
   }, [location.pathname])
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
