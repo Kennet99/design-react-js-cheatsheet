@@ -8,6 +8,7 @@ function Layout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [expandedItems, setExpandedItems] = useState(new Set())
+  const [activeSection, setActiveSection] = useState('')
   const location = useLocation()
 
   // Back to top functionality
@@ -33,7 +34,37 @@ function Layout({ children }) {
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    setActiveSection('') // Reset active section on route change
   }, [location.pathname])
+
+  // Intersection Observer for section highlighting
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.textContent.trim())
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the middle of viewport
+        threshold: 0.1
+      }
+    )
+
+    // Observe all h2 and h3 elements (section headings)
+    const headings = document.querySelectorAll('h2, h3')
+    headings.forEach((heading) => {
+      observer.observe(heading)
+    })
+
+    return () => {
+      headings.forEach((heading) => {
+        observer.unobserve(heading)
+      })
+    }
+  }, [location.pathname]) // Re-run when page changes
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -205,18 +236,21 @@ function Layout({ children }) {
                 {/* Subsections */}
                 {isExpanded && hasSections && (
                   <div className="nav-subsections">
-                    {pageSections[item.id].map((section, index) => (
-                      <button
-                        key={index}
-                        className="nav-subsection"
-                        onClick={() => {
-                          scrollToSection(section.title)
-                          setIsMobileMenuOpen(false)
-                        }}
-                      >
-                        <span className="subsection-title">{section.title}</span>
-                      </button>
-                    ))}
+                    {pageSections[item.id].map((section, index) => {
+                      const isActive = activeSection === section.title
+                      return (
+                        <button
+                          key={index}
+                          className={`nav-subsection ${isActive ? 'active' : ''}`}
+                          onClick={() => {
+                            scrollToSection(section.title)
+                            setIsMobileMenuOpen(false)
+                          }}
+                        >
+                          <span className="subsection-title">{section.title}</span>
+                        </button>
+                      )
+                    })}
                   </div>
                 )}
               </div>
