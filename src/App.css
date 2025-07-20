@@ -694,10 +694,10 @@
   width: 100%;
   max-width: 500px;
   padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #374151;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: #1f2937;
+  color: #f9fafb;
   font-size: 16px;
   transition: all 0.3s ease;
 }
@@ -705,18 +705,19 @@
 .search-input:focus {
   outline: none;
   border-color: #6366f1;
-  background: rgba(255, 255, 255, 0.08);
+  background: #111827;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .search-input::placeholder {
-  color: #94a3b8;
+  color: #9ca3af;
 }
 
 .tab-navigation {
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #374151;
   padding-bottom: 1rem;
 }
 
@@ -727,8 +728,8 @@
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #94a3b8;
+  background: #374151;
+  color: #d1d5db;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
@@ -736,13 +737,14 @@
 }
 
 .tab:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  background: #4b5563;
+  color: #f9fafb;
 }
 
 .tab.active {
   background: #6366f1;
   color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .tab-icon {
@@ -757,9 +759,9 @@
 .cheatsheet-intro {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: #1f2937;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid #374151;
 }
 
 .cheatsheet-intro h2 {
@@ -768,7 +770,7 @@
 }
 
 .cheatsheet-intro p {
-  color: #94a3b8;
+  color: #d1d5db;
   margin: 0;
 }
 
@@ -777,11 +779,12 @@
 }
 
 .category-title {
-  color: #f59e0b;
+  color: #fbbf24;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+  border-bottom: 3px solid #f59e0b;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .elements-grid {
@@ -797,17 +800,19 @@
 }
 
 .element-card, .property-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1f2937;
+  border: 2px solid #374151;
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .element-card:hover, .property-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: #111827;
   transform: translateY(-2px);
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: #6366f1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .element-header, .property-header {
@@ -827,46 +832,55 @@
 
 .element-description, .property-description {
   display: block;
-  color: #e2e8f0;
+  color: #f3f4f6;
   font-size: 0.9rem;
-  line-height: 1.4;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .element-example, .property-values {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
   padding: 1rem;
+  margin-top: 1rem;
 }
 
 .element-example strong, .property-values strong {
-  color: #f59e0b;
+  color: #fbbf24;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.5rem;
   display: block;
+  font-weight: 600;
 }
 
 .example-code, .values-code {
   display: block;
-  color: #10b981;
+  color: #34d399;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.85rem;
-  line-height: 1.4;
+  line-height: 1.5;
   margin-top: 0.5rem;
   word-break: break-all;
+  background: #1e293b;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #475569;
 }
 
 .quick-reference {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid #374151;
 }
 
 .quick-reference h2 {
   color: #6366f1;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 1.8rem;
 }
 
 .reference-grid {
@@ -876,32 +890,37 @@
 }
 
 .reference-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #1f2937;
+  border: 2px solid #374151;
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .reference-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: #111827;
   transform: translateY(-2px);
+  border-color: #6366f1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .reference-card h3 {
-  color: #f59e0b;
+  color: #fbbf24;
   margin-bottom: 1rem;
   font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .reference-code {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
   padding: 1rem;
-  color: #10b981;
+  color: #34d399;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 0.8rem;
-  line-height: 1.4;
+  line-height: 1.5;
   overflow-x: auto;
   white-space: pre-wrap;
 }
