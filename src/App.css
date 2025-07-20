@@ -1014,6 +1014,76 @@
   color: #d4d4d4 !important; /* VS Code light gray for punctuation */
 }
 
+/* JavaScript/JSX specific operator and punctuation highlighting */
+.syntax-code .hljs-keyword + .hljs-operator,
+.code-example .hljs-keyword + .hljs-operator,
+.reference-code .hljs-keyword + .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for JS operators */
+}
+
+.syntax-code .hljs-variable + .hljs-operator,
+.code-example .hljs-variable + .hljs-operator,
+.reference-code .hljs-variable + .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for JS operators */
+}
+
+.syntax-code .hljs-built_in + .hljs-operator,
+.code-example .hljs-built_in + .hljs-operator,
+.reference-code .hljs-built_in + .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for JS operators */
+}
+
+/* JavaScript/JSX parentheses and brackets */
+.syntax-code .hljs-keyword + .hljs-punctuation,
+.code-example .hljs-keyword + .hljs-punctuation,
+.reference-code .hljs-keyword + .hljs-punctuation {
+  color: #d4d4d4 !important; /* VS Code light gray for JS parentheses */
+}
+
+.syntax-code .hljs-variable + .hljs-punctuation,
+.code-example .hljs-variable + .hljs-punctuation,
+.reference-code .hljs-variable + .hljs-punctuation {
+  color: #d4d4d4 !important; /* VS Code light gray for JS parentheses */
+}
+
+.syntax-code .hljs-built_in + .hljs-punctuation,
+.code-example .hljs-built_in + .hljs-punctuation,
+.reference-code .hljs-built_in + .hljs-punctuation {
+  color: #d4d4d4 !important; /* VS Code light gray for JS parentheses */
+}
+
+/* HTML/CSS specific operator and punctuation highlighting */
+.syntax-code .hljs-tag .hljs-operator,
+.code-example .hljs-tag .hljs-operator,
+.reference-code .hljs-tag .hljs-operator {
+  color: #e5e7eb !important; /* Lighter gray for HTML operators */
+}
+
+.syntax-code .hljs-tag .hljs-punctuation,
+.code-example .hljs-tag .hljs-punctuation,
+.reference-code .hljs-tag .hljs-punctuation {
+  color: #e5e7eb !important; /* Lighter gray for HTML punctuation */
+}
+
+/* CSS specific operators */
+.syntax-code .hljs-selector-class + .hljs-operator,
+.code-example .hljs-selector-class + .hljs-operator,
+.reference-code .hljs-selector-class + .hljs-operator {
+  color: #e5e7eb !important; /* Lighter gray for CSS operators */
+}
+
+.syntax-code .hljs-selector-id + .hljs-operator,
+.code-example .hljs-selector-id + .hljs-operator,
+.reference-code .hljs-selector-id + .hljs-operator {
+  color: #e5e7eb !important; /* Lighter gray for CSS operators */
+}
+
+.syntax-code .hljs-property + .hljs-operator,
+.code-example .hljs-property + .hljs-operator,
+.reference-code .hljs-property + .hljs-operator {
+  color: #e5e7eb !important; /* Lighter gray for CSS operators */
+}
+
 .syntax-code .variable,
 .syntax-code .hljs-variable {
   color: #9cdcfe !important; /* VS Code light blue for variables */
@@ -1257,6 +1327,61 @@
 .code-example .hljs-punctuation + *,
 .reference-code .hljs-punctuation + * {
   color: inherit !important; /* Inherit proper colors for content after punctuation */
+}
+
+/* Context-specific operator and punctuation highlighting */
+/* JavaScript context - darker gray */
+.syntax-code .hljs-keyword ~ .hljs-operator,
+.code-example .hljs-keyword ~ .hljs-operator,
+.reference-code .hljs-keyword ~ .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for JS operators */
+}
+
+.syntax-code .hljs-variable ~ .hljs-operator,
+.code-example .hljs-variable ~ .hljs-operator,
+.reference-code .hljs-variable ~ .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for JS operators */
+}
+
+.syntax-code .hljs-built_in ~ .hljs-operator,
+.code-example .hljs-built_in ~ .hljs-operator,
+.reference-code .hljs-built_in ~ .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for JS operators */
+}
+
+/* HTML/CSS context - lighter gray */
+.syntax-code .hljs-tag ~ .hljs-operator,
+.code-example .hljs-tag ~ .hljs-operator,
+.reference-code .hljs-tag ~ .hljs-operator {
+  color: #e5e7eb !important; /* Lighter gray for HTML operators */
+}
+
+.syntax-code .hljs-selector-class ~ .hljs-operator,
+.code-example .hljs-selector-class ~ .hljs-operator,
+.reference-code .hljs-selector-class ~ .hljs-operator {
+  color: #e5e7eb !important; /* Lighter gray for CSS operators */
+}
+
+/* Specific operator types */
+/* Assignment operators in JS */
+.syntax-code .hljs-keyword + .hljs-operator + .hljs-variable,
+.code-example .hljs-keyword + .hljs-operator + .hljs-variable,
+.reference-code .hljs-keyword + .hljs-operator + .hljs-variable {
+  color: #d4d4d4 !important; /* VS Code light gray for assignment operators */
+}
+
+/* Arrow functions */
+.syntax-code .hljs-variable + .hljs-operator + .hljs-operator,
+.code-example .hljs-variable + .hljs-operator + .hljs-operator,
+.reference-code .hljs-variable + .hljs-operator + .hljs-operator {
+  color: #d4d4d4 !important; /* VS Code light gray for arrow function operators */
+}
+
+/* JSX curly braces */
+.syntax-code .hljs-tag .hljs-punctuation + .hljs-punctuation,
+.code-example .hljs-tag .hljs-punctuation + .hljs-punctuation,
+.reference-code .hljs-tag .hljs-punctuation + .hljs-punctuation {
+  color: #d4d4d4 !important; /* VS Code light gray for JSX curly braces */
 }
 
 /* Specific highlighting for useState pattern */
