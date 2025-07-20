@@ -21,8 +21,8 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
+  <Routes>
+    <Route path="/" element={<Home />} />
           <Route path="/js-fundamentals" element={<JSFundamentals />} />
 
           <Route path="/react-core" element={<ReactCore />} />
@@ -36,7 +36,7 @@ function App() {
           <Route path="/html-css" element={<HTMLCSS />} />
           <Route path="/css-frameworks" element={<CSSFrameworks />} />
           <Route path="/figma-mapping" element={<FigmaMapping />} />
-        </Routes>
+          </Routes>
       </Layout>
     </Router>
   )
