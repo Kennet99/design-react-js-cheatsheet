@@ -394,12 +394,12 @@ const dueDate = new Date(project.dueDate).toLocaleDateString('en-US', {
                   </div>
                       ))
                     }
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
       <div className="concept-card">
         <h2>Named Formulas (Power Fx) vs React Variables</h2>
@@ -1903,13 +1903,13 @@ const useDesignSystem = () => {
                       Submit
                     </button>
                   </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   )
 }

@@ -37,55 +37,38 @@ function JSFundamentals() {
         <div className="syntax-example">
           <h4>Basic Syntax Rules:</h4>
           <SyntaxExample
-            code={`// 1. Statements end with semicolons (optional but recommended)
-let name = "John";
-const age = 25;
+            code={`// 1. On page script - Embed JavaScript directly within HTML
+<script>alert('Welcome to the Bookshop!');</script>
 
-// 2. Code blocks use curly braces
-if (condition) {
-  // code here
+// 2. Include external JS file - Link external JavaScript file
+<script src="scripts.js"></script>
+
+// 3. Delay - Execute function after specified delay
+setTimeout(() => { alert('Book special offers!'); }, 2000);
+
+// 4. Functions - Define reusable blocks of code
+function showGreeting() { 
+  alert('Welcome to Book Haven!'); 
 }
 
-// 3. Functions are declared with function keyword or arrow syntax
-function greet() {
-  return "Hello!";
-}
+// 5. Edit DOM element - Modify HTML elements
+document.getElementById('title').innerHTML = 'Book Haven Sale';
 
-const greetArrow = () => "Hello!";
+// 6. Output - Display output via console, alert, or document
+console.log('Books loaded successfully');
 
-// 4. Variables are declared with let, const, or var
-let changeable = "can change";
-const constant = "cannot change";
+// 7. Comments - Add single-line or multi-line comments
+// Single-line comment
+/* Multi-line comment */
 
-// 5. Comments use // for single line or /* */ for multi-line
-// This is a single line comment
-/* This is a 
-   multi-line comment */
+// 8. Strict mode - Enforce stricter parsing and error handling
+'use strict';
 
-// 6. Strings can use single or double quotes
-let single = 'Hello';
-let double = "World";
+// 9. Values - Store data in variables
+let bookPrice = 19.99;
 
-// 7. Template literals use backticks
-let template = \`Hello \${name}!\`;
-
-// 8. Objects use curly braces with key-value pairs
-let person = {
-  name: "John",
-  age: 25
-};
-
-// 9. Arrays use square brackets
-let colors = ["red", "blue", "green"];
-
-// 10. Indentation improves readability
-function complexFunction() {
-  if (condition) {
-    for (let i = 0; i < 10; i++) {
-      console.log(i);
-    }
-  }
-}`}
+// 10. Operators - Perform operations on variables and values
+let totalPrice = bookPrice + 5;`}
             language="javascript"
           />
         </div>
@@ -95,21 +78,21 @@ function complexFunction() {
             <div className="io-input">
               <strong>Syntax Elements:</strong>
               <ul>
-                <li><code>statement</code> - Complete instruction</li>
-                <li><code>expression</code> - Value-producing code</li>
-                <li><code>identifier</code> - Variable/function name</li>
-                <li><code>literal</code> - Direct value</li>
-                <li><code>operator</code> - Mathematical/logical symbol</li>
+                <li><code>script tag</code> - HTML script embedding</li>
+                <li><code>external file</code> - Linked JavaScript file</li>
+                <li><code>function</code> - Reusable code block</li>
+                <li><code>DOM element</code> - HTML element reference</li>
+                <li><code>variable</code> - Data storage container</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Syntax Results:</strong>
               <ul>
-                <li><code>valid code</code> - Executable JavaScript</li>
-                <li><code>error</code> - Syntax error message</li>
-                <li><code>value</code> - Computed result</li>
-                <li><code>undefined</code> - No return value</li>
-                <li><code>function</code> - Callable code block</li>
+                <li><code>executed code</code> - Running JavaScript</li>
+                <li><code>DOM manipulation</code> - HTML element changes</li>
+                <li><code>console output</code> - Debug information</li>
+                <li><code>alert/notification</code> - User interface feedback</li>
+                <li><code>function return</code> - Computed result</li>
               </ul>
             </div>
           </div>
@@ -119,63 +102,85 @@ function complexFunction() {
             <CodeExample
               code={`// JavaScript Syntax Examples
 
-// 1. Variable Declaration Syntax
-let userName = "Sarah";
-const userAge = 28;
-var oldWay = "avoid this";
+// 1. Basic Script Embedding
+<script>
+  console.log('Page loaded successfully');
+  alert('Welcome to our website!');
+</script>
 
-// 2. Function Declaration Syntax
-function greetUser(name) {
-  return \`Hello, \${name}!\`;
+// 2. External File Inclusion
+<script src="app.js"></script>
+<script src="utils.js"></script>
+
+// 3. Function Declaration
+function calculateTotal(price, tax) {
+  return price + (price * tax);
 }
 
-const greetUserArrow = (name) => \`Hello, \${name}!\`;
+// 4. DOM Manipulation
+document.getElementById('header').innerHTML = 'Welcome!';
+document.querySelector('.price').textContent = '$19.99';
 
-// 3. Conditional Statement Syntax
-if (userAge >= 18) {
-  console.log("Adult");
+// 5. Event Handling
+document.getElementById('buyBtn').addEventListener('click', function() {
+  alert('Item added to cart!');
+});
+
+// 6. Conditional Statements
+if (bookPrice > 20) {
+  console.log('Eligible for free shipping');
 } else {
-  console.log("Minor");
+  console.log('Shipping fee applies');
 }
 
-// 4. Loop Syntax
+// 7. Switch Statement
+switch (day) {
+  case 1: console.log('Monday Deals'); break;
+  case 2: console.log('Tuesday Discounts'); break;
+  default: console.log('Regular Prices');
+}
+
+// 8. Loops
 for (let i = 0; i < 5; i++) {
-  console.log(\`Count: \${i}\`);
+  console.log(\`Item \${i + 1}\`);
 }
 
-// 5. Object Syntax
-const user = {
-  name: userName,
-  age: userAge,
-  greet() {
-    return \`Hi, I'm \${this.name}\`;
-  }
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+// 9. String Operations
+let bookTitle = 'JavaScript Guide';
+let len = bookTitle.length;
+let words = bookTitle.split(' ');
+let fullTitle = bookTitle.concat(' for Beginners');
+
+// 10. Object Creation and Access
+let book = { 
+  title: 'JavaScript Basics', 
+  author: 'Jane Doe', 
+  price: 19.99 
 };
+book.title;  // Access property
+book.price = 21.99;  // Assign new value
 
-// 6. Array Syntax
-const colors = ["red", "blue", "green"];
-const numbers = [1, 2, 3, 4, 5];
-
-// 7. Template Literal Syntax
-const message = \`User \${userName} is \${userAge} years old\`;
-
-// 8. Destructuring Syntax
-const { name, age } = user;
-const [firstColor, secondColor] = colors;
-
-// React JSX Syntax
-function UserProfile() {
+// React JSX Integration
+function BookComponent() {
+  const [price, setPrice] = useState(19.99);
+  
   return (
-    <div className="user-profile">
-      <h1>{userName}</h1>
-      <p>Age: {userAge}</p>
-      <button onClick={() => alert(greetUser(userName))}>
-        Greet User
+    <div>
+      <h1>{book.title}</h1>
+      <p>Price: ${price}</p>
+      <button onClick={() => setPrice(price + 1)}>
+        Increase Price
       </button>
     </div>
   );
 }`}
-              explanation="JavaScript syntax provides the foundation for writing clean, readable, and maintainable code."
+              explanation="JavaScript syntax provides the foundation for writing clean, readable, and maintainable code with DOM manipulation and event handling capabilities."
             />
           </div>
           <div className="output-panel">
@@ -183,23 +188,26 @@ function UserProfile() {
             <div className="output-content">
               <div className="demo-controls">
                 <div className="demo-item">
-                  <label>Variable Declaration:</label>
+                  <label>String Operations:</label>
                   <div className="result">
-                    <div>Name: {fundamentalUser.name}</div>
-                    <div>Age: {fundamentalUser.age}</div>
+                    <div>Length: {"JavaScript".length}</div>
+                    <div>Split: {JSON.stringify("Hello World".split(" "))}</div>
+                    <div>Concat: {"Hello" + " " + "World"}</div>
                   </div>
                 </div>
                 <div className="demo-item">
-                  <label>Template Literal:</label>
+                  <label>Conditional Logic:</label>
                   <div className="result">
-                    Hello, {fundamentalUser.name}! You are {fundamentalUser.age} years old.
+                    <div>Price {'>'} 20: {fundamentalUser.age > 20 ? "Yes" : "No"}</div>
+                    <div>Age {'>='} 18: {fundamentalUser.age >= 18 ? "Adult" : "Minor"}</div>
                   </div>
                 </div>
                 <div className="demo-item">
-                  <label>Object Destructuring:</label>
+                  <label>Loop Simulation:</label>
                   <div className="result">
-                    <div>Extracted name: {fundamentalUser.name}</div>
-                    <div>Extracted age: {fundamentalUser.age}</div>
+                    {[1, 2, 3, 4, 5].map(num => (
+                      <span key={num} style={{marginRight: '8px'}}>Item {num}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -236,6 +244,7 @@ x -= 3;                  // Subtraction assignment: x = x - 3
 x *= 2;                  // Multiplication assignment: x = x * 2
 x /= 4;                  // Division assignment: x = x / 4
 x %= 3;                  // Modulus assignment: x = x % 3
+x **= 2;                 // Exponentiation assignment: x = x ** 2
 
 // 3. Comparison Operators
 let num1 = 10, num2 = "10";
@@ -254,23 +263,50 @@ let and = isTrue && isFalse;     // Logical AND: false
 let or = isTrue || isFalse;      // Logical OR: true
 let not = !isTrue;               // Logical NOT: false
 
-// 5. String Operators
+// 5. Bitwise Operators
+let bitwiseAnd = 5 & 3;          // Bitwise AND: 1
+let bitwiseOr = 5 | 3;           // Bitwise OR: 7
+let bitwiseXor = 5 ^ 3;          // Bitwise XOR: 6
+let bitwiseNot = ~5;             // Bitwise NOT: -6
+let leftShift = 5 << 1;          // Left shift: 10
+let rightShift = 5 >> 1;         // Right shift: 2
+let zeroFillRightShift = 5 >>> 1; // Zero-fill right shift: 2
+
+// 6. String Operators
 let firstName = "John";
 let lastName = "Doe";
 let fullName = firstName + " " + lastName;  // Concatenation: "John Doe"
 let greeting = \`Hello \${firstName}!\`;     // Template literal
 
-// 6. Conditional (Ternary) Operator
+// 7. Conditional (Ternary) Operator
 let age = 18;
 let status = age >= 18 ? "Adult" : "Minor";  // Conditional: "Adult"
 
-// 7. Nullish Coalescing Operator
+// 8. Nullish Coalescing Operator (??)
 let value = null;
 let defaultValue = value ?? "Default";  // Nullish coalescing: "Default"
+let zeroValue = 0 ?? "Default";         // Returns 0 (not null/undefined)
 
-// 8. Optional Chaining Operator
+// 9. Optional Chaining Operator (?.)
 let user = { name: "John", address: { city: "NYC" } };
-let city = user?.address?.city;  // Optional chaining: "NYC"`}
+let city = user?.address?.city;  // Optional chaining: "NYC"
+let missingCity = user?.address?.country; // undefined (safe access)
+
+// 10. Spread Operator (...)
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5];      // Spread array: [1, 2, 3, 4, 5]
+let obj1 = { name: "John" };
+let obj2 = { ...obj1, age: 25 }; // Spread object: { name: "John", age: 25 }
+
+// 11. Rest Parameters
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+let total = sum(1, 2, 3, 4, 5);  // Rest parameters: 15
+
+// 12. Destructuring Assignment
+let [first, second, ...rest] = [1, 2, 3, 4, 5]; // Array destructuring
+let { name, age, ...otherProps } = { name: "John", age: 25, city: "NYC" }; // Object destructuring`}
             language="javascript"
           />
         </div>
@@ -463,6 +499,15 @@ function OperatorDemo() {
                   </div>
                 </div>
                 <div className="demo-item">
+                  <label>Bitwise Operations:</label>
+                  <div className="result">
+                    <div>5 & 3: {5 & 3}</div>
+                    <div>5 | 3: {5 | 3}</div>
+                    <div>5 ^ 3: {5 ^ 3}</div>
+                    <div>5 {'<<'} 1: {5 << 1}</div>
+                  </div>
+                </div>
+                <div className="demo-item">
                   <label>String Operations:</label>
                   <div className="result">
                     <div>Concatenation: {"Hello" + " " + "World"}</div>
@@ -472,10 +517,12 @@ function OperatorDemo() {
                   </div>
                 </div>
                 <div className="demo-item">
-                  <label>Conditional (Ternary):</label>
+                  <label>Modern Operators:</label>
                   <div className="result">
-                    <div>Age 20: {20 >= 18 ? "Adult" : "Minor"}</div>
-                    <div>Score 85: {85 >= 90 ? "A" : 85 >= 80 ? "B" : "C"}</div>
+                    <div>Nullish: {null ?? "Default"}</div>
+                    <div>Zero value: {0 ?? "Default"}</div>
+                    <div>Conditional: {20 >= 18 ? "Adult" : "Minor"}</div>
+                    <div>Spread: {JSON.stringify([...fundamentalColors, "yellow"])}</div>
                   </div>
                 </div>
               </div>
@@ -1223,10 +1270,10 @@ class User {
     this.createdAt = new Date(); // Auto-generated property
   }
 
-      // Method to access properties
-    getInfo() {
-      return \`\${this.name} is a \${this.age}-year-old \${this.role}\`;
-    }
+  // Method to access properties
+  getInfo() {
+    return \`\${this.name} is a \${this.age}-year-old \${this.role}\`;
+  }
 
   // Method to modify properties
   updateRole(newRole) {
@@ -1255,10 +1302,10 @@ console.log(user1.getInfo());   // "Sarah is a 28-year-old Designer"
 user1.updateRole("Senior Designer");
 user1.addSkill("React");
 
-  // Property enumeration
-  for (let prop in user1) {
-    console.log(\`\${prop}: \${user1[prop]}\`);
-  }
+// Property enumeration
+for (let prop in user1) {
+  console.log(\`\${prop}: \${user1[prop]}\`);
+}
 
 // Using constructors in React
 function UserProfile({ user }) {
