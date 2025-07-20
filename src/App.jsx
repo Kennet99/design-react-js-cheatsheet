@@ -392,15 +392,16 @@ function DynamicUserCard() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`function functionName(parameter) {
+          <SyntaxExample
+            code={`function functionName(parameter) {
   return value;
 }
 
 const arrowFunction = (param) => value;
 
 functionName(argument);     // Call function`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -521,8 +522,8 @@ function DynamicGreeting() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`string.method();           // String methods
+          <SyntaxExample
+            code={`string.method();           // String methods
 array.method();             // Array methods
 object.method();            // Object methods
 
@@ -531,7 +532,8 @@ const obj = {
     return value;
   }
 };`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -675,8 +677,8 @@ function Counter() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`class ClassName {
+          <SyntaxExample
+            code={`class ClassName {
   constructor(parameter) {
     this.property = parameter;
   }
@@ -687,7 +689,8 @@ function Counter() {
 }
 
 const instance = new ClassName(value);`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -743,8 +746,8 @@ user1.changeRole("Senior Designer");`}
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`class ClassName {
+          <SyntaxExample
+            code={`class ClassName {
   constructor(parameter) {
     this.property = parameter;    // Instance property
   }
@@ -756,7 +759,8 @@ instance["property"];           // Bracket notation
 
 // Property assignment
 instance.property = newValue;   // Change property value`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -906,8 +910,8 @@ function UserProfile({ user }) {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`element.addEventListener('event', handler);
+          <SyntaxExample
+            code={`element.addEventListener('event', handler);
 
 // In React JSX:
 <button onClick={handleClick}>
@@ -917,7 +921,8 @@ function UserProfile({ user }) {
 const handleClick = (event) => {
   // Handle event
 };`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -981,8 +986,8 @@ function handleInput(event) {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`function functionName(parameter1, parameter2) {
+          <SyntaxExample
+            code={`function functionName(parameter1, parameter2) {
   // Function body
 }
 
@@ -991,7 +996,8 @@ functionName(argument1, argument2);  // Call with arguments
 function greet(name = "User") {     // Default parameter
   return "Hello, " + name;
 }`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -1063,8 +1069,8 @@ console.log(greet("Sarah")); // "Hello, Sarah"`}
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Primitive types (copied by value)
+          <SyntaxExample
+            code={`// Primitive types (copied by value)
 let primitive = "value";
 let copy = primitive;        // Independent copy
 
@@ -1075,7 +1081,8 @@ let refCopy = reference;     // Same reference
 // Creating true copies
 let deepCopy = { ...reference };     // Spread operator
 let arrayCopy = [...array];          // Array spread`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -1233,8 +1240,8 @@ function JSBasicsSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// React state
+          <SyntaxExample
+            code={`// React state
 const [state, setState] = useState(initialValue);
 
 // Examples:
@@ -1245,7 +1252,8 @@ const [isVisible, setIsVisible] = useState(true);
 // Objects and arrays
 const user = { name: 'Sarah', role: 'Designer' };
 const colors = ['red', 'blue', 'green'];`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -1310,8 +1318,8 @@ const colors = ['red', 'blue', 'green'];`}
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Traditional function
+          <SyntaxExample
+            code={`// Traditional function
 function functionName(parameters) {
   return value;
 }
@@ -1340,7 +1348,8 @@ const calculateArea = (width, height) => {
 };
 
 const calculateArea = (width, height) => width * height;`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
