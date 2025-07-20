@@ -11,6 +11,24 @@ function App() {
   // This is like having different pages in Figma - you can only see one at a time
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showBackToTop, setShowBackToTop] = useState(false)
+
+  // Back to top functionality
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
   // Navigation items - like the pages panel in Figma
   const navItems = [
@@ -100,6 +118,13 @@ function App() {
           {activeSection === 'figma-mapping' && <FigmaMappingSection />}
         </div>
       </main>
+
+      {/* Back to Top button */}
+      {showBackToTop && (
+        <button className="back-to-top" onClick={scrollToTop}>
+          <RotateCcw className="back-to-top-icon" />
+        </button>
+      )}
     </div>
   )
 }
