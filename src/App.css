@@ -205,7 +205,7 @@
 }
 
 .figma-analogy {
-  background: linear-gradient(135deg, var(--secondary) 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, var(--secondary) 0%, #3b82f6 100%);
   color: white;
   padding: var(--spacing-4);
   border-radius: var(--radius-md);
@@ -976,7 +976,7 @@
 
 /* Syntax highlighting for better readability */
 .syntax-code .keyword {
-  color: #fbbf24;
+  color: #f472b6;
   font-weight: 600;
 }
 
@@ -1091,12 +1091,11 @@
 }
 
 .category-title {
-  color: #fbbf24;
+  color: #60a5fa;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid #f59e0b;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid #3b82f6;
 }
 
 .elements-grid {
@@ -1159,7 +1158,7 @@
 }
 
 .element-example strong, .property-values strong {
-  color: #fbbf24;
+  color: #34d399;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1218,7 +1217,7 @@
 }
 
 .reference-card h3 {
-  color: #fbbf24;
+  color: #60a5fa;
   margin-bottom: 1rem;
   font-size: 1.1rem;
   font-weight: 600;
