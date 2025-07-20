@@ -12,63 +12,47 @@ export const pageSections = {
     { title: 'Primitive vs Reference Data Types', type: 'section' }
   ],
   'react-core': [
-    { title: 'JSX Basics', type: 'section' },
-    { title: 'Components', type: 'section' },
-    { title: 'Props', type: 'section' },
-    { title: 'State', type: 'section' },
-    { title: 'Lifecycle Methods', type: 'section' },
-    { title: 'Event Handling', type: 'section' },
+    { title: 'What is React?', type: 'section' },
+    { title: 'JSX - JavaScript XML', type: 'section' },
+    { title: 'Component Types', type: 'section' },
+    { title: 'Fragments & Multiple Elements', type: 'section' },
     { title: 'Conditional Rendering', type: 'section' },
-    { title: 'Lists and Keys', type: 'section' },
-    { title: 'Forms', type: 'section' },
-    { title: 'Error Boundaries', type: 'section' }
+    { title: 'Variables & State', type: 'section' },
+    { title: 'Arrow Functions', type: 'section' },
+    { title: 'Ternary Operator', type: 'section' },
+    { title: 'Logical AND (&&) Operator', type: 'section' },
+    { title: 'Template Literals', type: 'section' },
+    { title: 'Array Methods', type: 'section' },
+    { title: 'Destructuring', type: 'section' }
   ],
   'components': [
-    { title: 'Functional Components', type: 'section' },
-    { title: 'Class Components', type: 'section' },
-    { title: 'Component Composition', type: 'section' },
-    { title: 'Higher-Order Components', type: 'section' },
-    { title: 'Render Props', type: 'section' },
-    { title: 'Compound Components', type: 'section' },
-    { title: 'Component Patterns', type: 'section' }
+    { title: 'Props Deep Dive', type: 'section' },
+    { title: 'Component Composition Patterns', type: 'section' },
+    { title: 'Component Best Practices', type: 'section' }
   ],
   'hooks': [
-    { title: 'useState', type: 'section' },
-    { title: 'useEffect', type: 'section' },
-    { title: 'useContext', type: 'section' },
-    { title: 'useReducer', type: 'section' },
-    { title: 'useCallback', type: 'section' },
-    { title: 'useMemo', type: 'section' },
-    { title: 'useRef', type: 'section' },
-    { title: 'Custom Hooks', type: 'section' },
-    { title: 'Hook Rules', type: 'section' }
+    { title: 'useState Hook Deep Dive', type: 'section' },
+    { title: 'useEffect Hook Deep Dive', type: 'section' },
+    { title: 'Additional Hooks', type: 'section' },
+    { title: 'Custom Hooks', type: 'section' }
   ],
   'data-handling': [
-    { title: 'State Management', type: 'section' },
-    { title: 'Props Drilling', type: 'section' },
-    { title: 'Context API', type: 'section' },
-    { title: 'Redux Basics', type: 'section' },
-    { title: 'Data Fetching', type: 'section' },
-    { title: 'Error Handling', type: 'section' },
-    { title: 'Loading States', type: 'section' }
+    { title: 'Mapping Arrays', type: 'section' },
+    { title: 'Filtering Data', type: 'section' },
+    { title: 'Conditional Rendering', type: 'section' },
+    { title: 'Key-Value Pairs & Object Manipulation', type: 'section' },
+    { title: 'Button State Control', type: 'section' }
   ],
   'events-interactions': [
-    { title: 'Event Handling', type: 'section' },
-    { title: 'Form Events', type: 'section' },
-    { title: 'Keyboard Events', type: 'section' },
-    { title: 'Mouse Events', type: 'section' },
-    { title: 'Touch Events', type: 'section' },
-    { title: 'Event Bubbling', type: 'section' },
-    { title: 'Event Delegation', type: 'section' }
+    { title: 'Event Handlers', type: 'section' },
+    { title: 'Form Handling', type: 'section' },
+    { title: 'State Updates', type: 'section' }
   ],
   'navigation-routing': [
-    { title: 'React Router', type: 'section' },
-    { title: 'Route Configuration', type: 'section' },
-    { title: 'Navigation Links', type: 'section' },
-    { title: 'Route Parameters', type: 'section' },
-    { title: 'Nested Routes', type: 'section' },
-    { title: 'Protected Routes', type: 'section' },
-    { title: 'Route Guards', type: 'section' }
+    { title: 'React Router Basics', type: 'section' },
+    { title: 'Dynamic Routes & Parameters', type: 'section' },
+    { title: 'Protected Routes & Authentication', type: 'section' },
+    { title: 'Navigation Patterns', type: 'section' }
   ],
   'power-apps': [
     { title: 'Core Power Fx Functions', type: 'section' },
@@ -81,31 +65,22 @@ export const pageSections = {
     { title: 'Data vs Design Use Cases', type: 'section' }
   ],
   'styling-design': [
-    { title: 'CSS-in-JS', type: 'section' },
-    { title: 'Styled Components', type: 'section' },
-    { title: 'CSS Modules', type: 'section' },
-    { title: 'Tailwind CSS', type: 'section' },
-    { title: 'Design Systems', type: 'section' },
-    { title: 'Responsive Design', type: 'section' },
-    { title: 'Accessibility', type: 'section' }
+    { title: 'CSS-in-JS (Styled Components)', type: 'section' },
+    { title: 'CSS Modules & Scoped Styling', type: 'section' },
+    { title: 'Utility-First CSS (Tailwind)', type: 'section' },
+    { title: 'Responsive Design Patterns', type: 'section' }
   ],
   'html-css': [
-    { title: 'HTML Elements', type: 'section' },
-    { title: 'CSS Properties', type: 'section' },
-    { title: 'CSS Box Model', type: 'section' },
-    { title: 'Flexbox', type: 'section' },
-    { title: 'CSS Grid', type: 'section' },
-    { title: 'CSS Selectors', type: 'section' },
-    { title: 'CSS Variables', type: 'section' }
+    { title: 'HTML Elements Reference', type: 'section' },
+    { title: 'CSS Properties Reference', type: 'section' },
+    { title: 'Quick Reference', type: 'section' }
   ],
   'css-frameworks': [
-    { title: 'Bootstrap', type: 'section' },
-    { title: 'Tailwind CSS', type: 'section' },
-    { title: 'Material-UI', type: 'section' },
-    { title: 'Ant Design', type: 'section' },
-    { title: 'Chakra UI', type: 'section' },
-    { title: 'Foundation', type: 'section' },
-    { title: 'Bulma', type: 'section' }
+    { title: 'CSS Custom Properties & Variables', type: 'section' },
+    { title: 'CSS Preprocessors & Mixins', type: 'section' },
+    { title: 'CSS Frameworks & Libraries', type: 'section' },
+    { title: 'Modern CSS Features', type: 'section' },
+    { title: 'Quick Reference', type: 'section' }
   ],
   'figma-mapping': [
     { title: 'Design Tokens', type: 'section' },

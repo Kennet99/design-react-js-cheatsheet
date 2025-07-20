@@ -48,29 +48,21 @@ function Layout({ children }) {
   const scrollToSection = (sectionTitle) => {
     // Wait a bit for any page transitions to complete
     setTimeout(() => {
-      // Try different selectors to find the section
-      const selectors = [
-        `h2:contains("${sectionTitle}")`,
-        `h3:contains("${sectionTitle}")`,
-        `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '-')}"]`,
-        `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '_')}"]`
-      ]
-      
       let element = null
-      for (const selector of selectors) {
-        try {
-          element = document.querySelector(selector)
-          if (element) break
-        } catch (e) {
-          // Invalid selector, try next one
-          continue
+      
+      // First, try to find by exact text content in h2 tags (most common)
+      const h2Elements = document.querySelectorAll('h2')
+      for (const el of h2Elements) {
+        if (el.textContent.trim() === sectionTitle) {
+          element = el
+          break
         }
       }
       
-      // Fallback: search for text content
+      // If not found in h2, try h3 tags
       if (!element) {
-        const allElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-        for (const el of allElements) {
+        const h3Elements = document.querySelectorAll('h3')
+        for (const el of h3Elements) {
           if (el.textContent.trim() === sectionTitle) {
             element = el
             break
@@ -78,13 +70,46 @@ function Layout({ children }) {
         }
       }
       
+      // If still not found, try h1 tags
+      if (!element) {
+        const h1Elements = document.querySelectorAll('h1')
+        for (const el of h1Elements) {
+          if (el.textContent.trim() === sectionTitle) {
+            element = el
+            break
+          }
+        }
+      }
+      
+      // If still not found, try partial text matching
+      if (!element) {
+        const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+        for (const el of allHeadings) {
+          if (el.textContent.trim().includes(sectionTitle) || 
+              sectionTitle.includes(el.textContent.trim())) {
+            element = el
+            break
+          }
+        }
+      }
+      
+      // If found, scroll to it
       if (element) {
         element.scrollIntoView({ 
           behavior: 'smooth',
           block: 'start'
         })
+        
+        // Add a subtle highlight effect
+        element.style.transition = 'background-color 0.3s ease'
+        element.style.backgroundColor = 'rgba(99, 102, 241, 0.1)'
+        setTimeout(() => {
+          element.style.backgroundColor = ''
+        }, 2000)
+      } else {
+        console.log(`Section "${sectionTitle}" not found on current page`)
       }
-    }, 100)
+    }, 150) // Slightly longer delay to ensure page is loaded
   }
 
   // Navigation items - like the pages panel in Figma
