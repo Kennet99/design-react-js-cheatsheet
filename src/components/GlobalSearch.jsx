@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Search, X } from 'lucide-react'
 import { searchPages } from '../data/searchData'
 
@@ -149,17 +149,21 @@ function GlobalSearch() {
           </div>
           <div className="search-results-list">
             {searchResults.map((result, index) => (
-              <button
+              <Link
                 key={index}
+                to={result.path}
                 className="search-result-item"
-                onClick={() => handleResultClick(result)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleResultClick(result)
+                }}
               >
                 <div className="result-content">
                   <div className="result-title">{result.title}</div>
                   <div className="result-page">{result.page}</div>
                 </div>
                 <div className="result-type">{result.type === 'page-title' ? 'Page' : 'Section'}</div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
