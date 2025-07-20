@@ -1121,7 +1121,7 @@
   color: inherit;
 }
 
-/* Additional syntax highlighting for specific elements */
+/* Comprehensive IDE-level syntax highlighting */
 .syntax-code .hljs-punctuation,
 .code-example .hljs-punctuation,
 .reference-code .hljs-punctuation {
@@ -1284,6 +1284,174 @@
 .code-example .hljs-addition,
 .reference-code .hljs-addition {
   color: #10b981 !important;
+}
+
+/* Additional IDE-level highlighting for variables and identifiers */
+.syntax-code .hljs-title,
+.code-example .hljs-title,
+.reference-code .hljs-title {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-title.function_,
+.code-example .hljs-title.function_,
+.reference-code .hljs-title.function_ {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-title.method_,
+.code-example .hljs-title.method_,
+.reference-code .hljs-title.method_ {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-title.class_,
+.code-example .hljs-title.class_,
+.reference-code .hljs-title.class_ {
+  color: #60a5fa !important;
+}
+
+/* Variable declarations and assignments */
+.syntax-code .hljs-variable.language_,
+.code-example .hljs-variable.language_,
+.reference-code .hljs-variable.language_ {
+  color: #f472b6 !important;
+  font-weight: 600;
+}
+
+.syntax-code .hljs-variable.constant_,
+.code-example .hljs-variable.constant_,
+.reference-code .hljs-variable.constant_ {
+  color: #f472b6 !important;
+  font-weight: 600;
+}
+
+/* Function parameters and local variables */
+.syntax-code .hljs-variable:not(.language_):not(.constant_),
+.code-example .hljs-variable:not(.language_):not(.constant_),
+.reference-code .hljs-variable:not(.language_):not(.constant_) {
+  color: #f9fafb !important;
+}
+
+/* Object property names */
+.syntax-code .hljs-property,
+.code-example .hljs-property,
+.reference-code .hljs-property {
+  color: #a78bfa !important;
+}
+
+/* Array and object literals */
+.syntax-code .hljs-literal,
+.code-example .hljs-literal,
+.reference-code .hljs-literal {
+  color: #34d399 !important;
+}
+
+/* Template literal expressions */
+.syntax-code .hljs-subst,
+.code-example .hljs-subst,
+.reference-code .hljs-subst {
+  color: #f9fafb !important;
+}
+
+/* JSX attributes */
+.syntax-code .hljs-attr,
+.code-example .hljs-attr,
+.reference-code .hljs-attr {
+  color: #a78bfa !important;
+}
+
+/* JSX attribute values */
+.syntax-code .hljs-string.attr-value,
+.code-example .hljs-string.attr-value,
+.reference-code .hljs-string.attr-value {
+  color: #34d399 !important;
+}
+
+/* Ensure all text elements have proper highlighting */
+.syntax-code code *,
+.code-example code *,
+.reference-code code * {
+  color: inherit !important;
+}
+
+/* Force highlighting for common patterns */
+.syntax-code .hljs,
+.code-example .hljs,
+.reference-code .hljs {
+  color: #f9fafb !important;
+}
+
+/* Specific highlighting for useState pattern */
+.syntax-code .hljs-keyword:contains("const"),
+.code-example .hljs-keyword:contains("const"),
+.reference-code .hljs-keyword:contains("const") {
+  color: #f472b6 !important;
+  font-weight: 600;
+}
+
+/* Ensure destructuring variables are highlighted */
+.syntax-code .hljs-variable,
+.code-example .hljs-variable,
+.reference-code .hljs-variable {
+  color: #f9fafb !important;
+}
+
+/* Additional specific highlighting for React patterns */
+.syntax-code .hljs-keyword,
+.code-example .hljs-keyword,
+.reference-code .hljs-keyword {
+  color: #f472b6 !important;
+  font-weight: 600;
+}
+
+/* Ensure useState and other React hooks are highlighted */
+.syntax-code .hljs-built_in,
+.code-example .hljs-built_in,
+.reference-code .hljs-built_in {
+  color: #fbbf24 !important;
+}
+
+/* Highlight function names and method calls */
+.syntax-code .hljs-title,
+.code-example .hljs-title,
+.reference-code .hljs-title {
+  color: #60a5fa !important;
+}
+
+/* Ensure all identifiers are visible */
+.syntax-code .hljs,
+.code-example .hljs,
+.reference-code .hljs {
+  color: #f9fafb !important;
+}
+
+/* Force highlighting for all text elements */
+.syntax-code code,
+.code-example code,
+.reference-code code {
+  color: #f9fafb !important;
+}
+
+/* Specific highlighting for destructuring patterns */
+.syntax-code .hljs-variable,
+.code-example .hljs-variable,
+.reference-code .hljs-variable {
+  color: #f9fafb !important;
+}
+
+/* Ensure parentheses content is highlighted */
+.syntax-code .hljs-punctuation + .hljs-variable,
+.code-example .hljs-punctuation + .hljs-variable,
+.reference-code .hljs-punctuation + .hljs-variable {
+  color: #f9fafb !important;
+}
+
+/* Highlight array destructuring */
+.syntax-code .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.code-example .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.reference-code .hljs-punctuation + .hljs-variable + .hljs-punctuation {
+  color: #e5e7eb !important;
 }
 
 /* HTML & CSS Section */
