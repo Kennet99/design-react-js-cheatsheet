@@ -247,7 +247,12 @@ function Layout({ children }) {
                             setIsMobileMenuOpen(false)
                           }}
                         >
-                          <span className="subsection-title">{section.title}</span>
+                          <div className="subsection-content">
+                            <span className="subsection-title">{section.title}</span>
+                            {section.summary && (
+                              <span className="subsection-summary">{section.summary}</span>
+                            )}
+                          </div>
                         </button>
                       )
                     })}
