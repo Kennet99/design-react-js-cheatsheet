@@ -975,7 +975,7 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* VS Code Dark Mode with React JSX Syntax Highlighting */
+/* VS Code Dark Mode with Authentic JSX Syntax Highlighting */
 .syntax-code .keyword,
 .syntax-code .hljs-keyword {
   color: #569cd6; /* VS Code blue for keywords */
@@ -1112,6 +1112,39 @@
 .syntax-code .addition,
 .syntax-code .hljs-addition {
   color: #4ec9b0; /* VS Code teal for additions */
+}
+
+/* Authentic JSX-specific highlighting */
+.syntax-code .hljs-tag .hljs-name,
+.code-example .hljs-tag .hljs-name,
+.reference-code .hljs-tag .hljs-name {
+  color: #569cd6 !important; /* VS Code blue for JSX tag names */
+}
+
+.syntax-code .hljs-tag .hljs-attr,
+.code-example .hljs-tag .hljs-attr,
+.reference-code .hljs-tag .hljs-attr {
+  color: #9cdcfe !important; /* VS Code light blue for JSX attributes */
+}
+
+.syntax-code .hljs-tag .hljs-string,
+.code-example .hljs-tag .hljs-string,
+.reference-code .hljs-tag .hljs-string {
+  color: #ce9178 !important; /* VS Code orange for JSX attribute string values */
+}
+
+/* JavaScript expressions in JSX */
+.syntax-code .hljs-tag .hljs-punctuation + .hljs-variable,
+.code-example .hljs-tag .hljs-punctuation + .hljs-variable,
+.reference-code .hljs-tag .hljs-punctuation + .hljs-variable {
+  color: #9cdcfe !important; /* VS Code light blue for JS expressions in JSX */
+}
+
+/* Ensure proper contrast for all text */
+.syntax-code .hljs,
+.code-example .hljs,
+.reference-code .hljs {
+  color: #d4d4d4 !important; /* VS Code light gray for default text */
 }
 
 /* Ensure all syntax elements are visible */
@@ -1284,6 +1317,46 @@
 .code-example .hljs-addition,
 .reference-code .hljs-addition {
   color: #4ec9b0 !important; /* VS Code teal */
+}
+
+/* Enhanced JSX-specific highlighting for authentic VS Code experience */
+.syntax-code .hljs-tag .hljs-name,
+.code-example .hljs-tag .hljs-name,
+.reference-code .hljs-tag .hljs-name {
+  color: #569cd6 !important; /* VS Code blue for JSX tag names */
+}
+
+.syntax-code .hljs-tag .hljs-attr,
+.code-example .hljs-tag .hljs-attr,
+.reference-code .hljs-tag .hljs-attr {
+  color: #9cdcfe !important; /* VS Code light blue for JSX attributes */
+}
+
+.syntax-code .hljs-tag .hljs-string,
+.code-example .hljs-tag .hljs-string,
+.reference-code .hljs-tag .hljs-string {
+  color: #ce9178 !important; /* VS Code orange for JSX attribute string values */
+}
+
+/* JavaScript expressions in JSX curly braces */
+.syntax-code .hljs-tag .hljs-punctuation + .hljs-variable,
+.code-example .hljs-tag .hljs-punctuation + .hljs-variable,
+.reference-code .hljs-tag .hljs-punctuation + .hljs-variable {
+  color: #9cdcfe !important; /* VS Code light blue for JS expressions in JSX */
+}
+
+/* Ensure proper contrast and readability */
+.syntax-code .hljs,
+.code-example .hljs,
+.reference-code .hljs {
+  color: #d4d4d4 !important; /* VS Code light gray for default text */
+}
+
+/* Force proper highlighting for all code elements */
+.syntax-code code,
+.code-example code,
+.reference-code code {
+  color: #d4d4d4 !important; /* VS Code light gray for default text */
 }
 
 /* VS Code Dark Mode IDE-level highlighting for variables and identifiers */

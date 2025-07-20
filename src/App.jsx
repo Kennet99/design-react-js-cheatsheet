@@ -6514,8 +6514,8 @@ function SyntaxHighlightedCode({ code, language = 'javascript', explanation }) {
     }
   }, [code])
 
-  // Detect if code contains JSX and use appropriate language
-  const detectedLanguage = code.includes('<') && code.includes('>') && code.includes('{') 
+  // Force JSX language detection for React code
+  const detectedLanguage = code.includes('<') && code.includes('>') 
     ? 'javascript' 
     : language
 
@@ -6537,8 +6537,8 @@ function SyntaxHighlightedCode({ code, language = 'javascript', explanation }) {
 
 // Code Example Component (for backward compatibility)
 function CodeExample({ code, explanation, language = 'javascript' }) {
-  // Detect if code contains JSX and use appropriate language
-  const detectedLanguage = code.includes('<') && code.includes('>') && code.includes('{') 
+  // Force JSX language detection for React code
+  const detectedLanguage = code.includes('<') && code.includes('>') 
     ? 'javascript' 
     : language
   
@@ -6555,8 +6555,8 @@ function SyntaxExample({ code, language = 'javascript' }) {
     }
   }, [code])
 
-  // Detect if code contains JSX and use appropriate language
-  const detectedLanguage = code.includes('<') && code.includes('>') && code.includes('{') 
+  // Force JSX language detection for React code
+  const detectedLanguage = code.includes('<') && code.includes('>') 
     ? 'javascript' 
     : language
 
