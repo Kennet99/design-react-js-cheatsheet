@@ -16,7 +16,7 @@ function App() {
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'js-fundamentals', label: 'JS Fundamentals', icon: FileText },
-    { id: 'js-basics', label: 'JavaScript Basics', icon: Code },
+    { id: 'js-basics', label: 'React Basics', icon: Code },
     { id: 'react-core', label: 'React Core', icon: Zap },
     { id: 'components', label: 'Components', icon: Layers },
     { id: 'hooks', label: 'Hooks', icon: Settings },
@@ -114,7 +114,7 @@ function HomeSection() {
       {/* <div className="feature-grid">
         <div className="feature-card">
           <Code className="feature-icon" />
-          <h3>JavaScript Basics</h3>
+          <h3>React Basics</h3>
           <p>Learn core JavaScript concepts with design analogies</p>
         </div>
         <div className="feature-card">
@@ -140,7 +140,7 @@ function HomeSection() {
           <div className="step">
             <div className="step-number">1</div>
             <div className="step-content">
-              <h4>Start with JavaScript Basics</h4>
+              <h4>Start with React Basics</h4>
               <p>Understand variables, objects, and functions through Figma analogies</p>
             </div>
           </div>
@@ -221,14 +221,15 @@ var oldWay = value;`}
                 <li><code>variableName</code> (string) - Variable identifier</li>
                 <li><code>initialValue</code> (any) - useState initial value</li>
                 <li><code>newValue</code> (any) - Value to reassign</li>
+                <li><code>expression</code> (any) - Computed value</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Variable Types:</strong>
               <ul>
-                <li><code>string</code> - Text values (userName)</li>
-                <li><code>number</code> - Numeric values (userAge)</li>
-                <li><code>boolean</code> - True/false values (isActive)</li>
+                <li><code>string</code> - Text values</li>
+                <li><code>number</code> - Numeric values</li>
+                <li><code>boolean</code> - True/false values</li>
                 <li><code>object</code> - Complex data structures</li>
                 <li><code>array</code> - List of values</li>
               </ul>
@@ -326,20 +327,20 @@ objectName["key2"];        // Bracket notation`}
             <div className="io-input">
               <strong>Object Properties:</strong>
               <ul>
-                <li><code>name</code> (string) - User's name</li>
-                <li><code>age</code> (number) - User's age</li>
-                <li><code>role</code> (string) - User's role</li>
-                <li><code>isActive</code> (boolean) - User status</li>
-                <li><code>skills</code> (array) - User skills</li>
+                <li><code>propertyName</code> (string) - Object property name</li>
+                <li><code>propertyValue</code> (any) - Property value to assign</li>
+                <li><code>key</code> (string/symbol) - Property key</li>
+                <li><code>index</code> (number) - Array-like access</li>
+                <li><code>computedKey</code> (expression) - Dynamic property name</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Property Access:</strong>
               <ul>
-                <li><code>string</code> - name, role properties</li>
-                <li><code>number</code> - age property</li>
-                <li><code>boolean</code> - isActive property</li>
-                <li><code>array</code> - skills property</li>
+                <li><code>any</code> - Property value</li>
+                <li><code>string</code> - String property values</li>
+                <li><code>number</code> - Numeric property values</li>
+                <li><code>boolean</code> - Boolean property values</li>
                 <li><code>undefined</code> - Non-existent properties</li>
               </ul>
             </div>
@@ -458,20 +459,21 @@ functionName(argument);     // Call function`}
             <div className="io-input">
               <strong>Input Parameters:</strong>
               <ul>
-                <li><code>name</code> (string) - User's name to greet</li>
-                <li><code>width</code> (number) - Rectangle width</li>
-                <li><code>height</code> (number) - Rectangle height</li>
-                <li><code>num</code> (number) - Number to double</li>
+                <li><code>parameter</code> (any) - Function parameter value</li>
+                <li><code>param1, param2</code> (any) - Multiple parameters</li>
                 <li><code>event</code> (Event) - DOM event object (optional)</li>
+                <li><code>callback</code> (function) - Function to execute</li>
+                <li><code>defaultValue</code> (any) - Default parameter value</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Output Values:</strong>
               <ul>
-                <li><code>string</code> - Formatted greeting message</li>
-                <li><code>number</code> - Calculated area or doubled value</li>
-                <li><code>undefined</code> - For event handlers (no return)</li>
+                <li><code>any</code> - Returned value from function</li>
+                <li><code>undefined</code> - For functions with no return</li>
                 <li><code>void</code> - For functions that don't return values</li>
+                <li><code>Promise</code> - For async functions</li>
+                <li><code>generator</code> - For generator functions</li>
               </ul>
             </div>
           </div>
@@ -612,24 +614,23 @@ const obj = {
           <h4>Input/Output Specification:</h4>
           <div className="io-grid">
             <div className="io-input">
-              <strong>String Methods:</strong>
+              <strong>Method Input:</strong>
               <ul>
-                <li><code>toUpperCase()</code> - No parameters</li>
-                <li><code>toLowerCase()</code> - No parameters</li>
-                <li><code>length</code> - Property (no parameters)</li>
-                <li><code>push(item)</code> - Array item to add</li>
-                <li><code>pop()</code> - No parameters</li>
-                <li><code>unshift(item)</code> - Array item to add at start</li>
+                <li><code>methodName()</code> - Method call with no parameters</li>
+                <li><code>methodName(param)</code> - Method call with parameter</li>
+                <li><code>property</code> - Property access (no parameters)</li>
+                <li><code>index</code> (number) - Array index position</li>
+                <li><code>callback</code> (function) - Function parameter</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Return Values:</strong>
               <ul>
-                <li><code>string</code> - Uppercase/lowercase version</li>
-                <li><code>number</code> - String length</li>
-                <li><code>number</code> - New array length (push/unshift)</li>
-                <li><code>any</code> - Removed item (pop)</li>
+                <li><code>any</code> - Method return value</li>
+                <li><code>number</code> - Length or count values</li>
+                <li><code>boolean</code> - True/false results</li>
                 <li><code>array</code> - Modified array (mutates original)</li>
+                <li><code>object</code> - Modified object (mutates original)</li>
               </ul>
             </div>
           </div>
@@ -797,17 +798,21 @@ const instance = new ClassName(value);`}
             <div className="io-input">
               <strong>Constructor Input:</strong>
               <ul>
-                <li><code>name</code> (string) - User's name</li>
-                <li><code>role</code> (string) - User's role</li>
-                <li><code>isActive</code> (boolean, optional) - User status</li>
+                <li><code>parameter</code> (any) - Constructor parameter</li>
+                <li><code>param1, param2</code> (any) - Multiple parameters</li>
+                <li><code>defaultValue</code> (any) - Default parameter value</li>
+                <li><code>options</code> (object) - Configuration object</li>
+                <li><code>callback</code> (function) - Initialization function</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Method Returns:</strong>
               <ul>
-                <li><code>string</code> - Greeting message from greet()</li>
-                <li><code>void</code> - changeRole() modifies instance</li>
-                <li><code>User</code> - Instance object with properties</li>
+                <li><code>any</code> - Method return value</li>
+                <li><code>void</code> - Methods that modify instance</li>
+                <li><code>instance</code> - Instance object with properties</li>
+                <li><code>Promise</code> - Async method results</li>
+                <li><code>boolean</code> - Validation or check results</li>
               </ul>
             </div>
           </div>
@@ -888,20 +893,21 @@ instance.property = newValue;   // Change property value`}
             <div className="io-input">
               <strong>Constructor Parameters:</strong>
               <ul>
-                <li><code>name</code> (string) - User's name</li>
-                <li><code>age</code> (number) - User's age</li>
-                <li><code>role</code> (string) - User's role</li>
-                <li><code>skill</code> (string) - Skill to add</li>
+                <li><code>parameter</code> (any) - Constructor parameter</li>
+                <li><code>param1, param2</code> (any) - Multiple parameters</li>
+                <li><code>options</code> (object) - Configuration object</li>
+                <li><code>defaultValue</code> (any) - Default parameter value</li>
+                <li><code>callback</code> (function) - Initialization function</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Property Types:</strong>
               <ul>
-                <li><code>string</code> - name, role properties</li>
-                <li><code>number</code> - age property</li>
-                <li><code>Date</code> - createdAt (auto-generated)</li>
-                <li><code>array</code> - skills (dynamically added)</li>
-                <li><code>string</code> - getInfo() method return</li>
+                <li><code>any</code> - Instance property value</li>
+                <li><code>string</code> - Text property values</li>
+                <li><code>number</code> - Numeric property values</li>
+                <li><code>boolean</code> - Boolean property values</li>
+                <li><code>object</code> - Complex property values</li>
               </ul>
             </div>
           </div>
@@ -1076,8 +1082,9 @@ const handleClick = (event) => {
               <ul>
                 <li><code>event</code> (Event) - DOM event object</li>
                 <li><code>event.target</code> (Element) - Triggered element</li>
-                <li><code>event.target.value</code> (string) - Input value</li>
-                <li><code>event.preventDefault()</code> - No parameters</li>
+                <li><code>event.target.value</code> (any) - Element value</li>
+                <li><code>event.preventDefault()</code> - Prevent default behavior</li>
+                <li><code>event.stopPropagation()</code> - Stop event bubbling</li>
               </ul>
             </div>
             <div className="io-output">
@@ -1086,7 +1093,8 @@ const handleClick = (event) => {
                 <li><code>void</code> - Most event handlers</li>
                 <li><code>boolean</code> - Return false to prevent default</li>
                 <li><code>undefined</code> - Implicit return</li>
-                <li><code>string</code> - Input value from event.target.value</li>
+                <li><code>any</code> - Processed event data</li>
+                <li><code>Promise</code> - Async event handling</li>
               </ul>
             </div>
           </div>
@@ -1172,19 +1180,21 @@ function greet(name = "User") {     // Default parameter
             <div className="io-input">
               <strong>Function Parameters:</strong>
               <ul>
-                <li><code>price</code> (number) - Item price</li>
-                <li><code>tax</code> (number) - Tax rate (0-1)</li>
-                <li><code>discount</code> (number) - Discount rate (0-1)</li>
-                <li><code>name</code> (string, optional) - Default: "User"</li>
+                <li><code>parameter</code> (any) - Function parameter</li>
+                <li><code>param1, param2</code> (any) - Multiple parameters</li>
+                <li><code>defaultValue</code> (any) - Default parameter value</li>
+                <li><code>options</code> (object) - Configuration object</li>
+                <li><code>callback</code> (function) - Function parameter</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Function Returns:</strong>
               <ul>
-                <li><code>number</code> - Calculated total price</li>
-                <li><code>string</code> - Greeting message</li>
-                <li><code>undefined</code> - If invalid parameters</li>
-                <li><code>number</code> - Final calculated value</li>
+                <li><code>any</code> - Function return value</li>
+                <li><code>undefined</code> - If no return statement</li>
+                <li><code>Promise</code> - For async functions</li>
+                <li><code>generator</code> - For generator functions</li>
+                <li><code>void</code> - For functions with no return</li>
               </ul>
             </div>
           </div>
@@ -1284,6 +1294,7 @@ let arrayCopy = [...array];          // Array spread`}
                 <li><code>reference</code> (object/array) - Memory reference</li>
                 <li><code>spread</code> (...) - Spread operator for copying</li>
                 <li><code>Object.assign()</code> - Target and source objects</li>
+                <li><code>structuredClone()</code> - Deep copy function</li>
               </ul>
             </div>
             <div className="io-output">
@@ -1293,6 +1304,7 @@ let arrayCopy = [...array];          // Array spread`}
                 <li><code>shared</code> - Reference copies point to same data</li>
                 <li><code>new object</code> - Spread creates new instance</li>
                 <li><code>shallow copy</code> - Nested objects still shared</li>
+                <li><code>deep copy</code> - Complete independent copy</li>
               </ul>
             </div>
           </div>
@@ -1426,7 +1438,7 @@ let userDeepCopy2 = Object.assign({}, user); // Object.assign`}
   )
 }
 
-// JavaScript Basics Section
+// React Basics Section
 function JSBasicsSection() {
   // Interactive state for examples
   const [counter, setCounter] = useState(0)
@@ -1443,8 +1455,8 @@ function JSBasicsSection() {
 
   return (
     <div className="section">
-      <h1>JavaScript Basics</h1>
-      <p>Core JavaScript concepts explained with Figma analogies</p>
+      <h1>React Basics</h1>
+      <p>Core React concepts explained with Figma analogies</p>
 
       <div className="concept-card">
         <h2>Variables & State</h2>
@@ -1478,16 +1490,17 @@ const colors = ['red', 'blue', 'green'];`}
                 <li><code>setState</code> (function) - State updater function</li>
                 <li><code>newValue</code> (any) - Direct value assignment</li>
                 <li><code>updater</code> (function) - Function-based update</li>
+                <li><code>lazyInit</code> (function) - Expensive computation</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>State Types:</strong>
               <ul>
-                <li><code>number</code> - Counter, counts, IDs</li>
-                <li><code>string</code> - Names, text, messages</li>
-                <li><code>boolean</code> - Flags, visibility, loading</li>
-                <li><code>object</code> - User data, form data</li>
-                <li><code>array</code> - Lists, collections</li>
+                <li><code>any</code> - Any data type for state</li>
+                <li><code>number</code> - Numeric state values</li>
+                <li><code>string</code> - Text state values</li>
+                <li><code>boolean</code> - Boolean state values</li>
+                <li><code>object</code> - Complex state objects</li>
               </ul>
             </div>
           </div>
@@ -1594,21 +1607,21 @@ const calculateArea = (width, height) => width * height;`}
             <div className="io-input">
               <strong>Arrow Function Input:</strong>
               <ul>
-                <li><code>width</code> (number) - Rectangle width</li>
-                <li><code>height</code> (number) - Rectangle height</li>
-                <li><code>x</code> (number) - Number to double</li>
-                <li><code>parameters</code> (any) - Function parameters</li>
+                <li><code>parameter</code> (any) - Function parameter</li>
+                <li><code>param1, param2</code> (any) - Multiple parameters</li>
                 <li><code>()</code> - No parameters (empty parentheses)</li>
+                <li><code>singleParam</code> (any) - Single parameter (no parentheses)</li>
+                <li><code>defaultValue</code> (any) - Default parameter value</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Return Values:</strong>
               <ul>
-                <li><code>number</code> - Calculated area (width * height)</li>
-                <li><code>number</code> - Doubled value (x * 2)</li>
-                <li><code>number</code> - Random number (0-1)</li>
                 <li><code>any</code> - Implicit return value</li>
-                <li><code>undefined</code> - Explicit return required</li>
+                <li><code>any</code> - Explicit return value</li>
+                <li><code>undefined</code> - No return statement</li>
+                <li><code>Promise</code> - Async arrow function</li>
+                <li><code>generator</code> - Generator arrow function</li>
               </ul>
             </div>
           </div>
@@ -1724,20 +1737,20 @@ const buttonText = isLoading ? 'Loading...' : 'Submit';
               <strong>Ternary Input:</strong>
               <ul>
                 <li><code>condition</code> (boolean) - True/false expression</li>
-                <li><code>isLoggedIn</code> (boolean) - Authentication status</li>
-                <li><code>user.isActive</code> (boolean) - User online status</li>
-                <li><code>isLoading</code> (boolean) - Loading state</li>
-                <li><code>isVisible</code> (boolean) - Visibility state</li>
+                <li><code>truthyValue</code> (any) - Value if condition is true</li>
+                <li><code>falsyValue</code> (any) - Value if condition is false</li>
+                <li><code>expression</code> (any) - Boolean expression</li>
+                <li><code>comparison</code> (boolean) - Comparison result</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Return Values:</strong>
               <ul>
-                <li><code>string</code> - Conditional message text</li>
-                <li><code>string</code> - Status indicator text</li>
-                <li><code>string</code> - Button text content</li>
+                <li><code>any</code> - Truthy value if condition is true</li>
+                <li><code>any</code> - Falsy value if condition is false</li>
                 <li><code>JSX</code> - Conditional component rendering</li>
                 <li><code>null</code> - No rendering (falsy condition)</li>
+                <li><code>undefined</code> - Undefined value</li>
               </ul>
             </div>
           </div>
@@ -1827,6 +1840,48 @@ console.log(status);   // "Online" or "Last seen recently" or "Offline"`}
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Destructuring is like extracting specific properties from a component in Figma - you pull out just what you need.
         </div>
+        <div className="syntax-example">
+          <h4>Basic Syntax:</h4>
+          <SyntaxExample
+            code={`// Object destructuring
+const { property1, property2 } = object;
+
+// Array destructuring
+const [item1, item2] = array;
+
+// Renaming variables
+const { property1: newName } = object;
+
+// Default values
+const { property1 = defaultValue } = object;`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Destructuring Input:</strong>
+              <ul>
+                <li><code>object</code> (object) - Source object to extract from</li>
+                <li><code>array</code> (array) - Source array to extract from</li>
+                <li><code>propertyName</code> (string) - Object property to extract</li>
+                <li><code>index</code> (number) - Array position to extract</li>
+                <li><code>defaultValue</code> (any) - Fallback value if undefined</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Destructuring Output:</strong>
+              <ul>
+                <li><code>any</code> - Extracted object property value</li>
+                <li><code>any</code> - Extracted array element value</li>
+                <li><code>undefined</code> - If property/element doesn't exist</li>
+                <li><code>defaultValue</code> - If property/element is undefined</li>
+                <li><code>variable</code> - New variable with extracted value</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -1878,6 +1933,49 @@ console.log(tertiary);  // "green"`}
         <h2>Template Literals</h2>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Template literals are like smart text in Figma - they combine static text with dynamic values.
+        </div>
+        <div className="syntax-example">
+          <h4>Basic Syntax:</h4>
+          <SyntaxExample
+            code={`// Template literals
+const message = \`Text with \${variable}\`;
+
+// Multi-line strings
+const multiLine = \`
+  Line 1
+  Line 2
+  \${expression}
+\`;
+
+// Expression evaluation
+const result = \`Value: \${2 + 2}\`;`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Template Literal Input:</strong>
+              <ul>
+                <li><code>variable</code> (any) - Variable to interpolate</li>
+                <li><code>expression</code> (any) - JavaScript expression</li>
+                <li><code>string</code> (string) - Static text content</li>
+                <li><code>function</code> (function) - Function call result</li>
+                <li><code>object.property</code> (any) - Object property access</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Template Literal Output:</strong>
+              <ul>
+                <li><code>string</code> - Interpolated string result</li>
+                <li><code>string</code> - Multi-line formatted text</li>
+                <li><code>string</code> - Expression evaluation result</li>
+                <li><code>string</code> - Function return value as string</li>
+                <li><code>string</code> - Object property value as string</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -2158,9 +2256,9 @@ const element = (
             <div className="io-input">
               <strong>JSX Input:</strong>
               <ul>
-                <li><code>userName</code> (string) - User's name variable</li>
-                <li><code>count</code> (number) - Counter value</li>
-                <li><code>handleClick</code> (function) - Event handler</li>
+                <li><code>variable</code> (any) - JavaScript variable</li>
+                <li><code>expression</code> (any) - JavaScript expression</li>
+                <li><code>function</code> (function) - Event handler</li>
                 <li><code>className</code> (string) - CSS class name</li>
                 <li><code>{}</code> - JavaScript expression syntax</li>
               </ul>
@@ -2531,21 +2629,21 @@ ComponentName.propTypes = {
             <div className="io-input">
               <strong>Props Input:</strong>
               <ul>
-                <li><code>text</code> (string) - Button text content</li>
-                <li><code>variant</code> (string) - Button style variant</li>
-                <li><code>size</code> (string) - Button size</li>
-                <li><code>disabled</code> (boolean) - Disabled state</li>
+                <li><code>propName</code> (any) - Component property</li>
+                <li><code>prop1, prop2</code> (any) - Multiple properties</li>
                 <li><code>children</code> (JSX) - Child components</li>
+                <li><code>defaultValue</code> (any) - Default prop value</li>
+                <li><code>callback</code> (function) - Function prop</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Props Usage:</strong>
               <ul>
+                <li><code>any</code> - Property value usage</li>
                 <li><code>string</code> - Text content rendering</li>
                 <li><code>className</code> - Dynamic CSS classes</li>
                 <li><code>boolean</code> - Conditional rendering</li>
                 <li><code>function</code> - Event handler binding</li>
-                <li><code>JSX</code> - Rendered component structure</li>
               </ul>
             </div>
           </div>
@@ -3738,7 +3836,7 @@ users.map(user => <UserCard key={user.id} user={user} />);`}
                 <li><code>item</code> (any) - Current array element</li>
                 <li><code>index</code> (number) - Current element index</li>
                 <li><code>callback</code> (function) - Transformation function</li>
-                <li><code>key</code> (string/number) - Unique identifier</li>
+                <li><code>thisArg</code> (any) - Context for callback</li>
               </ul>
             </div>
             <div className="io-output">
@@ -3746,9 +3844,9 @@ users.map(user => <UserCard key={user.id} user={user} />);`}
               <ul>
                 <li><code>array</code> - New array with transformed elements</li>
                 <li><code>JSX[]</code> - Array of React components</li>
-                <li><code>string[]</code> - Array of strings</li>
-                <li><code>number[]</code> - Array of numbers</li>
-                <li><code>object[]</code> - Array of objects</li>
+                <li><code>any[]</code> - Array of transformed values</li>
+                <li><code>[]</code> - Empty array if source is empty</li>
+                <li><code>array</code> - Same length as original array</li>
               </ul>
             </div>
           </div>
@@ -3858,17 +3956,17 @@ array.filter(item => condition).map(item => <Component />);`}
                 <li><code>item</code> (any) - Current array element</li>
                 <li><code>condition</code> (boolean) - Filter condition</li>
                 <li><code>callback</code> (function) - Filter function</li>
-                <li><code>property</code> (string) - Object property to check</li>
+                <li><code>thisArg</code> (any) - Context for callback</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>filter() Returns:</strong>
               <ul>
                 <li><code>array</code> - New array with filtered elements</li>
-                <li><code>object[]</code> - Array of matching objects</li>
-                <li><code>string[]</code> - Array of matching strings</li>
-                <li><code>number[]</code> - Array of matching numbers</li>
+                <li><code>any[]</code> - Array of matching elements</li>
                 <li><code>[]</code> - Empty array if no matches</li>
+                <li><code>array</code> - Same or smaller length than original</li>
+                <li><code>array</code> - Preserves original element order</li>
               </ul>
             </div>
           </div>
@@ -4576,7 +4674,7 @@ const handleSubmit = (e) => {
               <strong>Form Handler Input:</strong>
               <ul>
                 <li><code>e.target.name</code> (string) - Input field name</li>
-                <li><code>e.target.value</code> (string) - Input field value</li>
+                <li><code>e.target.value</code> (any) - Input field value</li>
                 <li><code>formData</code> (object) - Current form state</li>
                 <li><code>e.preventDefault()</code> - Prevent form submission</li>
                 <li><code>validation</code> (function) - Input validation</li>
