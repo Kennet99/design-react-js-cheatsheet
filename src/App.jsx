@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, useReducer } from 'react'
 import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X } from 'lucide-react'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/github-dark.css'
 import './App.css'
 
 // Main App component - this is like the "master frame" in Figma
@@ -202,11 +204,12 @@ function JSFundamentalsSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`let variableName = value;
+          <SyntaxExample
+            code={`let variableName = value;
 const constantName = value;
 var oldWay = value;`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -282,15 +285,16 @@ function DynamicUserProfile() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`const objectName = {
+          <SyntaxExample
+            code={`const objectName = {
   key1: value1,
   key2: value2
 };
 
 objectName.key1;           // Access property
 objectName["key2"];        // Bracket notation`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -5851,8 +5855,8 @@ function HTMLCSSSection() {
         <div className="reference-grid">
           <div className="reference-card">
             <h3>HTML Structure</h3>
-            <pre className="reference-code">
-{`<!DOCTYPE html>
+            <ReferenceCode
+              code={`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -5863,12 +5867,13 @@ function HTMLCSSSection() {
   <!-- Content here -->
 </body>
 </html>`}
-            </pre>
+              language="html"
+            />
           </div>
           <div className="reference-card">
             <h3>CSS Box Model</h3>
-            <pre className="reference-code">
-{`/* Box Model Properties */
+            <ReferenceCode
+              code={`/* Box Model Properties */
 .element {
   width: 200px;        /* Content width */
   height: 100px;       /* Content height */
@@ -5877,12 +5882,13 @@ function HTMLCSSSection() {
   margin: 10px;        /* Outer spacing */
   box-sizing: border-box; /* Include border in width */
 }`}
-            </pre>
+              language="css"
+            />
           </div>
           <div className="reference-card">
             <h3>Flexbox Layout</h3>
-            <pre className="reference-code">
-{`/* Flexbox Container */
+            <ReferenceCode
+              code={`/* Flexbox Container */
 .container {
   display: flex;
   flex-direction: row;
@@ -5898,12 +5904,13 @@ function HTMLCSSSection() {
   flex-shrink: 1;
   flex-basis: auto;
 }`}
-            </pre>
+              language="css"
+            />
           </div>
           <div className="reference-card">
             <h3>CSS Grid Layout</h3>
-            <pre className="reference-code">
-{`/* Grid Container */
+            <ReferenceCode
+              code={`/* Grid Container */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -5919,7 +5926,8 @@ function HTMLCSSSection() {
   grid-column: 1 / 3;
   grid-row: 1 / 2;
 }`}
-            </pre>
+              language="css"
+            />
           </div>
         </div>
       </div>
@@ -6241,8 +6249,8 @@ function CSSFrameworksSection() {
         <div className="reference-grid">
           <div className="reference-card">
             <h3>CSS Custom Properties</h3>
-            <pre className="reference-code">
-{`:root {
+            <ReferenceCode
+              code={`:root {
   --primary-color: #007bff;
   --spacing-unit: 16px;
   --font-family: 'Arial', sans-serif;
@@ -6253,12 +6261,13 @@ function CSSFrameworksSection() {
   padding: var(--spacing-unit);
   font-family: var(--font-family);
 }`}
-            </pre>
+              language="css"
+            />
           </div>
           <div className="reference-card">
             <h3>SCSS Mixins</h3>
-            <pre className="reference-code">
-{`@mixin button($color) {
+            <ReferenceCode
+              code={`@mixin button($color) {
   background: $color;
   padding: 12px 24px;
   border-radius: 4px;
@@ -6273,12 +6282,13 @@ function CSSFrameworksSection() {
 .secondary-button {
   @include button(#6c757d);
 }`}
-            </pre>
+              language="scss"
+            />
           </div>
           <div className="reference-card">
             <h3>Tailwind CSS</h3>
-            <pre className="reference-code">
-{`<!-- Tailwind utility classes -->
+            <ReferenceCode
+              code={`<!-- Tailwind utility classes -->
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
   <div class="bg-white p-8 rounded-lg shadow-md">
     <h1 class="text-2xl font-bold text-gray-800 mb-4">
@@ -6289,12 +6299,13 @@ function CSSFrameworksSection() {
     </button>
   </div>
 </div>`}
-            </pre>
+              language="html"
+            />
           </div>
           <div className="reference-card">
             <h3>CSS-in-JS (Styled Components)</h3>
-            <pre className="reference-code">
-{`const Button = styled.button\`
+            <ReferenceCode
+              code={`const Button = styled.button\`
   background: \${props => props.primary ? '#007bff' : '#6c757d'};
   color: white;
   padding: 12px 24px;
@@ -6315,7 +6326,8 @@ function App() {
     </div>
   );
 }`}
-            </pre>
+              language="javascript"
+            />
           </div>
         </div>
       </div>
@@ -6470,15 +6482,72 @@ function DesignSystemButton({ variant, size }) {
   )
 }
 
-// Code Example Component
-function CodeExample({ code, explanation }) {
+// Syntax Highlighted Code Component
+function SyntaxHighlightedCode({ code, language = 'javascript', explanation }) {
+  const codeRef = useRef(null)
+
+  useEffect(() => {
+    if (codeRef.current) {
+      hljs.highlightElement(codeRef.current)
+    }
+  }, [code])
+
   return (
     <div className="code-example">
-      <pre><code>{code}</code></pre>
-      <div className="explanation">
-        <strong>💡 Explanation:</strong> {explanation}
-      </div>
+      <pre>
+        <code ref={codeRef} className={`language-${language}`}>
+          {code}
+        </code>
+      </pre>
+      {explanation && (
+        <div className="explanation">
+          <strong>💡 Explanation:</strong> {explanation}
+        </div>
+      )}
     </div>
+  )
+}
+
+// Code Example Component (for backward compatibility)
+function CodeExample({ code, explanation, language = 'javascript' }) {
+  return <SyntaxHighlightedCode code={code} language={language} explanation={explanation} />
+}
+
+// Syntax Example Component for syntax-code sections
+function SyntaxExample({ code, language = 'javascript' }) {
+  const codeRef = useRef(null)
+
+  useEffect(() => {
+    if (codeRef.current) {
+      hljs.highlightElement(codeRef.current)
+    }
+  }, [code])
+
+  return (
+    <pre className="syntax-code">
+      <code ref={codeRef} className={`language-${language}`}>
+        {code}
+      </code>
+    </pre>
+  )
+}
+
+// Reference Code Component for quick reference sections
+function ReferenceCode({ code, language = 'javascript' }) {
+  const codeRef = useRef(null)
+
+  useEffect(() => {
+    if (codeRef.current) {
+      hljs.highlightElement(codeRef.current)
+    }
+  }, [code])
+
+  return (
+    <pre className="reference-code">
+      <code ref={codeRef} className={`language-${language}`}>
+        {code}
+      </code>
+    </pre>
   )
 }
 
