@@ -2592,6 +2592,240 @@ function PowerAppsSection() {
       <p>Bridging Power Apps concepts with React/JavaScript for designers</p>
 
       <div className="concept-card">
+        <h2>Core Power Fx Functions</h2>
+        <div className="figma-analogy">
+          <strong>Figma Analogy:</strong> Power Fx functions are like Figma's smart layout and component features - they help you find, filter, and transform data automatically, just like how Figma helps you organize and manage design elements.
+        </div>
+        <div className="syntax-example">
+          <h4>Data Functions:</h4>
+          <SyntaxExample
+            code={`// Filter Function
+// Syntax:
+Filter(Source, Condition)
+Filter(Source, ColumnName = Value)
+
+// Examples:
+Filter(Products, Category = "Electronics")
+Filter(Products, Category = "Electronics" && Price > 100)
+Filter(Projects, Status = "In Progress" && Priority = "High")
+
+// LookUp Function
+// Syntax:
+LookUp(Source, Condition [, Result])
+LookUp(Source, ColumnName = Value)
+LookUp(Source, ColumnName = Value, ReturnColumn)
+
+// Examples:
+LookUp(Products, Category = "Electronics")
+LookUp(Products, Category = "Electronics", Name)
+LookUp(Projects, ID = 1, ProjectName)
+
+// CountRows Function
+// Syntax:
+CountRows(Source)
+CountRows(Filter(Source, Condition))
+
+// Examples:
+CountRows(Products)
+CountRows(Filter(Products, Category = "Electronics"))
+
+// Sum Function
+// Syntax:
+Sum(Source, ColumnName)
+Sum(Filter(Source, Condition), ColumnName)
+
+// Examples:
+Sum(Products, Price)
+Sum(Filter(Products, Category = "Electronics"), Price)
+
+// First Function
+// Syntax:
+First(Source)
+First(Sort(Source, ColumnName, SortOrder))
+
+// Examples:
+First(Products)
+First(Sort(Products, Price, Descending))
+
+// Sort Function
+// Syntax:
+Sort(Source, ColumnName, SortOrder)
+Sort(Source, ColumnName, Ascending)
+
+// Examples:
+Sort(Products, Price, Descending)
+Sort(Projects, DueDate, Ascending)`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Power Fx Function Input:</strong>
+              <ul>
+                <li><code>Source</code> (table) - Data source or collection</li>
+                <li><code>Condition</code> (boolean) - Filter condition</li>
+                <li><code>ColumnName</code> (string) - Column to filter/sort by</li>
+                <li><code>Value</code> (any) - Value to match</li>
+                <li><code>SortOrder</code> (enum) - Ascending/Descending</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Power Fx Function Output:</strong>
+              <ul>
+                <li><code>table</code> - Filtered/sorted collection</li>
+                <li><code>record</code> - Single record from LookUp</li>
+                <li><code>number</code> - Count or sum result</li>
+                <li><code>any</code> - Specific column value</li>
+                <li><code>blank</code> - No matching records</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="interactive-example">
+          <div className="code-panel">
+            <CodeExample
+              code={`// Power Fx Data Functions for Design Projects
+// 1. Filter Projects by Status
+ActiveProjects = Filter(Projects, Status = "In Progress")
+
+// 2. LookUp Project Details
+CurrentProject = LookUp(Projects, ID = 1, ProjectName)
+ProjectBudget = LookUp(Projects, ID = 1, Budget)
+
+// 3. Count Projects by Category
+DesignProjects = CountRows(Filter(Projects, Category = "Design"))
+DevelopmentProjects = CountRows(Filter(Projects, Category = "Development"))
+
+// 4. Sum Budget by Category
+TotalDesignBudget = Sum(Filter(Projects, Category = "Design"), Budget)
+TotalDevelopmentBudget = Sum(Filter(Projects, Category = "Development"), Budget)
+
+// 5. Get Highest Priority Project
+TopPriority = First(Sort(Projects, Priority, Descending))
+
+// 6. Sort Projects by Due Date
+UpcomingProjects = Sort(Projects, DueDate, Ascending)
+
+// 7. Complex Filter with Multiple Conditions
+UrgentDesignProjects = Filter(Projects, 
+  Category = "Design" && 
+  Priority = "High" && 
+  Status = "In Progress"
+)
+
+// 8. LookUp with Multiple Conditions
+DesignerProject = LookUp(Projects, 
+  Category = "Design" && AssignedTo = "Sarah", 
+  ProjectName
+)
+
+// JavaScript/React Equivalents
+// 1. Array filtering
+const activeProjects = projects.filter(p => p.status === "In Progress");
+
+// 2. Array finding
+const currentProject = projects.find(p => p.id === 1)?.projectName;
+const projectBudget = projects.find(p => p.id === 1)?.budget;
+
+// 3. Array counting
+const designProjects = projects.filter(p => p.category === "Design").length;
+
+// 4. Array reduction
+const totalDesignBudget = projects
+  .filter(p => p.category === "Design")
+  .reduce((sum, p) => sum + p.budget, 0);
+
+// 5. Array sorting and finding
+const topPriority = [...projects]
+  .sort((a, b) => b.priority.localeCompare(a.priority))[0];
+
+// 6. Array sorting
+const upcomingProjects = [...projects]
+  .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));`}
+              explanation="Power Fx provides declarative data functions that automatically update when data changes, similar to React's reactive data handling."
+            />
+          </div>
+          <div className="output-panel">
+            <h4>Interactive Data Functions Demo:</h4>
+            <div className="output-content">
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Filter Projects by Status:</label>
+                  <select 
+                    id="statusFilter"
+                    defaultValue="In Progress"
+                    onChange={(e) => {
+                      const status = e.target.value;
+                      const filtered = powerAppsCollection.filter(p => p.status === status);
+                      document.getElementById('filteredCount').textContent = filtered.length;
+                      document.getElementById('filteredProjects').innerHTML = filtered.map(p => 
+                        `<div style="margin: 4px 0; padding: 4px; background: rgba(255,255,255,0.1);">${p.name} - ${p.priority}</div>`
+                      ).join('');
+                    }}
+                  >
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Planning">Planning</option>
+                  </select>
+                  <div className="result">Count: <span id="filteredCount">1</span></div>
+                  <div id="filteredProjects">
+                    <div style={{margin: '4px 0', padding: '4px', background: 'rgba(255,255,255,0.1)'}}>
+                      Homepage Redesign - High
+                    </div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>LookUp Project by ID:</label>
+                  <input 
+                    type="number" 
+                    id="lookupId"
+                    defaultValue="1"
+                    min="1"
+                    max="3"
+                    onChange={(e) => {
+                      const id = parseInt(e.target.value);
+                      const project = powerAppsCollection.find(p => p.id === id);
+                      if (project) {
+                        document.getElementById('lookupResult').textContent = `${project.name} (${project.status})`;
+                      } else {
+                        document.getElementById('lookupResult').textContent = 'Project not found';
+                      }
+                    }}
+                  />
+                  <div className="result">Result: <span id="lookupResult">Homepage Redesign (In Progress)</span></div>
+                </div>
+                <div className="demo-item">
+                  <label>Count by Priority:</label>
+                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '8px'}}>
+                    <div style={{padding: '8px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '4px', textAlign: 'center'}}>
+                      <div style={{fontSize: '12px', color: '#6b7280'}}>High</div>
+                      <div style={{fontSize: '18px', fontWeight: 'bold'}}>
+                        {powerAppsCollection.filter(p => p.priority === 'High').length}
+                      </div>
+                    </div>
+                    <div style={{padding: '8px', background: 'rgba(245, 158, 11, 0.1)', borderRadius: '4px', textAlign: 'center'}}>
+                      <div style={{fontSize: '12px', color: '#6b7280'}}>Medium</div>
+                      <div style={{fontSize: '18px', fontWeight: 'bold'}}>
+                        {powerAppsCollection.filter(p => p.priority === 'Medium').length}
+                      </div>
+                    </div>
+                    <div style={{padding: '8px', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '4px', textAlign: 'center'}}>
+                      <div style={{fontSize: '12px', color: '#6b7280'}}>Low</div>
+                      <div style={{fontSize: '18px', fontWeight: 'bold'}}>
+                        {powerAppsCollection.filter(p => p.priority === 'Low').length}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="concept-card">
         <h2>Power Fx vs JavaScript/JSX</h2>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Power Fx is like Figma's smart components with formulas - declarative logic that updates automatically, similar to React's reactive nature.
