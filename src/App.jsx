@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, useReducer } from 'react'
-import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles } from 'lucide-react'
+import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X } from 'lucide-react'
 import './App.css'
 
 // Main App component - this is like the "master frame" in Figma
@@ -8,6 +8,7 @@ function App() {
   // State to track which section is currently active
   // This is like having different pages in Figma - you can only see one at a time
   const [activeSection, setActiveSection] = useState('home')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Navigation items - like the pages panel in Figma
   const navItems = [
@@ -31,16 +32,32 @@ function App() {
       {/* Header - like the top toolbar in Figma */}
       <header className="header">
         <div className="container">
-          <h1 className="logo">
-            <BookOpen className="logo-icon" />
-            React JS Cheatsheet
-          </h1>
-          <p className="subtitle">For UX Designers with Figma Analogies</p>
+          <div className="header-content">
+            <h1 className="logo">
+              <BookOpen className="logo-icon" />
+              React JS Cheatsheet
+            </h1>
+            <p className="subtitle">For UX Designers with Figma Analogies</p>
+          </div>
+          <button 
+            className="mobile-menu-toggle"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="menu-icon" /> : <Menu className="menu-icon" />}
+          </button>
         </div>
       </header>
 
+      {/* Mobile Menu Backdrop */}
+      {isMobileMenuOpen && (
+        <div 
+          className="mobile-menu-backdrop"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Navigation - like the left sidebar in Figma */}
-      <nav className="sidebar">
+      <nav className={`sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="nav-items">
           {navItems.map((item) => {
             const Icon = item.icon
@@ -48,7 +65,10 @@ function App() {
               <button
                 key={item.id}
                 className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => {
+                  setActiveSection(item.id)
+                  setIsMobileMenuOpen(false) // Close mobile menu when item is selected
+                }}
               >
                 <Icon className="nav-icon" />
                 <span>{item.label}</span>
@@ -5755,6 +5775,52 @@ function HTMLCSSSection() {
           <div className="cheatsheet-intro">
             <h2>CSS Properties Reference</h2>
             <p>Complete list of CSS properties organized by category. Common values and usage examples included.</p>
+          </div>
+
+          {/* Box Model Visual */}
+          <div className="box-model-visual">
+            <h3>CSS Box Model</h3>
+            <div className="box-model-container">
+              <div className="box-model-margin">
+                <div className="box-model-border">
+                  <div className="box-model-padding">
+                    <div className="box-model-content">
+                      <span>Content</span>
+                      <div className="box-model-label content-label">Content Area</div>
+                    </div>
+                    <div className="box-model-label padding-label">Padding</div>
+                  </div>
+                  <div className="box-model-label border-label">Border</div>
+                </div>
+                <div className="box-model-label margin-label">Margin</div>
+              </div>
+            </div>
+            <div className="box-model-explanation">
+              <div className="explanation-item">
+                <div className="explanation-color margin-color"></div>
+                <div>
+                  <strong>Margin:</strong> Outer spacing between elements
+                </div>
+              </div>
+              <div className="explanation-item">
+                <div className="explanation-color border-color"></div>
+                <div>
+                  <strong>Border:</strong> Visible border around the element
+                </div>
+              </div>
+              <div className="explanation-item">
+                <div className="explanation-color padding-color"></div>
+                <div>
+                  <strong>Padding:</strong> Inner spacing between content and border
+                </div>
+              </div>
+              <div className="explanation-item">
+                <div className="explanation-color content-color"></div>
+                <div>
+                  <strong>Content:</strong> The actual content area (text, images, etc.)
+                </div>
+              </div>
+            </div>
           </div>
 
           {filteredCSSProperties.map((category, index) => (
