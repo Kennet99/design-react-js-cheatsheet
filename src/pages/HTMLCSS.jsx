@@ -567,11 +567,8 @@ function HTMLCSS() {
             <h2>HTML Elements Reference</h2>
             <p>Complete list of HTML elements organized by category. Click on any element to see its usage.</p>
             <div className="accordion-controls">
-              <button onClick={expandAll} className="accordion-btn">
-                Expand All
-              </button>
-              <button onClick={collapseAll} className="accordion-btn">
-                Collapse All
+              <button onClick={allExpanded ? collapseAll : expandAll} className="accordion-btn">
+                {allExpanded ? 'Collapse All' : 'Expand All'}
               </button>
             </div>
           </div>
@@ -586,7 +583,19 @@ function HTMLCSS() {
                   className="accordion-header"
                   onClick={() => toggleSection(sectionId)}
                 >
-                  <h3 className="category-title">{category.category}</h3>
+                  <div className="accordion-header-content">
+                    <h3 className="category-title">{category.category}</h3>
+                    {!isExpanded && (
+                      <div className="preview-tags">
+                        {category.elements.slice(0, 3).map((element, idx) => (
+                          <span key={idx} className="preview-tag">{element.tag.replace(/[<>]/g, '')}</span>
+                        ))}
+                        {category.elements.length > 3 && (
+                          <span className="preview-tag">+{category.elements.length - 3} more</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
                   <span className="accordion-icon">
                     {isExpanded ? '−' : '+'}
                   </span>
@@ -622,11 +631,8 @@ function HTMLCSS() {
             <h2>CSS Properties Reference</h2>
             <p>Complete list of CSS properties organized by category. Common values and usage examples included.</p>
             <div className="accordion-controls">
-              <button onClick={expandAll} className="accordion-btn">
-                Expand All
-              </button>
-              <button onClick={collapseAll} className="accordion-btn">
-                Collapse All
+              <button onClick={allExpanded ? collapseAll : expandAll} className="accordion-btn">
+                {allExpanded ? 'Collapse All' : 'Expand All'}
               </button>
             </div>
           </div>
@@ -687,7 +693,19 @@ function HTMLCSS() {
                   className="accordion-header"
                   onClick={() => toggleSection(sectionId)}
                 >
-                  <h3 className="category-title">{category.category}</h3>
+                  <div className="accordion-header-content">
+                    <h3 className="category-title">{category.category}</h3>
+                    {!isExpanded && (
+                      <div className="preview-tags">
+                        {category.properties.slice(0, 3).map((prop, idx) => (
+                          <span key={idx} className="preview-tag">{prop.property}</span>
+                        ))}
+                        {category.properties.length > 3 && (
+                          <span className="preview-tag">+{category.properties.length - 3} more</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
                   <span className="accordion-icon">
                     {isExpanded ? '−' : '+'}
                   </span>

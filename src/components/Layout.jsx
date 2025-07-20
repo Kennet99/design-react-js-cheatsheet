@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X } from 'lucide-react'
+import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X, ArrowUp } from 'lucide-react'
 
 function Layout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -102,7 +102,7 @@ function Layout({ children }) {
       {/* Back to Top button */}
       {showBackToTop && (
         <button className="back-to-top" onClick={scrollToTop}>
-          <RotateCcw className="back-to-top-icon" />
+          <ArrowUp className="back-to-top-icon" />
         </button>
       )}
     </div>
