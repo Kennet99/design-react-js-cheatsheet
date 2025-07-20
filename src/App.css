@@ -254,7 +254,7 @@
 }
 
 .output-content {
-  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
   font-size: var(--font-size-sm);
   line-height: 1.5;
 }
@@ -964,7 +964,7 @@
   background: #1e293b;
   border-radius: 4px;
   padding: 1rem;
-  font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
   font-size: 0.85rem;
   line-height: 1.4;
   color: #e2e8f0;
@@ -1570,7 +1570,7 @@
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 13px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
 }
 
 /* Responsive design for I/O grid */
@@ -2134,7 +2134,7 @@
 .example-code, .values-code {
   display: block;
   color: #34d399;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
   font-size: 0.85rem;
   line-height: 1.5;
   margin-top: 0.5rem;
@@ -2193,7 +2193,7 @@
   border-radius: 8px;
   padding: 1rem;
   color: #34d399;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
   font-size: 0.8rem;
   line-height: 1.5;
   overflow-x: auto;
