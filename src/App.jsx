@@ -3927,8 +3927,8 @@ function EventsInteractionsSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Event handler function
+          <SyntaxExample
+            code={`// Event handler function
 const handleEvent = (event) => {
   // Handle the event
 };
@@ -3945,7 +3945,7 @@ const handleEvent = (event) => {
 
 // Common events:
 // onClick, onChange, onSubmit, onKeyDown, onMouseEnter, onMouseLeave`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4050,8 +4050,8 @@ function InteractiveButton() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Form state
+          <SyntaxExample
+            code={`// Form state
 const [formData, setFormData] = useState({
   name: '',
   email: ''
@@ -4080,7 +4080,7 @@ const handleSubmit = (e) => {
     onChange={handleChange}
   />
 </form>`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4278,8 +4278,8 @@ function StylingDesignSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Install: npm install styled-components
+          <SyntaxExample
+            code={`// Install: npm install styled-components
 import styled from 'styled-components';
 
 // Create styled component
@@ -4298,7 +4298,7 @@ const StyledButton = styled.button\`
 
 // Use in component
 <StyledButton variant="primary">Click me</StyledButton>`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4416,8 +4416,8 @@ function StyledComponentsDemo() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Button.module.css
+          <SyntaxExample
+            code={`// Button.module.css
 .button {
   background: #6366f1;
   color: white;
@@ -4436,7 +4436,7 @@ import styles from './Button.module.css';
 function Button() {
   return <button className={styles.button}>Click me</button>;
 }`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4506,8 +4506,8 @@ function Button({ variant = 'primary', children }) {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Install: npm install -D tailwindcss
+          <SyntaxExample
+            code={`// Install: npm install -D tailwindcss
 // Configure in tailwind.config.js
 
 // Utility classes
@@ -4524,7 +4524,7 @@ function Button({ variant = 'primary', children }) {
 <button className="bg-blue-500 hover:bg-blue-600">
   Hover me
 </button>`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4606,8 +4606,8 @@ function TailwindDemo() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// CSS Media Queries
+          <SyntaxExample
+            code={`// CSS Media Queries
 @media (max-width: 768px) {
   .container {
     padding: 16px;
@@ -4630,7 +4630,7 @@ function TailwindDemo() {
     grid-template-columns: 1fr 1fr;
   }
 }`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4751,8 +4751,8 @@ function NavigationRoutingSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Install: npm install react-router-dom
+          <SyntaxExample
+            code={`// Install: npm install react-router-dom
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 // Router setup
@@ -4767,7 +4767,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // Navigation
 <Link to="/about">About</Link>
 <Link to="/contact">Contact</Link>`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -4856,8 +4856,8 @@ function Navigation() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Dynamic route with parameter
+          <SyntaxExample
+            code={`// Dynamic route with parameter
 <Route path="/products/:id" element={<ProductDetail />} />
 
 // Access parameter in component
@@ -4881,7 +4881,7 @@ function SearchResults() {
   const query = searchParams.get('query');
   return <div>Searching for: {query}</div>;
 }`}
-          </pre>
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
