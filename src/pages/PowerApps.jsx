@@ -1556,6 +1556,343 @@ const useDesignSystem = () => {
           </div>
         </div>
       </div>
+
+      <div className="concept-card">
+        <h2>HTML Text Controls in Power Apps</h2>
+        <div className="figma-analogy">
+          <strong>Figma Analogy:</strong> HTML Text controls in Power Apps are like Figma's HTML embed feature - they allow you to inject custom HTML, CSS, and JavaScript directly into your design, giving you the flexibility to create rich, interactive content that goes beyond the standard design tools.
+        </div>
+        <div className="syntax-example">
+          <h4>HTML Text Control Basics:</h4>
+          <SyntaxExample
+            code={`// HTML Text Control in Power Apps
+// Add an HTML Text control to your canvas
+// Set the HTML property to your custom HTML
+
+// Basic HTML with inline CSS
+"<div style='background: linear-gradient(45deg, #667eea, #764ba2); 
+            padding: 20px; 
+            border-radius: 10px; 
+            color: white; 
+            text-align: center;'>
+  <h2>Welcome to Power Apps!</h2>
+  <p>This is custom HTML with CSS styling</p>
+</div>"
+
+// HTML with Power Fx integration
+"<div style='background-color: " & If(ThisItem.Status = "Active", "#10b981", "#ef4444") & "; 
+            padding: 15px; 
+            border-radius: 8px; 
+            color: white;'>
+  <h3>" & ThisItem.Title & "</h3>
+  <p>Status: " & ThisItem.Status & "</p>
+  <p>Priority: " & ThisItem.Priority & "</p>
+</div>"
+
+// Interactive HTML with JavaScript
+"<div style='padding: 20px; border: 2px solid #3b82f6; border-radius: 8px;'>
+  <h3>Interactive Counter</h3>
+  <p>Count: <span id='counter'>0</span></p>
+  <button onclick='document.getElementById(\"counter\").innerText = 
+                   parseInt(document.getElementById(\"counter\").innerText) + 1; 
+                   this.style.background = \"#10b981\";'>
+    Increment
+  </button>
+  <button onclick='document.getElementById(\"counter\").innerText = 0; 
+                   this.style.background = \"#ef4444\";'>
+    Reset
+  </button>
+</div>"`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>HTML Text Control Input:</strong>
+              <ul>
+                <li><code>HTML</code> (string) - HTML content with CSS and JavaScript</li>
+                <li><code>Power Fx expressions</code> (string) - Dynamic data integration</li>
+                <li><code>CSS styles</code> (string) - Inline or embedded styles</li>
+                <li><code>JavaScript</code> (string) - Interactive functionality</li>
+                <li><code>Data binding</code> (string) - Connect to Power Apps data</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>HTML Text Control Output:</strong>
+              <ul>
+                <li><code>Rendered HTML</code> - Visual content display</li>
+                <li><code>Interactive elements</code> - Clickable buttons, forms</li>
+                <li><code>Styled content</code> - Custom CSS styling</li>
+                <li><code>Dynamic data</code> - Real-time data updates</li>
+                <li><code>JavaScript functionality</code> - Client-side interactions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="interactive-example">
+          <div className="code-panel">
+            <CodeExample
+              code={`// Advanced HTML Text Control Examples
+
+// 1. Data-Driven Dashboard Card
+"<div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            color: white; 
+            margin: 10px;'>
+  <div style='display: flex; justify-content: space-between; align-items: center;'>
+    <div>
+      <h3 style='margin: 0 0 8px 0; font-size: 18px;'>" & ThisItem.ProjectName & "</h3>
+      <p style='margin: 0; opacity: 0.9;'>" & ThisItem.Description & "</p>
+    </div>
+    <div style='text-align: right;'>
+      <div style='font-size: 24px; font-weight: bold;'>" & ThisItem.Progress & "%</div>
+      <div style='font-size: 12px; opacity: 0.8;'>Complete</div>
+    </div>
+  </div>
+  <div style='background: rgba(255, 255, 255, 0.2); 
+              height: 4px; 
+              border-radius: 2px; 
+              margin-top: 15px;'>
+    <div style='background: white; 
+                height: 100%; 
+                border-radius: 2px; 
+                width: " & ThisItem.Progress & "%; 
+                transition: width 0.3s ease;'></div>
+  </div>
+</div>"
+
+// 2. Interactive Form with Validation
+"<div style='background: #f8fafc; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid #e2e8f0;'>
+  <h3 style='margin: 0 0 20px 0; color: #1e293b;'>Contact Form</h3>
+  <form onsubmit='event.preventDefault(); 
+                  if(document.getElementById(\"email\").value.includes(\"@\")) {
+                    alert(\"Form submitted successfully!\");
+                    document.getElementById(\"email\").value = \"\";
+                    document.getElementById(\"name\").value = \"\";
+                  } else {
+                    alert(\"Please enter a valid email address\");
+                  }'>
+    <div style='margin-bottom: 15px;'>
+      <label style='display: block; margin-bottom: 5px; color: #374151; font-weight: 500;'>
+        Name:
+      </label>
+      <input type='text' id='name' 
+             style='width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; 
+                    border-radius: 4px; font-size: 14px;' 
+             placeholder='Enter your name' required>
+    </div>
+    <div style='margin-bottom: 20px;'>
+      <label style='display: block; margin-bottom: 5px; color: #374151; font-weight: 500;'>
+        Email:
+      </label>
+      <input type='email' id='email' 
+             style='width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; 
+                    border-radius: 4px; font-size: 14px;' 
+             placeholder='Enter your email' required>
+    </div>
+    <button type='submit' 
+            style='background: #3b82f6; color: white; border: none; padding: 10px 20px; 
+                   border-radius: 4px; cursor: pointer; font-size: 14px; 
+                   transition: background 0.2s ease;'
+            onmouseover='this.style.background = \"#2563eb\"'
+            onmouseout='this.style.background = \"#3b82f6\"'>
+      Submit
+    </button>
+  </form>
+</div>"
+
+// 3. Animated Status Indicator
+"<div style='text-align: center; padding: 20px;'>
+  <div id='status-indicator' 
+       style='width: 60px; height: 60px; border-radius: 50%; 
+              background: " & If(ThisItem.Status = "Active", "#10b981", "#ef4444") & "; 
+              margin: 0 auto 15px auto; 
+              animation: pulse 2s infinite;'></div>
+  <h3 style='margin: 0 0 10px 0; color: #1e293b;'>" & ThisItem.Status & "</h3>
+  <p style='margin: 0; color: #6b7280;'>" & ThisItem.Description & "</p>
+  <style>
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</div>"
+
+// 4. Data Table with Sorting
+"<div style='background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);'>
+  <table style='width: 100%; border-collapse: collapse;'>
+    <thead>
+      <tr style='background: #f8fafc;'>
+        <th style='padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; 
+                   cursor: pointer; font-weight: 600; color: #374151;'
+            onclick='sortTable(0)'>Name ↕</th>
+        <th style='padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; 
+                   cursor: pointer; font-weight: 600; color: #374151;'
+            onclick='sortTable(1)'>Status ↕</th>
+        <th style='padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; 
+                   cursor: pointer; font-weight: 600; color: #374151;'
+            onclick='sortTable(2)'>Priority ↕</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style='border-bottom: 1px solid #f1f5f9;'>
+        <td style='padding: 12px;'>" & ThisItem.Name & "</td>
+        <td style='padding: 12px;'>
+          <span style='background: " & If(ThisItem.Status = "Active", "#dcfce7", "#fee2e2") & "; 
+                      color: " & If(ThisItem.Status = "Active", "#166534", "#991b1b") & "; 
+                      padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;'>
+            " & ThisItem.Status & "
+          </span>
+        </td>
+        <td style='padding: 12px;'>" & ThisItem.Priority & "</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.querySelector('table');
+      switching = true;
+      dir = 'asc';
+      while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName('TD')[n];
+          y = rows[i + 1].getElementsByTagName('TD')[n];
+          if (dir == 'asc') {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == 'desc') {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount++;
+        } else {
+          if (switchcount == 0 && dir == 'asc') {
+            dir = 'desc';
+            switching = true;
+          }
+        }
+      }
+    }
+  </script>
+</div>"`}
+              explanation="HTML Text controls enable rich, interactive content in Power Apps, combining the power of web technologies with Power Apps' data integration capabilities."
+            />
+          </div>
+          <div className="output-panel">
+            <h4>HTML Text Control Examples:</h4>
+            <div className="output-content">
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Dashboard Card:</label>
+                  <div style={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    padding: '20px',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                    color: 'white',
+                    margin: '10px 0'
+                  }}>
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                      <div>
+                        <h3 style={{margin: '0 0 8px 0', fontSize: '18px'}}>Project Alpha</h3>
+                        <p style={{margin: 0, opacity: 0.9}}>Website redesign project</p>
+                      </div>
+                      <div style={{textAlign: 'right'}}>
+                        <div style={{fontSize: '24px', fontWeight: 'bold'}}>75%</div>
+                        <div style={{fontSize: '12px', opacity: 0.8}}>Complete</div>
+                      </div>
+                    </div>
+                    <div style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      height: '4px',
+                      borderRadius: '2px',
+                      marginTop: '15px'
+                    }}>
+                      <div style={{
+                        background: 'white',
+                        height: '100%',
+                        borderRadius: '2px',
+                        width: '75%',
+                        transition: 'width 0.3s ease'
+                      }}></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Interactive Form:</label>
+                  <div style={{
+                    background: '#f8fafc',
+                    padding: '20px',
+                    borderRadius: '8px',
+                    border: '1px solid #e2e8f0'
+                  }}>
+                    <h3 style={{margin: '0 0 20px 0', color: '#1e293b'}}>Contact Form</h3>
+                    <div style={{marginBottom: '15px'}}>
+                      <label style={{display: 'block', marginBottom: '5px', color: '#374151', fontWeight: 500}}>
+                        Name:
+                      </label>
+                      <input type="text" 
+                             style={{
+                               width: '100%',
+                               padding: '8px 12px',
+                               border: '1px solid #d1d5db',
+                               borderRadius: '4px',
+                               fontSize: '14px'
+                             }}
+                             placeholder="Enter your name" />
+                    </div>
+                    <div style={{marginBottom: '20px'}}>
+                      <label style={{display: 'block', marginBottom: '5px', color: '#374151', fontWeight: 500}}>
+                        Email:
+                      </label>
+                      <input type="email" 
+                             style={{
+                               width: '100%',
+                               padding: '8px 12px',
+                               border: '1px solid #d1d5db',
+                               borderRadius: '4px',
+                               fontSize: '14px'
+                             }}
+                             placeholder="Enter your email" />
+                    </div>
+                    <button style={{
+                      background: '#3b82f6',
+                      color: 'white',
+                      border: 'none',
+                      padding: '10px 20px',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '14px'
+                    }}>
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 

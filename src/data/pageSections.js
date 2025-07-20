@@ -62,7 +62,8 @@ export const pageSections = {
     { title: 'User-Defined Types (UDTs) vs TypeScript Interfaces', type: 'section' },
     { title: 'Dataverse Functions & Design Integration', type: 'section' },
     { title: 'Dataverse Functions - Design Context', type: 'section' },
-    { title: 'Data vs Design Use Cases', type: 'section' }
+    { title: 'Data vs Design Use Cases', type: 'section' },
+    { title: 'HTML Text Controls in Power Apps', type: 'section' }
   ],
   'styling-design': [
     { title: 'CSS-in-JS (Styled Components)', type: 'section' },
