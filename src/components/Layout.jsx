@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X, ArrowUp } from 'lucide-react'
+import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X, ArrowUp, ChevronDown, ChevronRight } from 'lucide-react'
 import GlobalSearch from './GlobalSearch'
+import { pageSections } from '../data/pageSections'
 
 function Layout({ children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
+  const [expandedItems, setExpandedItems] = useState(new Set())
   const location = useLocation()
 
   // Back to top functionality
@@ -18,11 +20,68 @@ function Layout({ children }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Auto-expand current page accordion
+  useEffect(() => {
+    const currentPageId = navItems.find(item => item.path === location.pathname)?.id
+    if (currentPageId && pageSections[currentPageId]) {
+      setExpandedItems(prev => new Set([...prev, currentPageId]))
+    }
+  }, [location.pathname])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })
+  }
+
+  const toggleExpanded = (itemId) => {
+    const newExpanded = new Set(expandedItems)
+    if (newExpanded.has(itemId)) {
+      newExpanded.delete(itemId)
+    } else {
+      newExpanded.add(itemId)
+    }
+    setExpandedItems(newExpanded)
+  }
+
+  const scrollToSection = (sectionTitle) => {
+    // Try different selectors to find the section
+    const selectors = [
+      `h2:contains("${sectionTitle}")`,
+      `h3:contains("${sectionTitle}")`,
+      `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '-')}"]`,
+      `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '_')}"]`
+    ]
+    
+    let element = null
+    for (const selector of selectors) {
+      try {
+        element = document.querySelector(selector)
+        if (element) break
+      } catch (e) {
+        // Invalid selector, try next one
+        continue
+      }
+    }
+    
+    // Fallback: search for text content
+    if (!element) {
+      const allElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+      for (const el of allElements) {
+        if (el.textContent.trim() === sectionTitle) {
+          element = el
+          break
+        }
+      }
+    }
+    
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
   }
 
   // Navigation items - like the pages panel in Figma
@@ -73,16 +132,62 @@ function Layout({ children }) {
           {navItems.map((item) => {
             const Icon = item.icon
             const isActive = location.pathname === item.path
+            const hasSections = pageSections[item.id] && pageSections[item.id].length > 0
+            const isExpanded = expandedItems.has(item.id)
+            
             return (
-              <Link
-                key={item.id}
-                to={item.path}
-                className={`nav-item ${isActive ? 'active' : ''}`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Icon className="nav-icon" />
-                <span>{item.label}</span>
-              </Link>
+              <div key={item.id} className="nav-accordion-item">
+                <Link
+                  to={item.path}
+                  className={`nav-item ${isActive ? 'active' : ''}`}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    if (hasSections) {
+                      toggleExpanded(item.id)
+                    }
+                  }}
+                >
+                  <Icon className="nav-icon" />
+                  <span className="nav-item-content">
+                    <span className="nav-item-label">{item.label}</span>
+                    {hasSections && (
+                      <button
+                        className="expand-button"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          toggleExpanded(item.id)
+                        }}
+                      >
+                        {isExpanded ? (
+                          <ChevronDown className="expand-icon" />
+                        ) : (
+                          <ChevronRight className="expand-icon" />
+                        )}
+                      </button>
+                    )}
+                  </span>
+                </Link>
+
+                {/* Subsections */}
+                {isExpanded && hasSections && (
+                  <div className="nav-subsections">
+                    {pageSections[item.id].map((section, index) => (
+                      <button
+                        key={index}
+                        className="nav-subsection"
+                        onClick={() => {
+                          scrollToSection(section.title)
+                          setIsMobileMenuOpen(false)
+                        }}
+                      >
+                        <span className="subsection-indicator">└─</span>
+                        <span className="subsection-title">{section.title}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             )
           })}
         </div>
