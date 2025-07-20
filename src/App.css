@@ -477,7 +477,6 @@
 
 .figma-analogy {
   margin-bottom: var(--spacing-4);
-  font-weight: 500;
 }
 
 /* Interactive Examples */
@@ -597,6 +596,7 @@
   padding: var(--spacing-4);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   color: var(--text-primary);
+  margin-bottom: var(--spacing-4);
 }
 
 /* Getting Started Steps */

@@ -23,11 +23,7 @@ export function SyntaxHighlightedCode({ code, language = 'javascript', explanati
           {code}
         </code>
       </pre>
-      {explanation && (
-        <div className="explanation">
-          <strong>💡 Explanation:</strong> {explanation}
-        </div>
-      )}
+
     </div>
   )
 }

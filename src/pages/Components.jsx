@@ -24,6 +24,7 @@ function Components() {
 
       <div className="concept-card">
         <h2>Props Deep Dive</h2>
+        <div className="explanation">Props are the primary way to pass data and functions to components, making them reusable and customizable.</div>
         <p className="section-summary">How to pass data between components and handle prop validation and defaults. Props let you customize component instances and enable reusability.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Props are like component properties in Figma - they allow you to customize instances with different values.
@@ -250,6 +251,7 @@ function Container({ children, title, className }) {
 
       <div className="concept-card">
         <h2>Component Composition Patterns</h2>
+        <div className="explanation">Component composition patterns help you build flexible, reusable component systems.</div>
         <p className="section-summary">Techniques for combining components to create complex UI structures. Composition patterns help you build flexible, maintainable, and scalable interfaces.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Composition is like nesting Figma components - you can build complex layouts by combining simple building blocks.
@@ -498,6 +500,7 @@ Form.Button = function FormButton({ children, ...props }) {
 
       <div className="concept-card">
         <h2>Component Best Practices</h2>
+        <div className="explanation">Following best practices ensures your components are maintainable, reusable, and performant.</div>
         <p className="section-summary">Guidelines for writing maintainable, reusable, and performant components. Best practices help ensure your codebase is clean, consistent, and easy to scale.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Best practices are like Figma design guidelines - they help you create consistent, high-quality components.

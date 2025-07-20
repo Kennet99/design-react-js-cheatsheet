@@ -20,7 +20,14 @@ function PowerApps() {
       <p>Bridging Power Apps concepts with React/JavaScript for designers</p>
 
       <div className="concept-card">
+        <h2>Welcome to Power Apps!</h2>
+        <p className="section-summary">A quick introduction to Power Apps, its capabilities, and how it empowers designers and developers to build custom business solutions with low-code tools.</p>
+      </div>
+
+      <div className="concept-card">
         <h2>Core Power Fx Functions</h2>
+        <div className="explanation">Power Fx functions provide powerful tools for filtering, searching, counting, and transforming data in Power Apps.</div>
+        <p className="section-summary">Essential Power Fx functions for data manipulation and retrieval. These functions provide powerful tools for filtering, searching, counting, and transforming data in Power Apps, similar to JavaScript array methods.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Power Fx functions are like Figma's smart layout and component features - they help you find, filter, and transform data automatically, just like how Figma helps you organize and manage design elements.
         </div>
@@ -255,6 +262,8 @@ const upcomingProjects = [...projects]
 
       <div className="concept-card">
         <h2>Power Fx vs JavaScript/JSX</h2>
+        <div className="explanation">Power Fx uses declarative formulas that automatically update, while JavaScript uses imperative code with explicit state management.</div>
+        <p className="section-summary">Comparing Power Fx syntax with JavaScript/React patterns. Power Fx uses declarative formulas that automatically update, while JavaScript uses imperative code with explicit state management.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Power Fx is like Figma's smart components with formulas - declarative logic that updates automatically, similar to React's reactive nature.
         </div>
@@ -391,10 +400,11 @@ const dueDate = new Date(project.dueDate).toLocaleDateString('en-US', {
           </div>
         </div>
       </div>
-    </div>
 
       <div className="concept-card">
         <h2>Named Formulas (Power Fx) vs React Variables</h2>
+        <div className="explanation">Named formulas in Power Fx provide centralized, automatically updating values similar to React variables and constants.</div>
+        <p className="section-summary">Creating reusable values and calculations that can be referenced throughout your application. Named formulas in Power Fx provide centralized, automatically updating values similar to React variables and constants.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Named formulas are like Figma's component properties - reusable values that automatically update across your entire design system.
         </div>
@@ -566,6 +576,7 @@ const useTheme = () => {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> UDFs are like custom Figma plugins - reusable functions that extend the platform's capabilities with your own logic.
         </div>
+        <p className="section-summary">Creating custom reusable functions to encapsulate complex logic and calculations. UDFs in Power Fx allow you to build your own functions, similar to custom hooks in React for sharing stateful logic.</p>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
           <SyntaxExample
@@ -806,6 +817,7 @@ const useProjectBudget = () => {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> UDTs are like Figma component properties with specific constraints - they define the structure and validation for your data, just like component properties define what can be configured.
         </div>
+        <p className="section-summary">Defining custom data structures with specific properties and validation rules. UDTs in Power Fx provide type safety and structure validation, similar to TypeScript interfaces in React development.</p>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
           <SyntaxExample
@@ -1014,6 +1026,7 @@ const buttonComponent: DesignComponent = {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Dataverse Functions are like Figma's plugin API - they extend your design capabilities by connecting to external data sources and services, allowing you to create dynamic, data-driven designs.
         </div>
+        <p className="section-summary">Connecting Power Apps to external data sources and services through Dataverse. These functions enable data-driven applications by providing access to databases, APIs, and external services for dynamic content.</p>
         <div className="syntax-example">
           <h4>Core Dataverse Functions:</h4>
           <SyntaxExample
@@ -1195,6 +1208,7 @@ const useClientData = () => {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Using Dataverse Functions for design is like having a smart design system that automatically adapts colors, typography, and layouts based on user preferences, brand guidelines, and project requirements.
         </div>
+        <p className="section-summary">Applying Dataverse functions to drive dynamic design systems. These functions enable adaptive theming, brand compliance, and responsive layouts based on user preferences, project context, and analytics.</p>
         <div className="syntax-example">
           <h4>Design-Focused Dataverse Functions:</h4>
           <SyntaxExample
@@ -1448,6 +1462,7 @@ const useComponentAnalytics = () => {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Just like Figma can be used for both data visualization and pure design, Power Apps bridges business data with design workflows.
         </div>
+        <p className="section-summary">Power Apps can be used for both business data processing and design system management. This section compares how Power Fx and React handle data-centric and design-centric workflows.</p>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -1562,6 +1577,7 @@ const useDesignSystem = () => {
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> HTML Text controls in Power Apps are like Figma's HTML embed feature - they allow you to inject custom HTML, CSS, and JavaScript directly into your design, giving you the flexibility to create rich, interactive content that goes beyond the standard design tools.
         </div>
+        <p className="section-summary">HTML Text controls allow you to embed custom HTML, CSS, and JavaScript directly into your Power Apps canvas. This enables advanced layouts, interactivity, and dynamic content beyond standard controls.</p>
         <div className="syntax-example">
           <h4>HTML Text Control Basics:</h4>
           <SyntaxExample
@@ -1894,8 +1910,8 @@ const useDesignSystem = () => {
         </div>
       </div>
     </div>
+    </div>
   )
-
 }
 
 export default PowerApps

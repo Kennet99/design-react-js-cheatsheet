@@ -28,10 +28,11 @@ function JSFundamentals() {
       <p>Core JavaScript concepts with interactive examples</p>
 
       <div className="concept-card">
-        <h2>Variables</h2>
-        <p className="section-summary">Containers for storing data values that can be changed throughout your program. Variables hold information like text, numbers, objects, and arrays that you can reference and modify as needed.</p>
+        <h2>Variables & Data Types</h2>
+        <div className="explanation">Variables are containers for storing data values that can be changed throughout your program.</div>
+        <p className="section-summary">Storing and managing data in JavaScript. Variables act as containers for different types of information that can be used and modified throughout your code.</p>
         <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> Variables are like text styles in Figma - they store values that you can reuse throughout your design.
+          <strong>Figma Analogy:</strong> Variables are like Figma's design tokens - they store reusable values that can be referenced throughout your project.
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
@@ -136,6 +137,7 @@ function DynamicUserProfile() {
 
       <div className="concept-card">
         <h2>Objects</h2>
+        <div className="explanation">Objects are collections of key-value pairs that group related data and functionality together.</div>
         <p className="section-summary">Collections of key-value pairs that group related data and functionality together. Objects allow you to organize information into named properties that can be accessed and modified.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Objects are like component properties in Figma - they group related data together.
@@ -269,6 +271,7 @@ function DynamicUserCard() {
 
       <div className="concept-card">
         <h2>Functions</h2>
+        <div className="explanation">Functions are reusable blocks of code that perform specific tasks and can return values.</div>
         <p className="section-summary">Reusable blocks of code that perform specific tasks and can return values. Functions help organize code, avoid repetition, and make your programs more modular and maintainable.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Functions are like reusable actions in Figma - they perform specific tasks when called.
@@ -425,6 +428,7 @@ function DynamicGreeting() {
 
       <div className="concept-card">
         <h2>Methods</h2>
+        <div className="explanation">Methods are functions that belong to objects and can access the object's properties and data.</div>
         <p className="section-summary">Functions that belong to objects and can access the object's properties and data. Methods provide functionality specific to the object they belong to, like string manipulation or array operations.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Methods are like built-in actions in Figma - they're functions that belong to objects.
@@ -606,6 +610,7 @@ function Counter() {
 
       <div className="concept-card">
         <h2>Classes</h2>
+        <div className="explanation">Classes are blueprints for creating objects with shared properties and methods.</div>
         <p className="section-summary">Blueprints for creating objects with shared properties and methods. Classes provide a way to organize code by grouping related data and functionality into reusable templates.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Classes are like component templates in Figma - they define the structure for creating multiple instances.
@@ -701,6 +706,7 @@ user1.changeRole("Senior Designer");`}
 
       <div className="concept-card">
         <h2>Constructors & Properties</h2>
+        <div className="explanation">Constructors initialize object properties when creating new instances, while properties store data within objects.</div>
         <p className="section-summary">Special methods that initialize new objects and define their characteristics. Constructors set up the initial state of objects, while properties store the data and characteristics of each instance.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Constructors are like component creation in Figma - they set up the initial properties when you create a new instance.
@@ -760,10 +766,10 @@ class User {
     this.createdAt = new Date(); // Auto-generated property
   }
 
-  // Method to access properties
-  getInfo() {
-    return \`\${this.name} is a \${this.age}-year-old \${this.role}\`;
-  }
+      // Method to access properties
+    getInfo() {
+      return \`\${this.name} is a \${this.age}-year-old \${this.role}\`;
+    }
 
   // Method to modify properties
   updateRole(newRole) {
@@ -792,10 +798,10 @@ console.log(user1.getInfo());   // "Sarah is a 28-year-old Designer"
 user1.updateRole("Senior Designer");
 user1.addSkill("React");
 
-// Property enumeration
-for (let prop in user1) {
-  console.log(\`\${prop}: \${user1[prop]}\`);
-}
+  // Property enumeration
+  for (let prop in user1) {
+    console.log(\`\${prop}: \${user1[prop]}\`);
+  }
 
 // Using constructors in React
 function UserProfile({ user }) {
@@ -891,6 +897,7 @@ function UserProfile({ user }) {
 
       <div className="concept-card">
         <h2>Events</h2>
+        <div className="explanation">Events are actions or occurrences that trigger code execution, like clicks or form submissions.</div>
         <p className="section-summary">Actions or occurrences that trigger code execution, like clicks or form submissions. Events allow your application to respond to user interactions and create dynamic, interactive experiences.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Events are like interactions in Figma prototypes - they respond to user actions.
@@ -993,6 +1000,7 @@ function handleInput(event) {
 
       <div className="concept-card">
         <h2>Parameters & Arguments</h2>
+        <div className="explanation">Values passed into functions to customize their behavior and output. Parameters are the placeholders in function definitions, while arguments are the actual values provided when calling the function.</div>
         <p className="section-summary">Values passed into functions to customize their behavior and output. Parameters are the placeholders in function definitions, while arguments are the actual values provided when calling the function.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Parameters are like input fields in Figma components - they define what data the function needs.
@@ -1102,6 +1110,7 @@ console.log(greet("Sarah")); // "Hello, Sarah"`}
 
       <div className="concept-card">
         <h2>Primitive vs Reference Data Types</h2>
+        <div className="explanation">Primitive types are copied by value, while reference types are copied by reference. This affects how data is shared and modified.</div>
         <p className="section-summary">How different data types are stored and copied in memory. Primitive types (strings, numbers, booleans) are copied by value, while reference types (objects, arrays) are copied by reference.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Primitives are like individual text elements in Figma, while references are like components - changing a component affects all instances.

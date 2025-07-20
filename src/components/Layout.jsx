@@ -48,16 +48,25 @@ function Layout({ children }) {
         })
       },
       {
-        rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the middle of viewport
+        rootMargin: '-10% 0px -80% 0px', // More sensitive trigger for first items
         threshold: 0.1
       }
     )
 
-    // Observe all h2 and h3 elements (section headings)
-    const headings = document.querySelectorAll('h2, h3')
+    // Observe all h2 elements (section headings) - focus on h2 for consistency
+    const headings = document.querySelectorAll('h2')
     headings.forEach((heading) => {
       observer.observe(heading)
     })
+
+    // Set the first section as active by default when page loads
+    if (headings.length > 0) {
+      const firstHeading = headings[0]
+      const rect = firstHeading.getBoundingClientRect()
+      if (rect.top >= 0 && rect.top <= window.innerHeight) {
+        setActiveSection(firstHeading.textContent.trim())
+      }
+    }
 
     return () => {
       headings.forEach((heading) => {

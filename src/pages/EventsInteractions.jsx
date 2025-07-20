@@ -15,10 +15,11 @@ function EventsInteractions() {
       <p>Making your UI interactive like Figma prototypes</p>
 
       <div className="concept-card">
-        <h2>Event Handlers</h2>
-        <p className="section-summary">Functions that respond to user interactions like clicks, form submissions, and keyboard input. Event handlers make your UI interactive and responsive to user actions.</p>
+        <h2>Event Handling</h2>
+        <div className="explanation">Event handling allows your React components to respond to user interactions like clicks, form submissions, and keyboard input.</div>
+        <p className="section-summary">Responding to user interactions and browser events. Event handling allows your React components to respond to clicks, form submissions, keyboard input, and other user actions.</p>
         <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> Event handlers are like interactions in Figma - they respond to user actions.
+          <strong>Figma Analogy:</strong> Event handling is like setting up interactions in Figma prototypes - you define what happens when users interact with elements.
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
@@ -165,6 +166,7 @@ function InteractiveButton() {
 
       <div className="concept-card">
         <h2>Form Handling</h2>
+        <div className="explanation">Form handling enables user data collection and processing with controlled inputs and validation.</div>
         <p className="section-summary">Managing form state, input validation, and form submission. Form handling enables user data collection and processing with controlled inputs and validation.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Form handling is like creating input fields in Figma - you collect and process user input.
@@ -346,10 +348,8 @@ function ContactForm() {
 
       <div className="concept-card">
         <h2>State Updates</h2>
+        <div className="explanation">State updates cause React to re-render components with new data, enabling dynamic and interactive interfaces.</div>
         <p className="section-summary">Modifying component state to trigger UI updates. State updates cause React to re-render components with new data, enabling dynamic and interactive interfaces.</p>
-        <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> State updates are like changing properties in Figma - they trigger visual updates.
-        </div>
         <CodeExample
           code={`// State updates (like changing properties in Figma)
 function TodoApp() {

@@ -180,7 +180,10 @@ function CSSFrameworks() {
         <div className="cheatsheet-content">
           <div className="cheatsheet-intro">
             <h2>CSS Custom Properties & Variables</h2>
-            <p>Modern CSS variables and dynamic styling capabilities.</p>
+            <p className="section-summary">Modern CSS variables and dynamic styling capabilities. Custom properties (like CSS variables) allow you to define reusable values for colors, spacing, and other design elements, making your styles more maintainable and reusable.</p>
+            <div className="figma-analogy">
+              <strong>Figma Analogy:</strong> Custom properties are like variables in Figma, allowing you to define reusable values for colors, spacing, and other design elements.
+            </div>
           </div>
 
           {filteredProperties.filter(cat => 
@@ -213,7 +216,10 @@ function CSSFrameworks() {
         <div className="cheatsheet-content">
           <div className="cheatsheet-intro">
             <h2>CSS Preprocessors & Mixins</h2>
-            <p>SCSS, Sass, Less, and other CSS preprocessor features.</p>
+            <p className="section-summary">SCSS, Sass, Less, and other CSS preprocessors provide powerful features like mixins, functions, and inheritance, making your stylesheets more maintainable and reusable.</p>
+            <div className="figma-analogy">
+              <strong>Figma Analogy:</strong> Preprocessors are like using a design system with pre-built components and mixins.
+            </div>
           </div>
 
           {filteredProperties.filter(cat => 
@@ -246,7 +252,10 @@ function CSSFrameworks() {
         <div className="cheatsheet-content">
           <div className="cheatsheet-intro">
             <h2>CSS Frameworks & Libraries</h2>
-            <p>Popular CSS frameworks, utility libraries, and CSS-in-JS solutions.</p>
+            <p className="section-summary">Popular CSS frameworks, utility libraries, and CSS-in-JS solutions provide pre-styled components, utilities, and grid systems for rapid development and consistent design.</p>
+            <div className="figma-analogy">
+              <strong>Figma Analogy:</strong> Frameworks are like using a design system with pre-built components and utilities.
+            </div>
           </div>
 
           {filteredProperties.filter(cat => 
@@ -282,7 +291,10 @@ function CSSFrameworks() {
         <div className="cheatsheet-content">
           <div className="cheatsheet-intro">
             <h2>Modern CSS Features</h2>
-            <p>Latest CSS features and experimental capabilities.</p>
+            <p className="section-summary">Latest CSS features and experimental capabilities, including container queries, subgrid, CSS nesting, CSS layers, CSS scope, CSS container, and CSS Houdini APIs, provide advanced styling and layout capabilities.</p>
+            <div className="figma-analogy">
+              <strong>Figma Analogy:</strong> Modern CSS features are like using a design system with advanced capabilities.
+            </div>
           </div>
 
           {filteredProperties.filter(cat => 

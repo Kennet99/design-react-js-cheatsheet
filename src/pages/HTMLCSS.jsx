@@ -739,7 +739,11 @@ function HTMLCSS() {
         <h2>Quick Reference</h2>
         <div className="reference-grid">
           <div className="reference-card">
-            <h3>HTML Structure</h3>
+            <h2>HTML Structure</h2>
+            <p className="section-summary">The foundation of web pages using semantic markup. HTML provides the structure and content of web pages, defining how elements are organized and what they represent.</p>
+            <div className="figma-analogy">
+              <strong>Figma Analogy:</strong> HTML structure is like the layer hierarchy in Figma - it defines the organization and relationships between elements.
+            </div>
             <ReferenceCode
               code={`<!DOCTYPE html>
 <html lang="en">

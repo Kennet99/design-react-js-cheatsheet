@@ -1,7 +1,7 @@
 // Page sections data for accordion navigation
 export const pageSections = {
   'js-fundamentals': [
-    { title: 'Variables', type: 'section' },
+    { title: 'Variables & Data Types', type: 'section' },
     { title: 'Objects', type: 'section' },
     { title: 'Functions', type: 'section' },
     { title: 'Methods', type: 'section' },
@@ -31,8 +31,8 @@ export const pageSections = {
     { title: 'Component Best Practices', type: 'section' }
   ],
   'hooks': [
-    { title: 'useState Hook Deep Dive', type: 'section' },
-    { title: 'useEffect Hook Deep Dive', type: 'section' },
+    { title: 'useState Hook', type: 'section' },
+    { title: 'useEffect Hook', type: 'section' },
     { title: 'Additional Hooks', type: 'section' },
     { title: 'Custom Hooks', type: 'section' }
   ],
@@ -44,7 +44,7 @@ export const pageSections = {
     { title: 'Button State Control', type: 'section' }
   ],
   'events-interactions': [
-    { title: 'Event Handlers', type: 'section' },
+    { title: 'Event Handling', type: 'section' },
     { title: 'Form Handling', type: 'section' },
     { title: 'State Updates', type: 'section' }
   ],
