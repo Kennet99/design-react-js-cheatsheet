@@ -975,27 +975,315 @@
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Syntax highlighting for better readability */
-.syntax-code .keyword {
+/* Enhanced Syntax highlighting for better readability */
+.syntax-code .keyword,
+.syntax-code .hljs-keyword {
   color: #f472b6;
   font-weight: 600;
 }
 
-.syntax-code .string {
+.syntax-code .string,
+.syntax-code .hljs-string {
   color: #34d399;
 }
 
-.syntax-code .comment {
+.syntax-code .comment,
+.syntax-code .hljs-comment {
   color: #94a3b8;
   font-style: italic;
 }
 
-.syntax-code .function {
+.syntax-code .function,
+.syntax-code .hljs-function,
+.syntax-code .hljs-title {
   color: #60a5fa;
 }
 
-.syntax-code .number {
+.syntax-code .number,
+.syntax-code .hljs-number {
   color: #f472b6;
+}
+
+.syntax-code .operator,
+.syntax-code .hljs-operator {
+  color: #fbbf24;
+}
+
+.syntax-code .punctuation,
+.syntax-code .hljs-punctuation {
+  color: #e5e7eb;
+}
+
+.syntax-code .variable,
+.syntax-code .hljs-variable {
+  color: #f9fafb;
+}
+
+.syntax-code .property,
+.syntax-code .hljs-property {
+  color: #a78bfa;
+}
+
+.syntax-code .built_in,
+.syntax-code .hljs-built_in {
+  color: #fbbf24;
+}
+
+.syntax-code .literal,
+.syntax-code .hljs-literal {
+  color: #34d399;
+}
+
+.syntax-code .params,
+.syntax-code .hljs-params {
+  color: #f9fafb;
+}
+
+.syntax-code .attr,
+.syntax-code .hljs-attr {
+  color: #a78bfa;
+}
+
+.syntax-code .tag,
+.syntax-code .hljs-tag {
+  color: #ef4444;
+}
+
+.syntax-code .name,
+.syntax-code .hljs-name {
+  color: #ef4444;
+}
+
+.syntax-code .attr-value,
+.syntax-code .hljs-attr-value {
+  color: #34d399;
+}
+
+.syntax-code .template-string,
+.syntax-code .hljs-template-string {
+  color: #34d399;
+}
+
+.syntax-code .subst,
+.syntax-code .hljs-subst {
+  color: #f9fafb;
+}
+
+.syntax-code .regexp,
+.syntax-code .hljs-regexp {
+  color: #fbbf24;
+}
+
+.syntax-code .symbol,
+.syntax-code .hljs-symbol {
+  color: #a78bfa;
+}
+
+.syntax-code .class,
+.syntax-code .hljs-class {
+  color: #60a5fa;
+}
+
+.syntax-code .title.class_,
+.syntax-code .hljs-title.class_ {
+  color: #60a5fa;
+}
+
+.syntax-code .type,
+.syntax-code .hljs-type {
+  color: #fbbf24;
+}
+
+.syntax-code .meta,
+.syntax-code .hljs-meta {
+  color: #94a3b8;
+}
+
+.syntax-code .section,
+.syntax-code .hljs-section {
+  color: #60a5fa;
+}
+
+.syntax-code .deletion,
+.syntax-code .hljs-deletion {
+  color: #ef4444;
+}
+
+.syntax-code .addition,
+.syntax-code .hljs-addition {
+  color: #10b981;
+}
+
+/* Ensure all syntax elements are visible */
+.syntax-code *,
+.code-example *,
+.reference-code * {
+  color: inherit;
+}
+
+/* Additional syntax highlighting for specific elements */
+.syntax-code .hljs-punctuation,
+.code-example .hljs-punctuation,
+.reference-code .hljs-punctuation {
+  color: #e5e7eb !important;
+}
+
+.syntax-code .hljs-operator,
+.code-example .hljs-operator,
+.reference-code .hljs-operator {
+  color: #fbbf24 !important;
+}
+
+.syntax-code .hljs-keyword,
+.code-example .hljs-keyword,
+.reference-code .hljs-keyword {
+  color: #f472b6 !important;
+  font-weight: 600;
+}
+
+.syntax-code .hljs-string,
+.code-example .hljs-string,
+.reference-code .hljs-string {
+  color: #34d399 !important;
+}
+
+.syntax-code .hljs-comment,
+.code-example .hljs-comment,
+.reference-code .hljs-comment {
+  color: #94a3b8 !important;
+  font-style: italic;
+}
+
+.syntax-code .hljs-function,
+.code-example .hljs-function,
+.reference-code .hljs-function {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-number,
+.code-example .hljs-number,
+.reference-code .hljs-number {
+  color: #f472b6 !important;
+}
+
+.syntax-code .hljs-variable,
+.code-example .hljs-variable,
+.reference-code .hljs-variable {
+  color: #f9fafb !important;
+}
+
+.syntax-code .hljs-property,
+.code-example .hljs-property,
+.reference-code .hljs-property {
+  color: #a78bfa !important;
+}
+
+.syntax-code .hljs-built_in,
+.code-example .hljs-built_in,
+.reference-code .hljs-built_in {
+  color: #fbbf24 !important;
+}
+
+.syntax-code .hljs-literal,
+.code-example .hljs-literal,
+.reference-code .hljs-literal {
+  color: #34d399 !important;
+}
+
+.syntax-code .hljs-params,
+.code-example .hljs-params,
+.reference-code .hljs-params {
+  color: #f9fafb !important;
+}
+
+.syntax-code .hljs-attr,
+.code-example .hljs-attr,
+.reference-code .hljs-attr {
+  color: #a78bfa !important;
+}
+
+.syntax-code .hljs-tag,
+.code-example .hljs-tag,
+.reference-code .hljs-tag {
+  color: #ef4444 !important;
+}
+
+.syntax-code .hljs-name,
+.code-example .hljs-name,
+.reference-code .hljs-name {
+  color: #ef4444 !important;
+}
+
+.syntax-code .hljs-attr-value,
+.code-example .hljs-attr-value,
+.reference-code .hljs-attr-value {
+  color: #34d399 !important;
+}
+
+.syntax-code .hljs-template-string,
+.code-example .hljs-template-string,
+.reference-code .hljs-template-string {
+  color: #34d399 !important;
+}
+
+.syntax-code .hljs-subst,
+.code-example .hljs-subst,
+.reference-code .hljs-subst {
+  color: #f9fafb !important;
+}
+
+.syntax-code .hljs-regexp,
+.code-example .hljs-regexp,
+.reference-code .hljs-regexp {
+  color: #fbbf24 !important;
+}
+
+.syntax-code .hljs-symbol,
+.code-example .hljs-symbol,
+.reference-code .hljs-symbol {
+  color: #a78bfa !important;
+}
+
+.syntax-code .hljs-class,
+.code-example .hljs-class,
+.reference-code .hljs-class {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-title.class_,
+.code-example .hljs-title.class_,
+.reference-code .hljs-title.class_ {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-type,
+.code-example .hljs-type,
+.reference-code .hljs-type {
+  color: #fbbf24 !important;
+}
+
+.syntax-code .hljs-meta,
+.code-example .hljs-meta,
+.reference-code .hljs-meta {
+  color: #94a3b8 !important;
+}
+
+.syntax-code .hljs-section,
+.code-example .hljs-section,
+.reference-code .hljs-section {
+  color: #60a5fa !important;
+}
+
+.syntax-code .hljs-deletion,
+.code-example .hljs-deletion,
+.reference-code .hljs-deletion {
+  color: #ef4444 !important;
+}
+
+.syntax-code .hljs-addition,
+.code-example .hljs-addition,
+.reference-code .hljs-addition {
+  color: #10b981 !important;
 }
 
 /* HTML & CSS Section */

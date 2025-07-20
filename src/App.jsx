@@ -1940,8 +1940,8 @@ const element = (
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Function Component (Modern)
+          <SyntaxExample
+            code={`// Function Component (Modern)
 function ComponentName({ prop1, prop2 }) {
   return <div>Content</div>;
 }
@@ -1962,7 +1962,8 @@ class ComponentName extends React.Component {
 const PureComponent = React.memo(({ prop1 }) => {
   return <div>Content</div>;
 });`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -2163,8 +2164,8 @@ function ComponentsSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Component with props
+          <SyntaxExample
+            code={`// Component with props
 function ComponentName({ prop1, prop2, children }) {
   return <div>{prop1} {prop2} {children}</div>;
 }
@@ -2184,7 +2185,8 @@ ComponentName.propTypes = {
   prop1: PropTypes.string.isRequired,
   prop2: PropTypes.number
 };`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -2362,8 +2364,8 @@ function Container({ children, title, className }) {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Children composition
+          <SyntaxExample
+            code={`// Children composition
 function Container({ children, title }) {
   return (
     <div>
@@ -2393,7 +2395,8 @@ function Form({ children }) {
 Form.Input = ({ label, ...props }) => (
   <div><label>{label}</label><input {...props} /></div>
 );`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -3300,8 +3303,8 @@ function DataHandlingSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`array.map(item => (
+          <SyntaxExample
+            code={`array.map(item => (
   <Component key={item.id}>
     {item.property}
   </Component>
@@ -3310,7 +3313,8 @@ function DataHandlingSection() {
 // Examples:
 items.map(item => <li key={item.id}>{item.name}</li>);
 users.map(user => <UserCard key={user.id} user={user} />);`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -3394,8 +3398,8 @@ function TaskList() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`array.filter(item => condition);
+          <SyntaxExample
+            code={`array.filter(item => condition);
 
 // Examples:
 items.filter(item => item.completed);
@@ -3404,7 +3408,8 @@ tasks.filter(task => task.category === 'design');
 
 // Combined with map:
 array.filter(item => condition).map(item => <Component />);`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -3502,15 +3507,16 @@ function TaskFilter({ category }) {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`{condition && <Component />}
+          <SyntaxExample
+            code={`{condition && <Component />}
 {condition ? <ComponentA /> : <ComponentB />}
 
 // Examples:
 {isLoading && <Spinner />}
 {user ? <UserProfile /> : <LoginForm />}
 {items.length > 0 ? <ItemList /> : <EmptyState />}`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -3612,8 +3618,8 @@ function UserDashboard({ user, isAdmin }) {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`const object = {
+          <SyntaxExample
+            code={`const object = {
   key: value,
   property: data
 };
@@ -3622,7 +3628,8 @@ object.key;              // Access
 object["key"];           // Bracket notation
 object.newKey = value;   // Add property
 const { key } = object;  // Destructuring`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -3726,8 +3733,8 @@ const userWithNewProps = { ...user, department: "Design" };`}
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`<button 
+          <SyntaxExample
+            code={`<button 
   disabled={isDisabled}
   onClick={handleClick}
   style={{ opacity: isDisabled ? 0.6 : 1 }}
@@ -3738,7 +3745,8 @@ const userWithNewProps = { ...user, department: "Design" };`}
 // State variables:
 const [isDisabled, setIsDisabled] = useState(false);
 const [isLoading, setIsLoading] = useState(false);`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
