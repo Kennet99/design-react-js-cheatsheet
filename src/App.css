@@ -205,12 +205,13 @@
 }
 
 .figma-analogy {
-  background: linear-gradient(135deg, var(--secondary) 0%, #3b82f6 100%);
+  background: #1e40af;
   color: white;
   padding: var(--spacing-4);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-4);
   font-weight: 500;
+  border-left: 4px solid #60a5fa;
 }
 
 /* Interactive Examples */
