@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, useReducer } from 'react'
-import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush } from 'lucide-react'
+import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type } from 'lucide-react'
 import './App.css'
 
 // Main App component - this is like the "master frame" in Figma
@@ -21,6 +21,7 @@ function App() {
     { id: 'events-interactions', label: 'Events & Interactions', icon: Users },
     { id: 'styling-design', label: 'Styling & Design', icon: Paintbrush },
     { id: 'navigation-routing', label: 'Navigation & Routing', icon: Navigation },
+    { id: 'html-css', label: 'HTML & CSS', icon: Globe },
     { id: 'figma-mapping', label: 'Figma Mapping', icon: Palette }
   ]
 
@@ -69,6 +70,7 @@ function App() {
           {activeSection === 'events-interactions' && <EventsInteractionsSection />}
           {activeSection === 'styling-design' && <StylingDesignSection />}
           {activeSection === 'navigation-routing' && <NavigationRoutingSection />}
+          {activeSection === 'html-css' && <HTMLCSSSection />}
           {activeSection === 'figma-mapping' && <FigmaMappingSection />}
         </div>
       </main>
@@ -5211,6 +5213,434 @@ function MobileNavigation() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// HTML & CSS Section
+function HTMLCSSSection() {
+  const [activeTab, setActiveTab] = useState('html')
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const htmlElements = [
+    {
+      category: 'Document Structure',
+      elements: [
+        { tag: '<!DOCTYPE html>', description: 'Document type declaration', example: '<!DOCTYPE html>' },
+        { tag: '<html>', description: 'Root element', example: '<html lang="en">' },
+        { tag: '<head>', description: 'Document metadata', example: '<head><title>Page Title</title></head>' },
+        { tag: '<title>', description: 'Page title', example: '<title>My Website</title>' },
+        { tag: '<body>', description: 'Document body', example: '<body>Content here</body>' },
+        { tag: '<meta>', description: 'Metadata', example: '<meta charset="UTF-8">' },
+        { tag: '<link>', description: 'External resource link', example: '<link rel="stylesheet" href="style.css">' },
+        { tag: '<script>', description: 'JavaScript code', example: '<script src="script.js"></script>' }
+      ]
+    },
+    {
+      category: 'Text Elements',
+      elements: [
+        { tag: '<h1> to <h6>', description: 'Headings', example: '<h1>Main Heading</h1>' },
+        { tag: '<p>', description: 'Paragraph', example: '<p>This is a paragraph.</p>' },
+        { tag: '<span>', description: 'Inline text', example: '<span>Inline text</span>' },
+        { tag: '<div>', description: 'Block container', example: '<div>Block content</div>' },
+        { tag: '<br>', description: 'Line break', example: 'Text<br>New line' },
+        { tag: '<hr>', description: 'Horizontal rule', example: '<hr>' },
+        { tag: '<strong>', description: 'Bold text', example: '<strong>Bold text</strong>' },
+        { tag: '<em>', description: 'Italic text', example: '<em>Italic text</em>' },
+        { tag: '<mark>', description: 'Highlighted text', example: '<mark>Highlighted</mark>' },
+        { tag: '<small>', description: 'Small text', example: '<small>Small text</small>' },
+        { tag: '<sub>', description: 'Subscript', example: 'H<sub>2</sub>O' },
+        { tag: '<sup>', description: 'Superscript', example: 'x<sup>2</sup>' }
+      ]
+    },
+    {
+      category: 'Lists',
+      elements: [
+        { tag: '<ul>', description: 'Unordered list', example: '<ul><li>Item 1</li></ul>' },
+        { tag: '<ol>', description: 'Ordered list', example: '<ol><li>Item 1</li></ol>' },
+        { tag: '<li>', description: 'List item', example: '<li>List item</li>' },
+        { tag: '<dl>', description: 'Description list', example: '<dl><dt>Term</dt><dd>Definition</dd></dl>' },
+        { tag: '<dt>', description: 'Description term', example: '<dt>Term</dt>' },
+        { tag: '<dd>', description: 'Description details', example: '<dd>Definition</dd>' }
+      ]
+    },
+    {
+      category: 'Links & Media',
+      elements: [
+        { tag: '<a>', description: 'Hyperlink', example: '<a href="https://example.com">Link</a>' },
+        { tag: '<img>', description: 'Image', example: '<img src="image.jpg" alt="Description">' },
+        { tag: '<video>', description: 'Video', example: '<video src="video.mp4" controls></video>' },
+        { tag: '<audio>', description: 'Audio', example: '<audio src="audio.mp3" controls></audio>' },
+        { tag: '<iframe>', description: 'Inline frame', example: '<iframe src="https://example.com"></iframe>' }
+      ]
+    },
+    {
+      category: 'Forms',
+      elements: [
+        { tag: '<form>', description: 'Form container', example: '<form action="/submit" method="post">' },
+        { tag: '<input>', description: 'Input field', example: '<input type="text" name="username">' },
+        { tag: '<label>', description: 'Form label', example: '<label for="username">Username:</label>' },
+        { tag: '<textarea>', description: 'Multi-line input', example: '<textarea name="message"></textarea>' },
+        { tag: '<select>', description: 'Dropdown', example: '<select><option>Option 1</option></select>' },
+        { tag: '<option>', description: 'Dropdown option', example: '<option value="1">Option 1</option>' },
+        { tag: '<button>', description: 'Button', example: '<button type="submit">Submit</button>' },
+        { tag: '<fieldset>', description: 'Form group', example: '<fieldset><legend>Group</legend></fieldset>' },
+        { tag: '<legend>', description: 'Fieldset title', example: '<legend>Form Group</legend>' }
+      ]
+    },
+    {
+      category: 'Tables',
+      elements: [
+        { tag: '<table>', description: 'Table container', example: '<table></table>' },
+        { tag: '<thead>', description: 'Table header', example: '<thead><tr><th>Header</th></tr></thead>' },
+        { tag: '<tbody>', description: 'Table body', example: '<tbody><tr><td>Data</td></tr></tbody>' },
+        { tag: '<tfoot>', description: 'Table footer', example: '<tfoot><tr><td>Footer</td></tr></tfoot>' },
+        { tag: '<tr>', description: 'Table row', example: '<tr><td>Cell</td></tr>' },
+        { tag: '<th>', description: 'Header cell', example: '<th>Header Cell</th>' },
+        { tag: '<td>', description: 'Data cell', example: '<td>Data Cell</td>' },
+        { tag: '<caption>', description: 'Table caption', example: '<caption>Table Title</caption>' }
+      ]
+    },
+    {
+      category: 'Semantic Elements',
+      elements: [
+        { tag: '<header>', description: 'Page header', example: '<header>Header content</header>' },
+        { tag: '<nav>', description: 'Navigation', example: '<nav>Navigation links</nav>' },
+        { tag: '<main>', description: 'Main content', example: '<main>Main content</main>' },
+        { tag: '<section>', description: 'Content section', example: '<section>Section content</section>' },
+        { tag: '<article>', description: 'Article content', example: '<article>Article content</article>' },
+        { tag: '<aside>', description: 'Sidebar content', example: '<aside>Sidebar content</aside>' },
+        { tag: '<footer>', description: 'Page footer', example: '<footer>Footer content</footer>' },
+        { tag: '<figure>', description: 'Figure container', example: '<figure><img src="image.jpg"><figcaption>Caption</figcaption></figure>' },
+        { tag: '<figcaption>', description: 'Figure caption', example: '<figcaption>Image description</figcaption>' }
+      ]
+    }
+  ]
+
+  const cssProperties = [
+    {
+      category: 'Layout & Display',
+      properties: [
+        { property: 'display', values: 'block, inline, inline-block, flex, grid, none', description: 'Element display type' },
+        { property: 'position', values: 'static, relative, absolute, fixed, sticky', description: 'Positioning method' },
+        { property: 'top, right, bottom, left', values: 'auto, 0, 10px, 50%, etc.', description: 'Position offsets' },
+        { property: 'float', values: 'left, right, none', description: 'Element floating' },
+        { property: 'clear', values: 'left, right, both, none', description: 'Clear floating elements' },
+        { property: 'z-index', values: 'auto, 0, 1, 999, etc.', description: 'Stacking order' },
+        { property: 'overflow', values: 'visible, hidden, scroll, auto', description: 'Content overflow handling' },
+        { property: 'visibility', values: 'visible, hidden, collapse', description: 'Element visibility' }
+      ]
+    },
+    {
+      category: 'Box Model',
+      properties: [
+        { property: 'width, height', values: 'auto, 100px, 50%, 100vw, etc.', description: 'Element dimensions' },
+        { property: 'margin', values: '0, 10px, 1em, auto, etc.', description: 'Outer spacing' },
+        { property: 'padding', values: '0, 10px, 1em, etc.', description: 'Inner spacing' },
+        { property: 'border', values: '1px solid black, none, etc.', description: 'Border shorthand' },
+        { property: 'border-width', values: 'thin, medium, thick, 1px, etc.', description: 'Border thickness' },
+        { property: 'border-style', values: 'solid, dashed, dotted, none, etc.', description: 'Border style' },
+        { property: 'border-color', values: 'black, #000, rgb(0,0,0), etc.', description: 'Border color' },
+        { property: 'border-radius', values: '0, 5px, 50%, etc.', description: 'Corner rounding' },
+        { property: 'box-sizing', values: 'content-box, border-box', description: 'Box model calculation' }
+      ]
+    },
+    {
+      category: 'Flexbox',
+      properties: [
+        { property: 'flex-direction', values: 'row, row-reverse, column, column-reverse', description: 'Flex direction' },
+        { property: 'flex-wrap', values: 'nowrap, wrap, wrap-reverse', description: 'Flex wrapping' },
+        { property: 'justify-content', values: 'flex-start, center, flex-end, space-between, space-around', description: 'Main axis alignment' },
+        { property: 'align-items', values: 'stretch, flex-start, center, flex-end, baseline', description: 'Cross axis alignment' },
+        { property: 'align-content', values: 'stretch, flex-start, center, flex-end, space-between', description: 'Multi-line alignment' },
+        { property: 'flex-grow', values: '0, 1, 2, etc.', description: 'Growth factor' },
+        { property: 'flex-shrink', values: '0, 1, 2, etc.', description: 'Shrink factor' },
+        { property: 'flex-basis', values: 'auto, 0, 100px, 50%, etc.', description: 'Initial size' },
+        { property: 'flex', values: '0 1 auto, 1, 1 0 100px, etc.', description: 'Flex shorthand' }
+      ]
+    },
+    {
+      category: 'Grid',
+      properties: [
+        { property: 'grid-template-columns', values: '1fr, 100px, repeat(3, 1fr), etc.', description: 'Column definitions' },
+        { property: 'grid-template-rows', values: '1fr, 100px, repeat(3, 1fr), etc.', description: 'Row definitions' },
+        { property: 'grid-template-areas', values: '"header header" "sidebar main"', description: 'Area definitions' },
+        { property: 'grid-column-gap', values: '0, 10px, 1em, etc.', description: 'Column gaps' },
+        { property: 'grid-row-gap', values: '0, 10px, 1em, etc.', description: 'Row gaps' },
+        { property: 'grid-gap', values: '10px, 10px 20px, etc.', description: 'Grid gaps shorthand' },
+        { property: 'grid-column', values: '1, 1 / 3, span 2, etc.', description: 'Column placement' },
+        { property: 'grid-row', values: '1, 1 / 3, span 2, etc.', description: 'Row placement' },
+        { property: 'justify-items', values: 'start, center, end, stretch', description: 'Item alignment' },
+        { property: 'align-items', values: 'start, center, end, stretch', description: 'Item alignment' }
+      ]
+    },
+    {
+      category: 'Typography',
+      properties: [
+        { property: 'font-family', values: 'Arial, "Times New Roman", sans-serif, etc.', description: 'Font family' },
+        { property: 'font-size', values: '16px, 1em, 1.2rem, 120%, etc.', description: 'Font size' },
+        { property: 'font-weight', values: 'normal, bold, 100-900, etc.', description: 'Font weight' },
+        { property: 'font-style', values: 'normal, italic, oblique', description: 'Font style' },
+        { property: 'line-height', values: 'normal, 1.5, 24px, etc.', description: 'Line height' },
+        { property: 'text-align', values: 'left, center, right, justify', description: 'Text alignment' },
+        { property: 'text-decoration', values: 'none, underline, overline, line-through', description: 'Text decoration' },
+        { property: 'text-transform', values: 'none, uppercase, lowercase, capitalize', description: 'Text transformation' },
+        { property: 'letter-spacing', values: 'normal, 1px, 0.1em, etc.', description: 'Letter spacing' },
+        { property: 'word-spacing', values: 'normal, 2px, 0.2em, etc.', description: 'Word spacing' },
+        { property: 'white-space', values: 'normal, nowrap, pre, pre-wrap', description: 'White space handling' },
+        { property: 'text-overflow', values: 'clip, ellipsis', description: 'Text overflow' }
+      ]
+    },
+    {
+      category: 'Colors & Backgrounds',
+      properties: [
+        { property: 'color', values: 'black, #000, rgb(0,0,0), rgba(0,0,0,0.5), etc.', description: 'Text color' },
+        { property: 'background-color', values: 'white, #fff, rgb(255,255,255), etc.', description: 'Background color' },
+        { property: 'background-image', values: 'url("image.jpg"), linear-gradient(), etc.', description: 'Background image' },
+        { property: 'background-repeat', values: 'repeat, no-repeat, repeat-x, repeat-y', description: 'Background repeat' },
+        { property: 'background-position', values: 'center, top left, 50% 50%, etc.', description: 'Background position' },
+        { property: 'background-size', values: 'auto, cover, contain, 100px 200px', description: 'Background size' },
+        { property: 'background-attachment', values: 'scroll, fixed, local', description: 'Background attachment' },
+        { property: 'background', values: 'shorthand for all background properties', description: 'Background shorthand' },
+        { property: 'opacity', values: '0, 0.5, 1, etc.', description: 'Element opacity' }
+      ]
+    },
+    {
+      category: 'Transforms & Animations',
+      properties: [
+        { property: 'transform', values: 'translate(), rotate(), scale(), skew(), etc.', description: 'Element transformation' },
+        { property: 'transform-origin', values: 'center, top left, 50% 50%, etc.', description: 'Transform origin' },
+        { property: 'transition', values: 'all 0.3s ease, width 0.5s linear, etc.', description: 'Transition shorthand' },
+        { property: 'transition-property', values: 'all, width, height, color, etc.', description: 'Transition properties' },
+        { property: 'transition-duration', values: '0s, 0.3s, 1s, etc.', description: 'Transition duration' },
+        { property: 'transition-timing-function', values: 'ease, linear, ease-in, ease-out, ease-in-out', description: 'Transition timing' },
+        { property: 'animation', values: 'slideIn 1s ease-in-out, etc.', description: 'Animation shorthand' },
+        { property: 'animation-name', values: 'slideIn, fadeOut, bounce, etc.', description: 'Animation name' },
+        { property: 'animation-duration', values: '0s, 1s, 2.5s, etc.', description: 'Animation duration' },
+        { property: 'animation-timing-function', values: 'ease, linear, ease-in, ease-out, ease-in-out', description: 'Animation timing' },
+        { property: 'animation-delay', values: '0s, 1s, -1s, etc.', description: 'Animation delay' },
+        { property: 'animation-iteration-count', values: '1, infinite, 3, etc.', description: 'Animation iterations' },
+        { property: 'animation-direction', values: 'normal, reverse, alternate, alternate-reverse', description: 'Animation direction' },
+        { property: 'animation-fill-mode', values: 'none, forwards, backwards, both', description: 'Animation fill mode' }
+      ]
+    },
+    {
+      category: 'Responsive Design',
+      properties: [
+        { property: '@media', values: '@media (max-width: 768px) { }', description: 'Media queries' },
+        { property: 'min-width', values: '320px, 768px, 1024px, etc.', description: 'Minimum width' },
+        { property: 'max-width', values: '767px, 1023px, 1200px, etc.', description: 'Maximum width' },
+        { property: 'orientation', values: 'portrait, landscape', description: 'Device orientation' },
+        { property: 'aspect-ratio', values: '16/9, 4/3, 1/1, etc.', description: 'Aspect ratio' },
+        { property: 'viewport', values: 'width=device-width, initial-scale=1.0', description: 'Viewport meta tag' }
+      ]
+    },
+    {
+      category: 'Pseudo-classes & Pseudo-elements',
+      properties: [
+        { property: ':hover', values: 'element:hover { }', description: 'Mouse hover state' },
+        { property: ':active', values: 'element:active { }', description: 'Active state' },
+        { property: ':focus', values: 'element:focus { }', description: 'Focus state' },
+        { property: ':visited', values: 'a:visited { }', description: 'Visited link state' },
+        { property: ':first-child', values: 'element:first-child { }', description: 'First child element' },
+        { property: ':last-child', values: 'element:last-child { }', description: 'Last child element' },
+        { property: ':nth-child()', values: 'element:nth-child(2n) { }', description: 'Nth child element' },
+        { property: '::before', values: 'element::before { content: ""; }', description: 'Before pseudo-element' },
+        { property: '::after', values: 'element::after { content: ""; }', description: 'After pseudo-element' },
+        { property: '::first-line', values: 'p::first-line { }', description: 'First line of text' },
+        { property: '::first-letter', values: 'p::first-letter { }', description: 'First letter of text' }
+      ]
+    }
+  ]
+
+  const filteredHTMLElements = htmlElements.map(category => ({
+    ...category,
+    elements: category.elements.filter(element =>
+      element.tag.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      element.description.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  })).filter(category => category.elements.length > 0)
+
+  const filteredCSSProperties = cssProperties.map(category => ({
+    ...category,
+    properties: category.properties.filter(prop =>
+      prop.property.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      prop.description.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  })).filter(category => category.properties.length > 0)
+
+  return (
+    <div className="section">
+      <h1>HTML & CSS Cheatsheet</h1>
+      <p>Complete reference for HTML elements and CSS properties</p>
+
+      {/* Search Bar */}
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search HTML elements or CSS properties..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+      </div>
+
+      {/* Tab Navigation */}
+      <div className="tab-navigation">
+        <button
+          className={`tab ${activeTab === 'html' ? 'active' : ''}`}
+          onClick={() => setActiveTab('html')}
+        >
+          <Globe className="tab-icon" />
+          HTML Elements
+        </button>
+        <button
+          className={`tab ${activeTab === 'css' ? 'active' : ''}`}
+          onClick={() => setActiveTab('css')}
+        >
+          <Type className="tab-icon" />
+          CSS Properties
+        </button>
+      </div>
+
+      {/* HTML Elements Tab */}
+      {activeTab === 'html' && (
+        <div className="cheatsheet-content">
+          <div className="cheatsheet-intro">
+            <h2>HTML Elements Reference</h2>
+            <p>Complete list of HTML elements organized by category. Click on any element to see its usage.</p>
+          </div>
+
+          {filteredHTMLElements.map((category, index) => (
+            <div key={index} className="cheatsheet-category">
+              <h3 className="category-title">{category.category}</h3>
+              <div className="elements-grid">
+                {category.elements.map((element, elementIndex) => (
+                  <div key={elementIndex} className="element-card">
+                    <div className="element-header">
+                      <code className="element-tag">{element.tag}</code>
+                      <span className="element-description">{element.description}</span>
+                    </div>
+                    <div className="element-example">
+                      <strong>Example:</strong>
+                      <code className="example-code">{element.example}</code>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* CSS Properties Tab */}
+      {activeTab === 'css' && (
+        <div className="cheatsheet-content">
+          <div className="cheatsheet-intro">
+            <h2>CSS Properties Reference</h2>
+            <p>Complete list of CSS properties organized by category. Common values and usage examples included.</p>
+          </div>
+
+          {filteredCSSProperties.map((category, index) => (
+            <div key={index} className="cheatsheet-category">
+              <h3 className="category-title">{category.category}</h3>
+              <div className="properties-grid">
+                {category.properties.map((prop, propIndex) => (
+                  <div key={propIndex} className="property-card">
+                    <div className="property-header">
+                      <code className="property-name">{prop.property}</code>
+                      <span className="property-description">{prop.description}</span>
+                    </div>
+                    <div className="property-values">
+                      <strong>Values:</strong>
+                      <code className="values-code">{prop.values}</code>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Quick Reference */}
+      <div className="quick-reference">
+        <h2>Quick Reference</h2>
+        <div className="reference-grid">
+          <div className="reference-card">
+            <h3>HTML Structure</h3>
+            <pre className="reference-code">
+{`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Content here -->
+</body>
+</html>`}
+            </pre>
+          </div>
+          <div className="reference-card">
+            <h3>CSS Box Model</h3>
+            <pre className="reference-code">
+{`/* Box Model Properties */
+.element {
+  width: 200px;        /* Content width */
+  height: 100px;       /* Content height */
+  padding: 20px;       /* Inner spacing */
+  border: 2px solid;   /* Border */
+  margin: 10px;        /* Outer spacing */
+  box-sizing: border-box; /* Include border in width */
+}`}
+            </pre>
+          </div>
+          <div className="reference-card">
+            <h3>Flexbox Layout</h3>
+            <pre className="reference-code">
+{`/* Flexbox Container */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Flexbox Items */
+.item {
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}`}
+            </pre>
+          </div>
+          <div className="reference-card">
+            <h3>CSS Grid Layout</h3>
+            <pre className="reference-code">
+{`/* Grid Container */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+  grid-template-areas: 
+    "header header"
+    "sidebar main";
+}
+
+/* Grid Items */
+.item {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}`}
+            </pre>
           </div>
         </div>
       </div>
