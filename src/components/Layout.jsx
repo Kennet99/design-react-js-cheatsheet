@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X, ArrowUp, ChevronDown, ChevronRight } from 'lucide-react'
+import { BookOpen, Code, Palette, Zap, Database, Layers, Settings, Home, Users, FileText, Plus, Minus, RotateCcw, Eye, EyeOff, Navigation, Paintbrush, Globe, Type, Sparkles, Menu, X, ArrowUp, ChevronDown, ChevronUp } from 'lucide-react'
 import GlobalSearch from './GlobalSearch'
 import { pageSections } from '../data/pageSections'
 
@@ -24,7 +24,9 @@ function Layout({ children }) {
   useEffect(() => {
     const currentPageId = navItems.find(item => item.path === location.pathname)?.id
     if (currentPageId && pageSections[currentPageId]) {
-      setExpandedItems(prev => new Set([...prev, currentPageId]))
+      setExpandedItems(new Set([currentPageId]))
+    } else {
+      setExpandedItems(new Set())
     }
   }, [location.pathname])
 
@@ -36,52 +38,53 @@ function Layout({ children }) {
   }
 
   const toggleExpanded = (itemId) => {
-    const newExpanded = new Set(expandedItems)
-    if (newExpanded.has(itemId)) {
-      newExpanded.delete(itemId)
-    } else {
+    const newExpanded = new Set()
+    if (!expandedItems.has(itemId)) {
       newExpanded.add(itemId)
     }
     setExpandedItems(newExpanded)
   }
 
   const scrollToSection = (sectionTitle) => {
-    // Try different selectors to find the section
-    const selectors = [
-      `h2:contains("${sectionTitle}")`,
-      `h3:contains("${sectionTitle}")`,
-      `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '-')}"]`,
-      `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '_')}"]`
-    ]
-    
-    let element = null
-    for (const selector of selectors) {
-      try {
-        element = document.querySelector(selector)
-        if (element) break
-      } catch (e) {
-        // Invalid selector, try next one
-        continue
-      }
-    }
-    
-    // Fallback: search for text content
-    if (!element) {
-      const allElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-      for (const el of allElements) {
-        if (el.textContent.trim() === sectionTitle) {
-          element = el
-          break
+    // Wait a bit for any page transitions to complete
+    setTimeout(() => {
+      // Try different selectors to find the section
+      const selectors = [
+        `h2:contains("${sectionTitle}")`,
+        `h3:contains("${sectionTitle}")`,
+        `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '-')}"]`,
+        `[id*="${sectionTitle.toLowerCase().replace(/\s+/g, '_')}"]`
+      ]
+      
+      let element = null
+      for (const selector of selectors) {
+        try {
+          element = document.querySelector(selector)
+          if (element) break
+        } catch (e) {
+          // Invalid selector, try next one
+          continue
         }
       }
-    }
-    
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
+      
+      // Fallback: search for text content
+      if (!element) {
+        const allElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+        for (const el of allElements) {
+          if (el.textContent.trim() === sectionTitle) {
+            element = el
+            break
+          }
+        }
+      }
+      
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }, 100)
   }
 
   // Navigation items - like the pages panel in Figma
@@ -160,9 +163,9 @@ function Layout({ children }) {
                         }}
                       >
                         {isExpanded ? (
-                          <ChevronDown className="expand-icon" />
+                          <ChevronUp className="expand-icon" />
                         ) : (
-                          <ChevronRight className="expand-icon" />
+                          <ChevronDown className="expand-icon" />
                         )}
                       </button>
                     )}
@@ -181,7 +184,6 @@ function Layout({ children }) {
                           setIsMobileMenuOpen(false)
                         }}
                       >
-                        <span className="subsection-indicator">└─</span>
                         <span className="subsection-title">{section.title}</span>
                       </button>
                     ))}
