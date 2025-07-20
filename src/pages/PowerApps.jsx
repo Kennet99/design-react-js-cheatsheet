@@ -1010,6 +1010,440 @@ const buttonComponent: DesignComponent = {
       </div>
 
       <div className="concept-card">
+        <h2>Dataverse Functions & Design Integration</h2>
+        <div className="figma-analogy">
+          <strong>Figma Analogy:</strong> Dataverse Functions are like Figma's plugin API - they extend your design capabilities by connecting to external data sources and services, allowing you to create dynamic, data-driven designs.
+        </div>
+        <div className="syntax-example">
+          <h4>Core Dataverse Functions:</h4>
+          <SyntaxExample
+            code={`// Dataverse Functions for Data Context
+// 1. LookUp - Find specific records
+LookUp(Accounts, AccountNumber = "ACC001", Name)
+LookUp(Contacts, Email = "designer@company.com", FullName)
+
+// 2. Filter - Get filtered collections
+Filter(Products, Category = "Design Tools")
+Filter(Projects, Status = "In Progress" && Priority = "High")
+
+// 3. CountRows - Count records
+CountRows(Filter(DesignAssets, Type = "Logo"))
+CountRows(Filter(Projects, AssignedTo = User().Email))
+
+// 4. Sum - Aggregate calculations
+Sum(Filter(ProjectExpenses, Category = "Design"), Amount)
+Sum(Filter(TimeEntries, Project = "Website Redesign"), Hours)
+
+// 5. First - Get first record
+First(Sort(DesignAssets, CreatedDate, Descending))
+First(Filter(Projects, Status = "Active"))
+
+// 6. Collect - Create collections
+Collect(DesignTokens, {Name: "Primary Blue", Value: "#3b82f6"})
+Collect(ProjectNotes, {Project: "Logo Design", Note: "Client approved concept"})
+
+// 7. Patch - Update records
+Patch(Projects, LookUp(Projects, ID = 1), {Status: "Completed"})
+Patch(DesignAssets, LookUp(DesignAssets, Name = "Logo"), {Status: "Approved"})
+
+// 8. RemoveIf - Delete records
+RemoveIf(DesignTokens, Name = "Old Color")
+RemoveIf(ProjectNotes, Project = "Completed Project")`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Dataverse Function Input:</strong>
+              <ul>
+                <li><code>tableName</code> (string) - Dataverse table name</li>
+                <li><code>condition</code> (boolean) - Filter condition</li>
+                <li><code>columnName</code> (string) - Column to query</li>
+                <li><code>value</code> (any) - Value to match</li>
+                <li><code>record</code> (object) - Record to create/update</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Dataverse Function Output:</strong>
+              <ul>
+                <li><code>record</code> - Single record from LookUp</li>
+                <li><code>collection</code> - Filtered records</li>
+                <li><code>number</code> - Count or sum result</li>
+                <li><code>boolean</code> - Success/failure status</li>
+                <li><code>any</code> - Specific column value</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="interactive-example">
+          <div className="code-panel">
+            <CodeExample
+              code={`// Dataverse Functions - Data Context Examples
+// 1. Design Project Management
+CurrentProject = LookUp(Projects, ID = Gallery1.Selected.ID, ProjectName)
+ProjectAssets = Filter(DesignAssets, Project = CurrentProject)
+AssetCount = CountRows(ProjectAssets)
+TotalProjectHours = Sum(Filter(TimeEntries, Project = CurrentProject), Hours)
+
+// 2. Design System Management
+ColorTokens = Filter(DesignTokens, Category = "Color")
+TypographyTokens = Filter(DesignTokens, Category = "Typography")
+MostUsedComponent = First(Sort(ComponentUsage, UsageCount, Descending))
+
+// 3. Client Management
+ActiveClients = Filter(Clients, Status = "Active")
+ClientProjects = Filter(Projects, Client = Gallery1.Selected.ClientName)
+ClientBudget = Sum(ClientProjects, Budget)
+
+// 4. Team Collaboration
+TeamMembers = Filter(Users, Department = "Design")
+AssignedProjects = Filter(Projects, AssignedTo = User().Email)
+TeamWorkload = CountRows(AssignedProjects)
+
+// JavaScript/React Equivalents
+// 1. Design Project Management
+const useProjectData = (projectId) => {
+  const currentProject = projects.find(p => p.id === projectId);
+  const projectAssets = designAssets.filter(asset => asset.project === currentProject?.name);
+  const assetCount = projectAssets.length;
+  const totalHours = timeEntries
+    .filter(entry => entry.project === currentProject?.name)
+    .reduce((sum, entry) => sum + entry.hours, 0);
+  
+  return { currentProject, projectAssets, assetCount, totalHours };
+};
+
+// 2. Design System Management
+const useDesignSystem = () => {
+  const colorTokens = designTokens.filter(token => token.category === "Color");
+  const typographyTokens = designTokens.filter(token => token.category === "Typography");
+  const mostUsedComponent = componentUsage
+    .sort((a, b) => b.usageCount - a.usageCount)[0];
+  
+  return { colorTokens, typographyTokens, mostUsedComponent };
+};
+
+// 3. Client Management
+const useClientData = () => {
+  const activeClients = clients.filter(client => client.status === "Active");
+  const clientProjects = projects.filter(project => 
+    project.client === selectedClient?.name
+  );
+  const clientBudget = clientProjects.reduce((sum, project) => sum + project.budget, 0);
+  
+  return { activeClients, clientProjects, clientBudget };
+};`}
+              explanation="Dataverse Functions provide declarative data access similar to React hooks, enabling designers to create data-driven interfaces without complex backend logic."
+            />
+          </div>
+          <div className="output-panel">
+            <h4>Data Context Demo:</h4>
+            <div className="output-content">
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Project Data Lookup:</label>
+                  <select 
+                    id="projectSelector"
+                    defaultValue="1"
+                    onChange={(e) => {
+                      const projectId = parseInt(e.target.value);
+                      const project = powerAppsCollection.find(p => p.id === projectId);
+                      if (project) {
+                        document.getElementById('projectName').textContent = project.name;
+                        document.getElementById('projectStatus').textContent = project.status;
+                        document.getElementById('projectPriority').textContent = project.priority;
+                      }
+                    }}
+                  >
+                    <option value="1">Homepage Redesign</option>
+                    <option value="2">Mobile App Design</option>
+                    <option value="3">Brand Guidelines</option>
+                  </select>
+                  <div className="result">
+                    <div>Name: <span id="projectName">Homepage Redesign</span></div>
+                    <div>Status: <span id="projectStatus">In Progress</span></div>
+                    <div>Priority: <span id="projectPriority">High</span></div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Design Asset Count:</label>
+                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', marginTop: '8px'}}>
+                    <div style={{padding: '8px', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '4px', textAlign: 'center'}}>
+                      <div style={{fontSize: '12px', color: '#6b7280'}}>Logos</div>
+                      <div style={{fontSize: '18px', fontWeight: 'bold'}}>12</div>
+                    </div>
+                    <div style={{padding: '8px', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '4px', textAlign: 'center'}}>
+                      <div style={{fontSize: '12px', color: '#6b7280'}}>Icons</div>
+                      <div style={{fontSize: '18px', fontWeight: 'bold'}}>48</div>
+                    </div>
+                    <div style={{padding: '8px', background: 'rgba(245, 158, 11, 0.1)', borderRadius: '4px', textAlign: 'center'}}>
+                      <div style={{fontSize: '12px', color: '#6b7280'}}>Mockups</div>
+                      <div style={{fontSize: '18px', fontWeight: 'bold'}}>24</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="concept-card">
+        <h2>Dataverse Functions - Design Context</h2>
+        <div className="figma-analogy">
+          <strong>Figma Analogy:</strong> Using Dataverse Functions for design is like having a smart design system that automatically adapts colors, typography, and layouts based on user preferences, brand guidelines, and project requirements.
+        </div>
+        <div className="syntax-example">
+          <h4>Design-Focused Dataverse Functions:</h4>
+          <SyntaxExample
+            code={`// Dataverse Functions for Design Context
+// 1. Dynamic Color Management
+PrimaryColor = LookUp(DesignTokens, Name = "Primary", Value)
+SecondaryColor = LookUp(DesignTokens, Name = "Secondary", Value)
+AccentColor = LookUp(DesignTokens, Name = "Accent", Value)
+
+// 2. User Preference-Based Theming
+UserTheme = LookUp(UserPreferences, User = User().Email, Theme)
+IsDarkMode = UserTheme = "Dark"
+BackgroundColor = If(IsDarkMode, 
+  LookUp(DesignTokens, Name = "Dark Background", Value),
+  LookUp(DesignTokens, Name = "Light Background", Value)
+)
+
+// 3. Brand-Specific Design Elements
+BrandLogo = LookUp(BrandAssets, Type = "Logo", FileURL)
+BrandColors = Filter(DesignTokens, Category = "Brand Colors")
+BrandTypography = LookUp(DesignTokens, Name = "Brand Font", Value)
+
+// 4. Project-Specific Design Context
+ProjectBrand = LookUp(Projects, ID = Gallery1.Selected.ID, Brand)
+ProjectColors = Filter(DesignTokens, Brand = ProjectBrand)
+ProjectTypography = LookUp(Projects, ID = Gallery1.Selected.ID, Typography)
+
+// 5. Component Usage Analytics
+MostUsedButton = First(Sort(ComponentUsage, UsageCount, Descending))
+ButtonVariants = Filter(ComponentVariants, Component = "Button")
+PopularColors = First(Sort(ColorUsage, UsageCount, Descending))
+
+// 6. Design System Compliance
+CompliantComponents = Filter(Components, BrandCompliant = true)
+ComplianceRate = (CountRows(CompliantComponents) / CountRows(Components)) * 100
+DesignGuidelines = Filter(BrandGuidelines, Active = true)
+
+// 7. Dynamic Content Based on Data
+WelcomeMessage = "Welcome, " & LookUp(Users, Email = User().Email, FullName) & "!"
+ProjectCount = CountRows(Filter(Projects, AssignedTo = User().Email))
+NotificationCount = CountRows(Filter(Notifications, User = User().Email, Read = false))
+
+// 8. Responsive Design Context
+ScreenSize = If(Self.Width < 768, "Mobile", If(Self.Width < 1024, "Tablet", "Desktop"))
+ResponsiveLayout = LookUp(Layouts, ScreenSize = ScreenSize, LayoutType)`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Design Context Input:</strong>
+              <ul>
+                <li><code>userPreference</code> (string) - User theme preference</li>
+                <li><code>brandGuideline</code> (object) - Brand design rules</li>
+                <li><code>projectContext</code> (object) - Project-specific settings</li>
+                <li><code>componentUsage</code> (number) - Component usage count</li>
+                <li><code>screenSize</code> (string) - Responsive breakpoint</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Design Context Output:</strong>
+              <ul>
+                <li><code>colorValue</code> - Dynamic color selection</li>
+                <li><code>typography</code> - Font family and size</li>
+                <li><code>layout</code> - Responsive layout type</li>
+                <li><code>component</code> - Design component variant</li>
+                <li><code>content</code> - Dynamic text content</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="interactive-example">
+          <div className="code-panel">
+            <CodeExample
+              code={`// Dataverse Functions - Design Context Examples
+// 1. Dynamic Theme System
+App.Formulas:
+  // User-based theming
+  UserTheme = LookUp(UserPreferences, User = User().Email, Theme)
+  IsDarkMode = UserTheme = "Dark"
+  
+  // Dynamic color system
+  PrimaryColor = If(IsDarkMode,
+    LookUp(DesignTokens, Name = "Dark Primary", Value),
+    LookUp(DesignTokens, Name = "Light Primary", Value)
+  )
+  
+  BackgroundColor = If(IsDarkMode,
+    LookUp(DesignTokens, Name = "Dark Background", Value),
+    LookUp(DesignTokens, Name = "Light Background", Value)
+  )
+  
+  TextColor = If(IsDarkMode,
+    LookUp(DesignTokens, Name = "Dark Text", Value),
+    LookUp(DesignTokens, Name = "Light Text", Value)
+  )
+
+// 2. Brand-Aware Design System
+App.Formulas:
+  // Project-specific branding
+  CurrentProject = Gallery1.Selected
+  ProjectBrand = LookUp(Projects, ID = CurrentProject.ID, Brand)
+  
+  // Brand-specific colors
+  BrandPrimary = LookUp(DesignTokens, Brand = ProjectBrand && Name = "Primary", Value)
+  BrandSecondary = LookUp(DesignTokens, Brand = ProjectBrand && Name = "Secondary", Value)
+  
+  // Brand-specific typography
+  BrandFont = LookUp(DesignTokens, Brand = ProjectBrand && Category = "Typography", Value)
+  BrandFontSize = LookUp(DesignTokens, Brand = ProjectBrand && Name = "Body Size", Value)
+
+// 3. Component Usage Analytics
+App.Formulas:
+  // Most used components
+  PopularButton = First(Sort(ComponentUsage, UsageCount, Descending))
+  ButtonUsageCount = LookUp(ComponentUsage, Component = "Button", UsageCount)
+  
+  // Component variants
+  ButtonVariants = Filter(ComponentVariants, Component = "Button")
+  PrimaryButtonStyle = LookUp(ButtonVariants, Variant = "Primary", Style)
+
+// React Equivalent - Dynamic Theme System
+const useDynamicTheme = () => {
+  const [userTheme, setUserTheme] = useState('light');
+  const isDarkMode = userTheme === 'dark';
+  
+  const theme = useMemo(() => ({
+    primaryColor: isDarkMode ? '#1e40af' : '#3b82f6',
+    backgroundColor: isDarkMode ? '#1f2937' : '#ffffff',
+    textColor: isDarkMode ? '#f9fafb' : '#111827'
+  }), [isDarkMode]);
+  
+  return { theme, isDarkMode, setUserTheme };
+};
+
+// React Equivalent - Brand-Aware Design
+const useBrandDesign = (projectId) => {
+  const project = projects.find(p => p.id === projectId);
+  const brand = project?.brand;
+  
+  const brandDesign = useMemo(() => ({
+    primaryColor: designTokens.find(t => t.brand === brand && t.name === "Primary")?.value,
+    secondaryColor: designTokens.find(t => t.brand === brand && t.name === "Secondary")?.value,
+    font: designTokens.find(t => t.brand === brand && t.category === "Typography")?.value
+  }), [brand]);
+  
+  return brandDesign;
+};
+
+// React Equivalent - Component Analytics
+const useComponentAnalytics = () => {
+  const popularButton = componentUsage
+    .sort((a, b) => b.usageCount - a.usageCount)[0];
+  
+  const buttonVariants = componentVariants.filter(v => v.component === "Button");
+  
+  return { popularButton, buttonVariants };
+};`}
+              explanation="Dataverse Functions enable dynamic, context-aware design systems that adapt to user preferences, brand guidelines, and project requirements."
+            />
+          </div>
+          <div className="output-panel">
+            <h4>Design Context Demo:</h4>
+            <div className="output-content">
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Dynamic Theme System:</label>
+                  <button 
+                    onClick={() => setPowerAppsTheme(powerAppsTheme === 'light' ? 'dark' : 'light')}
+                    style={{
+                      backgroundColor: powerAppsTheme === 'dark' ? '#1e40af' : '#3b82f6',
+                      color: 'white',
+                      padding: '8px 16px',
+                      border: 'none',
+                      borderRadius: '4px',
+                      marginBottom: '12px'
+                    }}
+                  >
+                    Switch to {powerAppsTheme === 'light' ? 'Dark' : 'Light'} Theme
+                  </button>
+                  <div style={{
+                    padding: '16px',
+                    backgroundColor: powerAppsTheme === 'dark' ? '#1f2937' : '#ffffff',
+                    color: powerAppsTheme === 'dark' ? '#f9fafb' : '#111827',
+                    borderRadius: '8px',
+                    border: '1px solid',
+                    borderColor: powerAppsTheme === 'dark' ? '#374151' : '#e5e7eb'
+                  }}>
+                    <h3 style={{margin: '0 0 8px 0'}}>Dynamic Design Card</h3>
+                    <p style={{margin: '0 0 12px 0'}}>This card adapts to the selected theme using Dataverse Functions.</p>
+                    <div style={{display: 'flex', gap: '8px'}}>
+                      <button style={{
+                        backgroundColor: powerAppsTheme === 'dark' ? '#1e40af' : '#3b82f6',
+                        color: 'white',
+                        padding: '6px 12px',
+                        border: 'none',
+                        borderRadius: '4px',
+                        fontSize: '14px'
+                      }}>
+                        Primary Action
+                      </button>
+                      <button style={{
+                        backgroundColor: 'transparent',
+                        color: powerAppsTheme === 'dark' ? '#f9fafb' : '#111827',
+                        padding: '6px 12px',
+                        border: '1px solid',
+                        borderColor: powerAppsTheme === 'dark' ? '#374151' : '#e5e7eb',
+                        borderRadius: '4px',
+                        fontSize: '14px'
+                      }}>
+                        Secondary Action
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Brand-Aware Components:</label>
+                  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '8px'}}>
+                    <div style={{
+                      padding: '12px',
+                      backgroundColor: '#3b82f6',
+                      color: 'white',
+                      borderRadius: '6px',
+                      textAlign: 'center'
+                    }}>
+                      <div style={{fontSize: '12px', opacity: 0.8}}>Brand Primary</div>
+                      <div style={{fontSize: '16px', fontWeight: 'bold'}}>#3b82f6</div>
+                    </div>
+                    <div style={{
+                      padding: '12px',
+                      backgroundColor: '#6b7280',
+                      color: 'white',
+                      borderRadius: '6px',
+                      textAlign: 'center'
+                    }}>
+                      <div style={{fontSize: '12px', opacity: 0.8}}>Brand Secondary</div>
+                      <div style={{fontSize: '16px', fontWeight: 'bold'}}>#6b7280</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="concept-card">
         <h2>Data vs Design Use Cases</h2>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Just like Figma can be used for both data visualization and pure design, Power Apps bridges business data with design workflows.
