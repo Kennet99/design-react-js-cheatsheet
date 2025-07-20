@@ -1209,6 +1209,113 @@
   color: #9cdcfe !important; /* VS Code light blue for destructured variables */
 }
 
+/* Enhanced JavaScript/JSX specific highlighting */
+/* Array methods and properties */
+.syntax-code .hljs-variable + .hljs-punctuation + .hljs-built_in,
+.code-example .hljs-variable + .hljs-punctuation + .hljs-built_in,
+.reference-code .hljs-variable + .hljs-punctuation + .hljs-built_in {
+  color: #dcdcaa !important; /* VS Code yellow for array methods like .map */
+}
+
+/* Array method parameters */
+.syntax-code .hljs-built_in + .hljs-punctuation + .hljs-variable,
+.code-example .hljs-built_in + .hljs-punctuation + .hljs-variable,
+.reference-code .hljs-built_in + .hljs-punctuation + .hljs-variable {
+  color: #9cdcfe !important; /* VS Code light blue for map parameters like 'item' */
+}
+
+/* useState destructuring */
+.syntax-code .hljs-punctuation + .hljs-variable + .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.code-example .hljs-punctuation + .hljs-variable + .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.reference-code .hljs-punctuation + .hljs-variable + .hljs-punctuation + .hljs-variable + .hljs-punctuation {
+  color: #9cdcfe !important; /* VS Code light blue for destructured variables */
+}
+
+/* JSX expressions in curly braces */
+.syntax-code .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.code-example .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.reference-code .hljs-punctuation + .hljs-variable + .hljs-punctuation {
+  color: #9cdcfe !important; /* VS Code light blue for JSX expressions */
+}
+
+/* Object property access */
+.syntax-code .hljs-variable + .hljs-punctuation + .hljs-property,
+.code-example .hljs-variable + .hljs-punctuation + .hljs-property,
+.reference-code .hljs-variable + .hljs-punctuation + .hljs-property {
+  color: #9cdcfe !important; /* VS Code light blue for object properties */
+}
+
+/* Force all array variables to be light blue */
+.syntax-code .hljs-variable,
+.code-example .hljs-variable,
+.reference-code .hljs-variable {
+  color: #9cdcfe !important; /* VS Code light blue for all variables including arrays */
+}
+
+/* Force all parentheses content to be properly colored */
+.syntax-code .hljs-punctuation + *,
+.code-example .hljs-punctuation + *,
+.reference-code .hljs-punctuation + * {
+  color: inherit !important; /* Inherit proper colors for content after punctuation */
+}
+
+/* Specific highlighting for useState pattern */
+.syntax-code .hljs-keyword + .hljs-punctuation + .hljs-variable + .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.code-example .hljs-keyword + .hljs-punctuation + .hljs-variable + .hljs-punctuation + .hljs-variable + .hljs-punctuation,
+.reference-code .hljs-keyword + .hljs-punctuation + .hljs-variable + .hljs-punctuation + .hljs-variable + .hljs-punctuation {
+  color: #9cdcfe !important; /* VS Code light blue for destructured useState variables */
+}
+
+/* Comprehensive JavaScript variable highlighting */
+/* All variables should be light blue */
+.syntax-code .hljs-variable,
+.code-example .hljs-variable,
+.reference-code .hljs-variable {
+  color: #9cdcfe !important; /* VS Code light blue for all variables */
+}
+
+/* All function names should be yellow */
+.syntax-code .hljs-title,
+.code-example .hljs-title,
+.reference-code .hljs-title {
+  color: #dcdcaa !important; /* VS Code yellow for function names */
+}
+
+/* All built-in methods should be yellow */
+.syntax-code .hljs-built_in,
+.code-example .hljs-built_in,
+.reference-code .hljs-built_in {
+  color: #dcdcaa !important; /* VS Code yellow for built-in methods */
+}
+
+/* All object properties should be light blue */
+.syntax-code .hljs-property,
+.code-example .hljs-property,
+.reference-code .hljs-property {
+  color: #9cdcfe !important; /* VS Code light blue for object properties */
+}
+
+/* Force all text elements to inherit proper colors */
+.syntax-code .hljs *,
+.code-example .hljs *,
+.reference-code .hljs * {
+  color: inherit !important;
+}
+
+/* Override any white text with proper colors */
+.syntax-code .hljs,
+.code-example .hljs,
+.reference-code .hljs {
+  color: #d4d4d4 !important; /* VS Code light gray for default text */
+}
+
+/* Ensure all code elements have proper highlighting */
+.syntax-code code,
+.code-example code,
+.reference-code code {
+  color: #d4d4d4 !important; /* VS Code light gray for default text */
+}
+
 /* Ensure all syntax elements are visible */
 .syntax-code *,
 .code-example *,
