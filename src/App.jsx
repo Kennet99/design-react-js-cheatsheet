@@ -403,6 +403,37 @@ functionName(argument);     // Call function`}
             language="javascript"
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Input Parameters:</strong>
+              <ul>
+                <li><code>parameter</code> (any) - Function input value</li>
+                <li><code>param</code> (any) - Arrow function input</li>
+                <li><code>argument</code> (any) - Value passed when calling</li>
+              </ul>
+              <strong>Default Parameters:</strong>
+              <ul>
+                <li><code>function greet(name = "User")</code> - Default value if none provided</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Return Values:</strong>
+              <ul>
+                <li><code>value</code> (any) - Function output</li>
+                <li><code>undefined</code> - If no return statement</li>
+                <li><code>Promise</code> - For async functions</li>
+              </ul>
+              <strong>Function Types:</strong>
+              <ul>
+                <li><code>function</code> - Traditional function declaration</li>
+                <li><code>arrow function</code> - Modern concise syntax</li>
+                <li><code>async function</code> - Returns Promise</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -534,6 +565,47 @@ const obj = {
 };`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>String Methods:</strong>
+              <ul>
+                <li><code>toUpperCase()</code> - No parameters</li>
+                <li><code>toLowerCase()</code> - No parameters</li>
+                <li><code>substring(start, end)</code> - start (number), end (number, optional)</li>
+                <li><code>replace(search, replace)</code> - search (string/regex), replace (string)</li>
+                <li><code>split(separator)</code> - separator (string/regex)</li>
+              </ul>
+              <strong>Array Methods:</strong>
+              <ul>
+                <li><code>push(item)</code> - item (any) - Adds to end</li>
+                <li><code>pop()</code> - No parameters - Removes from end</li>
+                <li><code>unshift(item)</code> - item (any) - Adds to beginning</li>
+                <li><code>shift()</code> - No parameters - Removes from beginning</li>
+                <li><code>splice(start, deleteCount, ...items)</code> - start (number), deleteCount (number), items (any)</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>String Returns:</strong>
+              <ul>
+                <li><code>toUpperCase()</code> → string (new uppercase string)</li>
+                <li><code>toLowerCase()</code> → string (new lowercase string)</li>
+                <li><code>substring()</code> → string (substring)</li>
+                <li><code>replace()</code> → string (new string with replacements)</li>
+                <li><code>split()</code> → array (array of substrings)</li>
+              </ul>
+              <strong>Array Returns:</strong>
+              <ul>
+                <li><code>push()</code> → number (new array length)</li>
+                <li><code>pop()</code> → any (removed item)</li>
+                <li><code>unshift()</code> → number (new array length)</li>
+                <li><code>shift()</code> → any (removed item)</li>
+                <li><code>splice()</code> → array (removed items)</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -691,6 +763,43 @@ function Counter() {
 const instance = new ClassName(value);`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Constructor Parameters:</strong>
+              <ul>
+                <li><code>parameter</code> (any) - Initial value for property</li>
+                <li><code>value</code> (any) - Argument passed to constructor</li>
+                <li><code>multiple parameters</code> - Can accept multiple arguments</li>
+              </ul>
+              <strong>Method Parameters:</strong>
+              <ul>
+                <li><code>methodName(param1, param2)</code> - Method input parameters</li>
+                <li><code>getter methods</code> - Usually no parameters</li>
+                <li><code>setter methods</code> - Usually one parameter</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Constructor Output:</strong>
+              <ul>
+                <li><code>instance</code> (object) - New class instance</li>
+                <li><code>this.property</code> - Instance property set from parameter</li>
+              </ul>
+              <strong>Method Returns:</strong>
+              <ul>
+                <li><code>value</code> (any) - Method return value</li>
+                <li><code>undefined</code> - If no return statement</li>
+                <li><code>this</code> - For method chaining</li>
+              </ul>
+              <strong>Instance Properties:</strong>
+              <ul>
+                <li><code>instance.property</code> - Access instance property</li>
+                <li><code>instance.methodName()</code> - Call instance method</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -999,6 +1108,40 @@ function greet(name = "User") {     // Default parameter
             language="javascript"
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Parameter Types:</strong>
+              <ul>
+                <li><code>parameter1, parameter2</code> (any) - Function input parameters</li>
+                <li><code>argument1, argument2</code> (any) - Values passed when calling</li>
+                <li><code>name = "User"</code> (any) - Default parameter value</li>
+              </ul>
+              <strong>Parameter Patterns:</strong>
+              <ul>
+                <li><code>required parameters</code> - Must be provided</li>
+                <li><code>optional parameters</code> - Can be undefined</li>
+                <li><code>default parameters</code> - Fallback value if not provided</li>
+                <li><code>rest parameters</code> - <code>...args</code> collects remaining arguments</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Argument Validation:</strong>
+              <ul>
+                <li><code>typeof</code> - Check parameter type</li>
+                <li><code>Array.isArray()</code> - Check if array</li>
+                <li><code>parameter === undefined</code> - Check if provided</li>
+              </ul>
+              <strong>Common Patterns:</strong>
+              <ul>
+                <li><code>destructuring</code> - <code>({prop1, prop2})</code> extract object properties</li>
+                <li><code>array destructuring</code> - <code>([first, second])</code> extract array elements</li>
+                <li><code>rest operator</code> - <code>(first, ...rest)</code> collect remaining arguments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -1130,8 +1273,8 @@ let userDeepCopy2 = Object.assign({}, user); // Object.assign`}
                       setFundamentalPrimitiveNameCopy('Jane')
                     }}>Change Copy to "Jane"</button>
                     <button onClick={() => {
-                      setFundamentalPrimitiveName('Sarah')
-                      setFundamentalPrimitiveNameCopy('Sarah')
+                      setFundamentalPrimitiveName('Sarah');
+                      setFundamentalPrimitiveNameCopy('Sarah');
                     }}>Reset Both</button>
                   </div>
                   <div className="result" style={{fontSize: '12px', color: '#94a3b8'}}>
@@ -1149,8 +1292,8 @@ let userDeepCopy2 = Object.assign({}, user); // Object.assign`}
                       setFundamentalReferenceUserCopy(prev => ({...prev, name: 'Jane'}))
                     }}>Change Copy to "Jane"</button>
                     <button onClick={() => {
-                      setFundamentalReferenceUser({name: 'Sarah', age: 28})
-                      setFundamentalReferenceUserCopy({name: 'Sarah', age: 28})
+                      setFundamentalReferenceUser({name: 'Sarah', age: 28});
+                      setFundamentalReferenceUserCopy({name: 'Sarah', age: 28});
                     }}>Reset Both</button>
                   </div>
                   <div className="result" style={{fontSize: '12px', color: '#ef4444'}}>
@@ -1168,8 +1311,8 @@ let userDeepCopy2 = Object.assign({}, user); // Object.assign`}
                       setFundamentalReferenceArraySpread(prev => [...prev, 'yellow'])
                     }}>Add "yellow" to spread copy</button>
                     <button onClick={() => {
-                      setFundamentalReferenceArray(['red', 'blue', 'green'])
-                      setFundamentalReferenceArraySpread(['red', 'blue', 'green'])
+                      setFundamentalReferenceArray(['red', 'blue', 'green']);
+                      setFundamentalReferenceArraySpread(['red', 'blue', 'green']);
                     }}>Reset Arrays</button>
                   </div>
                   <div className="result" style={{fontSize: '12px', color: '#10b981'}}>
@@ -1185,8 +1328,8 @@ let userDeepCopy2 = Object.assign({}, user); // Object.assign`}
                   <div className="button-group">
                     <button onClick={() => {
                       // ❌ Wrong way - mutates original object
-                      fundamentalReactUser.age = fundamentalReactUser.age + 1
-                      setFundamentalReactUser(fundamentalReactUser) // React won't re-render!
+                      fundamentalReactUser.age = fundamentalReactUser.age + 1;
+                      setFundamentalReactUser(fundamentalReactUser); // React won't re-render!
                     }}>Wrong: Direct Mutation</button>
                     <button onClick={() => {
                       // ✅ Correct way - creates new object
@@ -2188,6 +2331,42 @@ ComponentName.propTypes = {
             language="javascript"
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Component Props:</strong>
+              <ul>
+                <li><code>prop1, prop2</code> (any) - Custom props passed to component</li>
+                <li><code>children</code> (ReactNode) - Content between component tags</li>
+                <li><code>...otherProps</code> (object) - Rest operator for additional props</li>
+              </ul>
+              <strong>Prop Types:</strong>
+              <ul>
+                <li><code>string</code> - Text values</li>
+                <li><code>number</code> - Numeric values</li>
+                <li><code>boolean</code> - True/false values</li>
+                <li><code>function</code> - Event handlers, callbacks</li>
+                <li><code>object</code> - Complex data structures</li>
+                <li><code>array</code> - Lists of data</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Component Returns:</strong>
+              <ul>
+                <li><code>JSX element</code> - Rendered component output</li>
+                <li><code>null</code> - Conditional rendering</li>
+                <li><code>React.Fragment</code> - Multiple elements without wrapper</li>
+              </ul>
+              <strong>Prop Patterns:</strong>
+              <ul>
+                <li><code>destructuring</code> - Extract specific props</li>
+                <li><code>default values</code> - Fallback for missing props</li>
+                <li><code>prop spreading</code> - Pass through additional props</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -2744,6 +2923,39 @@ const [user, setUser] = useState({ name: '', email: '' });
 const [todos, setTodos] = useState([]);`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>useState Parameters:</strong>
+              <ul>
+                <li><code>initialValue</code> (any) - Initial state value</li>
+                <li><code>initializer function</code> (function) - Lazy initialization</li>
+                <li><code>undefined</code> - Default if no initial value</li>
+              </ul>
+              <strong>setState Parameters:</strong>
+              <ul>
+                <li><code>newValue</code> (any) - Direct value assignment</li>
+                <li><code>updater function</code> (function) - Function that receives previous state</li>
+                <li><code>prevState =&gt; newState</code> - Safe for multiple updates</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>useState Returns:</strong>
+              <ul>
+                <li><code>state</code> (any) - Current state value</li>
+                <li><code>setState</code> (function) - State updater function</li>
+                <li><code>[state, setState]</code> - Array destructuring</li>
+              </ul>
+              <strong>State Update Behavior:</strong>
+              <ul>
+                <li><code>Object.is()</code> - React uses this for comparison</li>
+                <li><code>re-render</code> - Component re-renders on state change</li>
+                <li><code>batch updates</code> - Multiple setState calls are batched</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -3316,6 +3528,40 @@ users.map(user => <UserCard key={user.id} user={user} />);`}
             language="javascript"
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>map() Parameters:</strong>
+              <ul>
+                <li><code>callback function</code> (function) - Function to execute on each element</li>
+                <li><code>item</code> (any) - Current array element</li>
+                <li><code>index</code> (number) - Current element index (optional)</li>
+                <li><code>array</code> (array) - Original array (optional)</li>
+              </ul>
+              <strong>Callback Function:</strong>
+              <ul>
+                <li><code>item =&gt; JSX</code> - Transform each item to JSX</li>
+                <li><code>(item, index) =&gt; JSX</code> - With index parameter</li>
+                <li><code>key prop</code> - Unique identifier for React</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>map() Returns:</strong>
+              <ul>
+                <li><code>array</code> - New array with transformed elements</li>
+                <li><code>JSX elements</code> - Array of React components</li>
+                <li><code>same length</code> - Output array has same length as input</li>
+              </ul>
+              <strong>Common Patterns:</strong>
+              <ul>
+                <li><code>list rendering</code> - Transform data to UI components</li>
+                <li><code>conditional rendering</code> - Filter within map</li>
+                <li><code>nested mapping</code> - Map over nested arrays</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -3410,6 +3656,42 @@ tasks.filter(task => task.category === 'design');
 array.filter(item => condition).map(item => <Component />);`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>filter() Parameters:</strong>
+              <ul>
+                <li><code>callback function</code> (function) - Test function for each element</li>
+                <li><code>item</code> (any) - Current array element</li>
+                <li><code>index</code> (number) - Current element index (optional)</li>
+                <li><code>array</code> (array) - Original array (optional)</li>
+              </ul>
+              <strong>Condition Types:</strong>
+              <ul>
+                <li><code>boolean</code> - true/false condition</li>
+                <li><code>property check</code> - item.property === value</li>
+                <li><code>type check</code> - typeof item === 'string'</li>
+                <li><code>existence check</code> - item !== null &amp;&amp; item !== undefined</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>filter() Returns:</strong>
+              <ul>
+                <li><code>array</code> - New array with filtered elements</li>
+                <li><code>subset</code> - Array length ≤ original array length</li>
+                <li><code>same elements</code> - Elements are not transformed</li>
+              </ul>
+              <strong>Common Patterns:</strong>
+              <ul>
+                <li><code>data filtering</code> - Show only relevant data</li>
+                <li><code>search results</code> - Filter by search term</li>
+                <li><code>category filtering</code> - Filter by category/tag</li>
+                <li><code>chaining</code> - filter().map() for transform</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">

@@ -1510,6 +1510,76 @@
   margin-top: 0;
 }
 
+/* Input/Output Specification Styles */
+.io-specification {
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+}
+
+.io-specification h4 {
+  color: #f9fafb;
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.io-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.io-input,
+.io-output {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.io-input strong,
+.io-output strong {
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.io-input ul,
+.io-output ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.io-input li,
+.io-output li {
+  color: #d1d5db;
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.io-input code,
+.io-output code {
+  color: #fbbf24;
+  background: #374151;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* Responsive design for I/O grid */
+@media (max-width: 768px) {
+  .io-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
 /* Ensure all syntax elements are visible */
 .syntax-code *,
 .code-example *,
