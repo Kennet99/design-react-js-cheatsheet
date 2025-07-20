@@ -5272,6 +5272,8 @@ function MobileNavigation() {
 function HTMLCSSSection() {
   const [activeTab, setActiveTab] = useState('html')
   const [searchTerm, setSearchTerm] = useState('')
+  const [expandedSections, setExpandedSections] = useState(new Set())
+  const [allExpanded, setAllExpanded] = useState(false)
 
   const htmlElements = [
     {
@@ -5715,6 +5717,66 @@ function HTMLCSSSection() {
     }
   ]
 
+  // Accordion functions
+  const toggleSection = (sectionId) => {
+    setExpandedSections(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(sectionId)) {
+        newSet.delete(sectionId)
+      } else {
+        newSet.add(sectionId)
+      }
+      return newSet
+    })
+  }
+
+  const expandAll = () => {
+    const allSectionIds = [
+      ...htmlElements.map(cat => `html-${cat.category}`),
+      ...cssProperties.map(cat => `css-${cat.category}`)
+    ]
+    setExpandedSections(new Set(allSectionIds))
+    setAllExpanded(true)
+  }
+
+  const collapseAll = () => {
+    setExpandedSections(new Set())
+    setAllExpanded(false)
+  }
+
+  // Auto-expand sections that contain search results
+  React.useEffect(() => {
+    if (searchTerm.trim()) {
+      const sectionsToExpand = new Set()
+      
+      htmlElements.forEach(category => {
+        const hasMatch = category.elements.some(element =>
+          element.tag.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          element.description.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        if (hasMatch) {
+          sectionsToExpand.add(`html-${category.category}`)
+        }
+      })
+      
+      cssProperties.forEach(category => {
+        const hasMatch = category.properties.some(prop =>
+          prop.property.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          prop.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          prop.values.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        if (hasMatch) {
+          sectionsToExpand.add(`css-${category.category}`)
+        }
+      })
+      
+      setExpandedSections(sectionsToExpand)
+    } else {
+      // Collapse all when search is cleared
+      setExpandedSections(new Set())
+    }
+  }, [searchTerm])
+
   const filteredHTMLElements = htmlElements.map(category => ({
     ...category,
     elements: category.elements.filter(element =>
@@ -5771,27 +5833,52 @@ function HTMLCSSSection() {
           <div className="cheatsheet-intro">
             <h2>HTML Elements Reference</h2>
             <p>Complete list of HTML elements organized by category. Click on any element to see its usage.</p>
+            <div className="accordion-controls">
+              <button onClick={expandAll} className="accordion-btn">
+                Expand All
+              </button>
+              <button onClick={collapseAll} className="accordion-btn">
+                Collapse All
+              </button>
+            </div>
           </div>
 
-          {filteredHTMLElements.map((category, index) => (
-            <div key={index} className="cheatsheet-category">
-              <h3 className="category-title">{category.category}</h3>
-              <div className="elements-grid">
-                {category.elements.map((element, elementIndex) => (
-                  <div key={elementIndex} className="element-card">
-                    <div className="element-header">
-                      <code className="element-tag">{element.tag}</code>
-                      <span className="element-description">{element.description}</span>
-                    </div>
-                    <div className="element-example">
-                      <strong>Example:</strong>
-                      <code className="example-code">{element.example}</code>
+          {filteredHTMLElements.map((category, index) => {
+            const sectionId = `html-${category.category}`
+            const isExpanded = expandedSections.has(sectionId)
+            
+            return (
+              <div key={index} className="cheatsheet-category accordion-section">
+                <div 
+                  className="accordion-header"
+                  onClick={() => toggleSection(sectionId)}
+                >
+                  <h3 className="category-title">{category.category}</h3>
+                  <span className="accordion-icon">
+                    {isExpanded ? '−' : '+'}
+                  </span>
+                </div>
+                {isExpanded && (
+                  <div className="accordion-content">
+                    <div className="elements-grid">
+                      {category.elements.map((element, elementIndex) => (
+                        <div key={elementIndex} className="element-card">
+                          <div className="element-header">
+                            <code className="element-tag">{element.tag}</code>
+                            <span className="element-description">{element.description}</span>
+                          </div>
+                          <div className="element-example">
+                            <strong>Example:</strong>
+                            <code className="example-code">{element.example}</code>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                ))}
+                )}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
 
@@ -5801,6 +5888,14 @@ function HTMLCSSSection() {
           <div className="cheatsheet-intro">
             <h2>CSS Properties Reference</h2>
             <p>Complete list of CSS properties organized by category. Common values and usage examples included.</p>
+            <div className="accordion-controls">
+              <button onClick={expandAll} className="accordion-btn">
+                Expand All
+              </button>
+              <button onClick={collapseAll} className="accordion-btn">
+                Collapse All
+              </button>
+            </div>
           </div>
 
           {/* Box Model Visual */}
@@ -5849,25 +5944,42 @@ function HTMLCSSSection() {
             </div>
           </div>
 
-          {filteredCSSProperties.map((category, index) => (
-            <div key={index} className="cheatsheet-category">
-              <h3 className="category-title">{category.category}</h3>
-              <div className="properties-grid">
-                {category.properties.map((prop, propIndex) => (
-                  <div key={propIndex} className="property-card">
-                    <div className="property-header">
-                      <code className="property-name">{prop.property}</code>
-                      <span className="property-description">{prop.description}</span>
-                    </div>
-                    <div className="property-values">
-                      <strong>Values:</strong>
-                      <code className="values-code">{prop.values}</code>
+          {filteredCSSProperties.map((category, index) => {
+            const sectionId = `css-${category.category}`
+            const isExpanded = expandedSections.has(sectionId)
+            
+            return (
+              <div key={index} className="cheatsheet-category accordion-section">
+                <div 
+                  className="accordion-header"
+                  onClick={() => toggleSection(sectionId)}
+                >
+                  <h3 className="category-title">{category.category}</h3>
+                  <span className="accordion-icon">
+                    {isExpanded ? '−' : '+'}
+                  </span>
+                </div>
+                {isExpanded && (
+                  <div className="accordion-content">
+                    <div className="properties-grid">
+                      {category.properties.map((prop, propIndex) => (
+                        <div key={propIndex} className="property-card">
+                          <div className="property-header">
+                            <code className="property-name">{prop.property}</code>
+                            <span className="property-description">{prop.description}</span>
+                          </div>
+                          <div className="property-values">
+                            <strong>Values:</strong>
+                            <code className="values-code">{prop.values}</code>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                ))}
+                )}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
 

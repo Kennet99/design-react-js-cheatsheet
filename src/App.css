@@ -1441,6 +1441,75 @@
   color: #d4d4d4 !important; /* VS Code light gray for default text */
 }
 
+/* Accordion Styles */
+.accordion-controls {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.accordion-btn {
+  background: #374151;
+  color: #f9fafb;
+  border: 1px solid #4b5563;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.accordion-btn:hover {
+  background: #4b5563;
+  border-color: #6b7280;
+}
+
+.accordion-section {
+  border: 1px solid #374151;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background: #1f2937;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.accordion-header:hover {
+  background: #374151;
+}
+
+.accordion-header h3 {
+  margin: 0;
+  color: #f9fafb;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.accordion-icon {
+  color: #9ca3af;
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.accordion-content {
+  background: #111827;
+  padding: 20px;
+  border-top: 1px solid #374151;
+}
+
+.accordion-content .elements-grid,
+.accordion-content .properties-grid {
+  margin-top: 0;
+}
+
 /* Ensure all syntax elements are visible */
 .syntax-code *,
 .code-example *,
