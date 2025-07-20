@@ -108,6 +108,7 @@ function Button({ variant, disabled }) {
 
       <div className="concept-card">
         <h2>Design System Translation</h2>
+        <p className="section-summary">Converting Figma design systems into code using CSS variables and React components. This ensures design consistency and makes it easy to maintain and update styles across your application.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Your Figma design system can be directly translated to React components and CSS variables.
         </div>

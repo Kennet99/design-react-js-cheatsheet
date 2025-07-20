@@ -16,6 +16,7 @@ function StylingDesign() {
 
       <div className="concept-card">
         <h2>CSS-in-JS (Styled Components)</h2>
+        <p className="section-summary">Writing CSS directly in JavaScript using styled-components. This approach combines styling with component logic, providing dynamic styles and better component encapsulation.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Styled Components are like Figma components with built-in styles - they combine design and functionality.
         </div>
@@ -154,6 +155,7 @@ function StyledComponentsDemo() {
 
       <div className="concept-card">
         <h2>CSS Modules & Scoped Styling</h2>
+        <p className="section-summary">CSS files with local scope that prevent style conflicts. CSS Modules automatically generate unique class names, ensuring styles only apply to specific components.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> CSS Modules are like component-specific styles in Figma - they don't affect other components.
         </div>
@@ -244,6 +246,7 @@ function Button({ variant = 'primary', children }) {
 
       <div className="concept-card">
         <h2>Utility-First CSS (Tailwind)</h2>
+        <p className="section-summary">Building interfaces using predefined utility classes instead of custom CSS. Tailwind provides a comprehensive set of utility classes for rapid UI development and consistent design.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Tailwind CSS is like using Figma's design tokens and constraints - you build designs with predefined utilities.
         </div>
@@ -344,6 +347,7 @@ function TailwindDemo() {
 
       <div className="concept-card">
         <h2>Responsive Design Patterns</h2>
+        <p className="section-summary">Creating layouts that adapt to different screen sizes and devices. Responsive design uses media queries and flexible layouts to ensure optimal user experience across all devices.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Responsive design is like creating different frame sizes in Figma - you design for multiple screen sizes.
         </div>

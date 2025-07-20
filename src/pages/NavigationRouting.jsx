@@ -28,6 +28,7 @@ function NavigationRouting() {
 
       <div className="concept-card">
         <h2>React Router Basics</h2>
+        <p className="section-summary">Setting up client-side routing to navigate between different pages in a React application. React Router manages URL changes and renders the appropriate components without page reloads.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> React Router is like creating multiple pages in Figma - you can navigate between different views.
         </div>
@@ -158,6 +159,7 @@ function Navigation() {
 
       <div className="concept-card">
         <h2>Dynamic Routes & Parameters</h2>
+        <p className="section-summary">Creating flexible routes that accept parameters from the URL. Dynamic routes enable reusable components that display different content based on URL parameters and query strings.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Dynamic routes are like Figma components with variants - the same component can display different content based on parameters.
         </div>
@@ -274,6 +276,7 @@ function ProductNavigation() {
 
       <div className="concept-card">
         <h2>Protected Routes & Authentication</h2>
+        <p className="section-summary">Controlling access to routes based on user authentication status. Protected routes redirect unauthenticated users to login pages and ensure secure access to private content.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Protected routes are like Figma files with different permission levels - some content is only visible to certain users.
         </div>
@@ -407,6 +410,7 @@ function App() {
 
       <div className="concept-card">
         <h2>Navigation Patterns</h2>
+        <p className="section-summary">Common UI patterns for navigating between different sections of an application. Navigation patterns include breadcrumbs, tabs, sidebars, and other interfaces that help users move through content.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Navigation patterns are like the navigation structure in Figma - you need clear ways to move between different sections.
         </div>

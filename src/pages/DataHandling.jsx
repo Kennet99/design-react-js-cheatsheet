@@ -27,6 +27,7 @@ function DataHandling() {
 
       <div className="concept-card">
         <h2>Mapping Arrays</h2>
+        <p className="section-summary">Transforming arrays of data into React components. map() creates a new array by applying a function to each element, perfect for rendering lists and dynamic content.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> map() is like duplicating components in Figma - you create multiple instances from a list.
         </div>
@@ -147,6 +148,7 @@ function TaskList() {
 
       <div className="concept-card">
         <h2>Filtering Data</h2>
+        <p className="section-summary">Creating subsets of data based on conditions. filter() returns a new array containing only elements that pass a test, enabling dynamic data views and search functionality.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> filter() is like using the layers panel to show/hide elements based on criteria.
         </div>
@@ -281,6 +283,7 @@ function TaskFilter({ category }) {
 
       <div className="concept-card">
         <h2>Conditional Rendering</h2>
+        <p className="section-summary">Showing different UI elements based on conditions or state. Conditional rendering enables dynamic interfaces that adapt to data, user roles, and application state.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Conditional rendering is like using visibility settings in Figma - showing/hiding elements based on conditions.
         </div>
@@ -392,6 +395,7 @@ function UserDashboard({ user, isAdmin }) {
 
       <div className="concept-card">
         <h2>Key-Value Pairs & Object Manipulation</h2>
+        <p className="section-summary">Working with objects as data structures containing named properties. Objects are essential for organizing related data and managing complex state in React applications.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Key-value pairs are like component properties in Figma - each property has a name (key) and a value that can be changed.
         </div>
@@ -507,6 +511,7 @@ const userWithNewProps = { ...user, department: "Design" };`}
 
       <div className="concept-card">
         <h2>Button State Control</h2>
+        <p className="section-summary">Managing interactive button states like loading, disabled, and enabled. State control provides visual feedback and prevents invalid user actions during processing.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Button states are like component variants in Figma - different visual states (normal, hover, disabled) for the same component.
         </div>

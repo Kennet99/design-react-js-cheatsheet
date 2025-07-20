@@ -23,6 +23,7 @@ function ReactCore() {
 
       <div className="concept-card">
         <h2>What is React?</h2>
+        <p className="section-summary">A JavaScript library for building user interfaces with reusable components. React allows you to create interactive, dynamic web applications that efficiently update and render based on data changes.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> React is like Figma's component system on steroids - it's a library for building reusable UI components.
         </div>
@@ -34,6 +35,7 @@ function ReactCore() {
 
       <div className="concept-card">
         <h2>JSX - JavaScript XML</h2>
+        <p className="section-summary">Syntax extension that allows you to write HTML-like code in JavaScript. JSX combines the structure of HTML with the power of JavaScript expressions and logic.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> JSX is like writing design specs in Figma - it combines structure (HTML) with logic (JavaScript).
         </div>
@@ -154,6 +156,7 @@ const element = (
 
       <div className="concept-card">
         <h2>Component Types</h2>
+        <p className="section-summary">Different ways to create React components: function components and class components. Function components are the modern approach and work seamlessly with React hooks.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Different component types are like different types of Figma components - some are simple, others are complex.
         </div>
@@ -255,6 +258,7 @@ const PureButton = React.memo(({ text, onClick }) => (
 
       <div className="concept-card">
         <h2>Fragments & Multiple Elements</h2>
+        <p className="section-summary">How to return multiple elements without adding extra DOM nodes. Fragments allow you to group elements together without creating unnecessary wrapper elements.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Fragments are like grouping elements in Figma without adding an extra container - you can return multiple items without a wrapper.
         </div>
@@ -317,6 +321,7 @@ function ListItems() {
 
       <div className="concept-card">
         <h2>Conditional Rendering</h2>
+        <p className="section-summary">Techniques to show or hide elements based on conditions and state. Conditional rendering allows you to display different content depending on data values or user interactions.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Conditional rendering is like using visibility settings in Figma - show different content based on conditions.
         </div>
@@ -380,6 +385,7 @@ function getStatusColor(status) {
       {/* JavaScript Basics Section - Merged from JSBasics */}
       <div className="concept-card">
         <h2>Variables & State</h2>
+        <p className="section-summary">How to store and manage data that can change and trigger re-renders. React state allows components to maintain dynamic data that updates the UI when changed.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Variables are like text styles or color styles in Figma - they store reusable values.
         </div>
@@ -483,6 +489,7 @@ const colors = ['red', 'blue', 'green'];`}
 
       <div className="concept-card">
         <h2>Arrow Functions</h2>
+        <p className="section-summary">Concise function syntax that preserves the context of 'this' keyword. Arrow functions provide a shorter, more modern way to write functions in JavaScript and React.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Arrow functions are like quick actions in Figma - shorter, more concise ways to perform tasks.
         </div>
@@ -630,6 +637,7 @@ console.log(getRandomNumber());    // 0.123...`}
 
       <div className="concept-card">
         <h2>Ternary Operator</h2>
+        <p className="section-summary">Shorthand conditional operator for inline if-else statements. The ternary operator allows you to write concise conditional logic directly in your code or JSX.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Ternary operators are like conditional visibility in Figma - show one thing if true, another if false.
         </div>

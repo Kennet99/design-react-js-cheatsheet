@@ -34,6 +34,7 @@ function Hooks() {
 
       <div className="concept-card">
         <h2>useState Hook Deep Dive</h2>
+        <p className="section-summary">The fundamental hook for managing component state. useState allows you to add stateful behavior to functional components and trigger re-renders when state changes.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> useState is like having interactive properties in Figma - values that can change and update the UI.
         </div>
@@ -231,6 +232,7 @@ function TodoApp() {
 
       <div className="concept-card">
         <h2>useEffect Hook Deep Dive</h2>
+        <p className="section-summary">Handles side effects in functional components like API calls, subscriptions, and DOM manipulation. useEffect runs after render and can perform cleanup when components unmount.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> useEffect is like auto-layout or smart animate in Figma - it runs code when something changes.
         </div>
@@ -242,7 +244,7 @@ function TodoApp() {
 }, [dependencies]);
 
 // Examples:
-useEffect(() => {}, []);           // Run once
+useEffect(() => {}, []);           // Run only once
 useEffect(() => {}, [dep]);        // Run when dep changes
 useEffect(() => {
   return () => cleanup();          // Cleanup function
@@ -390,6 +392,7 @@ function UserProfile({ userId }) {
 
       <div className="concept-card">
         <h2>Additional Hooks</h2>
+        <p className="section-summary">Specialized hooks for specific use cases like DOM access, performance optimization, and complex state management. These hooks provide advanced functionality beyond basic state and effects.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Additional hooks are like specialized tools in Figma - each serves a specific purpose.
         </div>
@@ -497,6 +500,7 @@ function TodoApp() {
 
       <div className="concept-card">
         <h2>Custom Hooks</h2>
+        <p className="section-summary">Creating reusable logic by extracting stateful behavior into custom functions. Custom hooks allow you to share stateful logic between components and build your own hook library.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Custom hooks are like creating your own plugins in Figma - reusable logic that can be shared between components.
         </div>

@@ -16,6 +16,7 @@ function EventsInteractions() {
 
       <div className="concept-card">
         <h2>Event Handlers</h2>
+        <p className="section-summary">Functions that respond to user interactions like clicks, form submissions, and keyboard input. Event handlers make your UI interactive and responsive to user actions.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Event handlers are like interactions in Figma - they respond to user actions.
         </div>
@@ -164,6 +165,7 @@ function InteractiveButton() {
 
       <div className="concept-card">
         <h2>Form Handling</h2>
+        <p className="section-summary">Managing form state, input validation, and form submission. Form handling enables user data collection and processing with controlled inputs and validation.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> Form handling is like creating input fields in Figma - you collect and process user input.
         </div>
@@ -344,6 +346,7 @@ function ContactForm() {
 
       <div className="concept-card">
         <h2>State Updates</h2>
+        <p className="section-summary">Modifying component state to trigger UI updates. State updates cause React to re-render components with new data, enabling dynamic and interactive interfaces.</p>
         <div className="figma-analogy">
           <strong>Figma Analogy:</strong> State updates are like changing properties in Figma - they trigger visual updates.
         </div>
