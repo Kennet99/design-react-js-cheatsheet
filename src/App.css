@@ -382,7 +382,6 @@
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-4);
   font-weight: 500;
-  border-left: 4px solid #60a5fa;
 }
 
 /* Interactive Examples */
@@ -745,7 +744,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 280px;
+    width: 340px;
     height: 100vh;
     z-index: 1000;
     transform: translateX(-100%);
