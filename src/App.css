@@ -214,25 +214,8 @@
   border-radius: 0 2px 2px 0;
 }
 
-.subsection-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  width: 100%;
-}
-
 .subsection-title {
-  font-weight: 500;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-1);
-}
-
-.subsection-summary {
-  font-size: var(--font-size-xs);
-  color: var(--text-secondary);
-  line-height: 1.4;
-  font-weight: 400;
+  flex: 1;
 }
 
 /* Global Search Styles */
@@ -976,15 +959,7 @@
     font-size: var(--font-size-xs);
   }
 
-  .subsection-title {
-    font-size: var(--font-size-xs);
-    margin-bottom: var(--spacing-1);
-  }
 
-  .subsection-summary {
-    font-size: var(--font-size-xs);
-    line-height: 1.3;
-  }
 
   .expand-icon {
     width: 14px;
