@@ -3,7 +3,7 @@
   display: grid;
   grid-template-areas: 
     "sidebar main";
-  grid-template-columns: 340px 1fr;
+  grid-template-columns: 300px 1fr;
   grid-template-rows: 1fr;
   min-height: 100vh;
   position: relative;
