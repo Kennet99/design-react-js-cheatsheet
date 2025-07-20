@@ -467,6 +467,14 @@
   gap: var(--spacing-3);
 }
 
+.section-summary {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-3);
+  font-weight: 400;
+}
+
 .figma-analogy {
   background: #1e40af;
   color: white;
