@@ -756,94 +756,138 @@ console.log(status);   // "Online" or "Last seen recently" or "Offline"`}
       </div>
 
       <div className="concept-card">
-        <h2>Destructuring</h2>
+        <h2>Logical AND (&&) Operator</h2>
         <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> Destructuring is like extracting specific properties from a component in Figma - you pull out just what you need.
+          <strong>Figma Analogy:</strong> Logical AND is like conditional visibility in Figma - only show an element when a condition is true.
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
           <SyntaxExample
-            code={`// Object destructuring
-const { property1, property2 } = object;
+            code={`// Logical AND operator
+{condition && <Component />}
 
-// Array destructuring
-const [item1, item2] = array;
+// Examples:
+{isLoggedIn && <UserProfile />}
+{hasError && <ErrorMessage />}
+{isLoading && <Spinner />}
+{user && <WelcomeMessage user={user} />}
 
-// Renaming variables
-const { property1: newName } = object;
+// Multiple conditions
+{isLoggedIn && isAdmin && <AdminPanel />}
+{hasData && !isLoading && <DataDisplay />}
 
-// Default values
-const { property1 = defaultValue } = object;`}
+// With expressions
+{count > 0 && <span>Items: {count}</span>}
+{name && <h1>Hello, {name}!</h1>}`}
             language="javascript"
           />
-        </div>
-        <div className="io-specification">
-          <h4>Input/Output Specification:</h4>
-          <div className="io-grid">
-            <div className="io-input">
-              <strong>Destructuring Input:</strong>
-              <ul>
-                <li><code>object</code> (object) - Source object to extract from</li>
-                <li><code>array</code> (array) - Source array to extract from</li>
-                <li><code>propertyName</code> (string) - Object property to extract</li>
-                <li><code>index</code> (number) - Array position to extract</li>
-                <li><code>defaultValue</code> (any) - Fallback value if undefined</li>
-              </ul>
-            </div>
-            <div className="io-output">
-              <strong>Destructuring Output:</strong>
-              <ul>
-                <li><code>any</code> - Extracted object property value</li>
-                <li><code>any</code> - Extracted array element value</li>
-                <li><code>undefined</code> - If property/element doesn't exist</li>
-                <li><code>defaultValue</code> - If property/element is undefined</li>
-                <li><code>variable</code> - New variable with extracted value</li>
-              </ul>
-            </div>
-          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// Object destructuring (like extracting component properties)
-const user = {
-  name: "Sarah",
-  role: "UX Designer",
-  skills: ["Figma", "React"],
-  isActive: true
-};
+              code={`// Logical AND examples
+function NotificationSystem() {
+  const [notifications, setNotifications] = useState([]);
+  const [showNotifications, setShowNotifications] = useState(false);
 
-// Extract specific properties
-const { name, role } = user;
-console.log(name);  // "Sarah"
-console.log(role);  // "UX Designer"
+  return (
+    <div>
+      {/* Show notification count only if there are notifications */}
+      {notifications.length > 0 && (
+        <span className="badge">{notifications.length}</span>
+      )}
+      
+      {/* Show notification panel only if toggle is on */}
+      {showNotifications && (
+        <div className="notification-panel">
+          {notifications.map(notification => (
+            <div key={notification.id}>{notification.message}</div>
+          ))}
+        </div>
+      )}
+      
+      {/* Show empty state only if no notifications */}
+      {notifications.length === 0 && (
+        <p>No notifications</p>
+      )}
+    </div>
+  );
+}
 
-// Rename variables
-const { name: userName, role: userRole } = user;
-
-// Default values
-const { theme = "light", language = "en" } = user;
-
-// Array destructuring
-const colors = ["red", "blue", "green"];
-const [firstColor, secondColor] = colors;
-console.log(firstColor);   // "red"
-console.log(secondColor);  // "blue"
-
-// Skip elements
-const [primary, , tertiary] = colors;
-console.log(primary);   // "red"
-console.log(tertiary);  // "green"`}
-              explanation="Destructuring allows you to extract values from objects and arrays into separate variables."
+// Common patterns
+function UserInterface({ user, isLoading, error }) {
+  return (
+    <div>
+      {/* Loading state */}
+      {isLoading && <Spinner />}
+      
+      {/* Error state */}
+      {error && <ErrorMessage message={error} />}
+      
+      {/* User content only when not loading and no error */}
+      {!isLoading && !error && user && (
+        <UserDashboard user={user} />
+      )}
+    </div>
+  );
+}`}
+              explanation="The logical AND operator (&&) is perfect for conditional rendering - it only renders the right side when the left side is truthy."
             />
           </div>
           <div className="output-panel">
-            <h4>Output:</h4>
+            <h4>Interactive Logical AND Demo:</h4>
             <div className="output-content">
-              <p><strong>name:</strong> <span className="code-output">Sarah</span></p>
-              <p><strong>role:</strong> <span className="code-output">UX Designer</span></p>
-              <p><strong>firstColor:</strong> <span className="code-output">red</span></p>
-              <p><strong>tertiary:</strong> <span className="code-output">green</span></p>
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Toggle Conditions:</label>
+                  <div className="button-group">
+                    <button onClick={() => setJSBasicsLogicalAnd(prev => ({...prev, showMessage: !prev.showMessage}))}>
+                      {jsBasicsLogicalAnd.showMessage ? 'Hide' : 'Show'} Message
+                    </button>
+                    <button onClick={() => setJSBasicsLogicalAnd(prev => ({...prev, showCount: !prev.showCount}))}>
+                      {jsBasicsLogicalAnd.showCount ? 'Hide' : 'Show'} Count
+                    </button>
+                    <button onClick={() => setJSBasicsLogicalAnd(prev => ({...prev, hasError: !prev.hasError}))}>
+                      {jsBasicsLogicalAnd.hasError ? 'Clear' : 'Show'} Error
+                    </button>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Conditional Elements:</label>
+                  <div className="result">
+                    {jsBasicsLogicalAnd.showMessage && (
+                      <div style={{color: '#10b981', marginBottom: '8px'}}>
+                        ✅ This message only shows when condition is true
+                      </div>
+                    )}
+                    {jsBasicsLogicalAnd.showCount && (
+                      <div style={{color: '#3b82f6', marginBottom: '8px'}}>
+                        📊 Count: {jsBasicsLogicalAnd.count}
+                      </div>
+                    )}
+                    {jsBasicsLogicalAnd.hasError && (
+                      <div style={{color: '#ef4444', marginBottom: '8px'}}>
+                        ❌ Error: Something went wrong!
+                      </div>
+                    )}
+                    {!jsBasicsLogicalAnd.showMessage && !jsBasicsLogicalAnd.showCount && !jsBasicsLogicalAnd.hasError && (
+                      <div style={{color: '#94a3b8'}}>
+                        No conditions are true - nothing to show
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Multiple Conditions:</label>
+                  <div className="result">
+                    {jsBasicsLogicalAnd.showMessage && jsBasicsLogicalAnd.showCount && (
+                      <div style={{color: '#8b5cf6'}}>
+                        🎉 Both conditions are true!
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -985,138 +1029,94 @@ const completedCount = tasks.reduce((count, task) =>
       </div>
 
       <div className="concept-card">
-        <h2>Logical AND (&&) Operator</h2>
+        <h2>Destructuring</h2>
         <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> Logical AND is like conditional visibility in Figma - only show an element when a condition is true.
+          <strong>Figma Analogy:</strong> Destructuring is like extracting specific properties from a component in Figma - you pull out just what you need.
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
           <SyntaxExample
-            code={`// Logical AND operator
-{condition && <Component />}
+            code={`// Object destructuring
+const { property1, property2 } = object;
 
-// Examples:
-{isLoggedIn && <UserProfile />}
-{hasError && <ErrorMessage />}
-{isLoading && <Spinner />}
-{user && <WelcomeMessage user={user} />}
+// Array destructuring
+const [item1, item2] = array;
 
-// Multiple conditions
-{isLoggedIn && isAdmin && <AdminPanel />}
-{hasData && !isLoading && <DataDisplay />}
+// Renaming variables
+const { property1: newName } = object;
 
-// With expressions
-{count > 0 && <span>Items: {count}</span>}
-{name && <h1>Hello, {name}!</h1>}`}
+// Default values
+const { property1 = defaultValue } = object;`}
             language="javascript"
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Destructuring Input:</strong>
+              <ul>
+                <li><code>object</code> (object) - Source object to extract from</li>
+                <li><code>array</code> (array) - Source array to extract from</li>
+                <li><code>propertyName</code> (string) - Object property to extract</li>
+                <li><code>index</code> (number) - Array position to extract</li>
+                <li><code>defaultValue</code> (any) - Fallback value if undefined</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Destructuring Output:</strong>
+              <ul>
+                <li><code>any</code> - Extracted object property value</li>
+                <li><code>any</code> - Extracted array element value</li>
+                <li><code>undefined</code> - If property/element doesn't exist</li>
+                <li><code>defaultValue</code> - If property/element is undefined</li>
+                <li><code>variable</code> - New variable with extracted value</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
-              code={`// Logical AND examples
-function NotificationSystem() {
-  const [notifications, setNotifications] = useState([]);
-  const [showNotifications, setShowNotifications] = useState(false);
+              code={`// Object destructuring (like extracting component properties)
+const user = {
+  name: "Sarah",
+  role: "UX Designer",
+  skills: ["Figma", "React"],
+  isActive: true
+};
 
-  return (
-    <div>
-      {/* Show notification count only if there are notifications */}
-      {notifications.length > 0 && (
-        <span className="badge">{notifications.length}</span>
-      )}
-      
-      {/* Show notification panel only if toggle is on */}
-      {showNotifications && (
-        <div className="notification-panel">
-          {notifications.map(notification => (
-            <div key={notification.id}>{notification.message}</div>
-          ))}
-        </div>
-      )}
-      
-      {/* Show empty state only if no notifications */}
-      {notifications.length === 0 && (
-        <p>No notifications</p>
-      )}
-    </div>
-  );
-}
+// Extract specific properties
+const { name, role } = user;
+console.log(name);  // "Sarah"
+console.log(role);  // "UX Designer"
 
-// Common patterns
-function UserInterface({ user, isLoading, error }) {
-  return (
-    <div>
-      {/* Loading state */}
-      {isLoading && <Spinner />}
-      
-      {/* Error state */}
-      {error && <ErrorMessage message={error} />}
-      
-      {/* User content only when not loading and no error */}
-      {!isLoading && !error && user && (
-        <UserDashboard user={user} />
-      )}
-    </div>
-  );
-}`}
-              explanation="The logical AND operator (&&) is perfect for conditional rendering - it only renders the right side when the left side is truthy."
+// Rename variables
+const { name: userName, role: userRole } = user;
+
+// Default values
+const { theme = "light", language = "en" } = user;
+
+// Array destructuring
+const colors = ["red", "blue", "green"];
+const [firstColor, secondColor] = colors;
+console.log(firstColor);   // "red"
+console.log(secondColor);  // "blue"
+
+// Skip elements
+const [primary, , tertiary] = colors;
+console.log(primary);   // "red"
+console.log(tertiary);  // "green"`}
+              explanation="Destructuring allows you to extract values from objects and arrays into separate variables."
             />
           </div>
           <div className="output-panel">
-            <h4>Interactive Logical AND Demo:</h4>
+            <h4>Output:</h4>
             <div className="output-content">
-              <div className="demo-controls">
-                <div className="demo-item">
-                  <label>Toggle Conditions:</label>
-                  <div className="button-group">
-                    <button onClick={() => setJSBasicsLogicalAnd(prev => ({...prev, showMessage: !prev.showMessage}))}>
-                      {jsBasicsLogicalAnd.showMessage ? 'Hide' : 'Show'} Message
-                    </button>
-                    <button onClick={() => setJSBasicsLogicalAnd(prev => ({...prev, showCount: !prev.showCount}))}>
-                      {jsBasicsLogicalAnd.showCount ? 'Hide' : 'Show'} Count
-                    </button>
-                    <button onClick={() => setJSBasicsLogicalAnd(prev => ({...prev, hasError: !prev.hasError}))}>
-                      {jsBasicsLogicalAnd.hasError ? 'Clear' : 'Show'} Error
-                    </button>
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>Conditional Elements:</label>
-                  <div className="result">
-                    {jsBasicsLogicalAnd.showMessage && (
-                      <div style={{color: '#10b981', marginBottom: '8px'}}>
-                        ✅ This message only shows when condition is true
-                      </div>
-                    )}
-                    {jsBasicsLogicalAnd.showCount && (
-                      <div style={{color: '#3b82f6', marginBottom: '8px'}}>
-                        📊 Count: {jsBasicsLogicalAnd.count}
-                      </div>
-                    )}
-                    {jsBasicsLogicalAnd.hasError && (
-                      <div style={{color: '#ef4444', marginBottom: '8px'}}>
-                        ❌ Error: Something went wrong!
-                      </div>
-                    )}
-                    {!jsBasicsLogicalAnd.showMessage && !jsBasicsLogicalAnd.showCount && !jsBasicsLogicalAnd.hasError && (
-                      <div style={{color: '#94a3b8'}}>
-                        No conditions are true - nothing to show
-                      </div>
-                    )}
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>Multiple Conditions:</label>
-                  <div className="result">
-                    {jsBasicsLogicalAnd.showMessage && jsBasicsLogicalAnd.showCount && (
-                      <div style={{color: '#8b5cf6'}}>
-                        🎉 Both conditions are true!
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <p><strong>name:</strong> <span className="code-output">Sarah</span></p>
+              <p><strong>role:</strong> <span className="code-output">UX Designer</span></p>
+              <p><strong>firstColor:</strong> <span className="code-output">red</span></p>
+              <p><strong>tertiary:</strong> <span className="code-output">green</span></p>
             </div>
           </div>
         </div>
