@@ -118,7 +118,6 @@
 .nav-item.active {
   background-color: var(--primary);
   color: white;
-  border-right: 3px solid var(--secondary);
 }
 
 .nav-icon {
