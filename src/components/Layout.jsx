@@ -44,24 +44,13 @@ function Layout({ children }) {
 
   return (
     <div className="app">
-      {/* Header - like the top toolbar in Figma */}
-      <header className="header">
-        <div className="container">
-          <div className="header-content">
-            <h1 className="logo">
-              <BookOpen className="logo-icon" />
-              React JS Cheatsheet
-            </h1>
-            <p className="subtitle">For UX Designers with Figma Analogies</p>
-          </div>
-          <button 
-            className="mobile-menu-toggle"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="menu-icon" /> : <Menu className="menu-icon" />}
-          </button>
-        </div>
-      </header>
+      {/* Mobile Menu Toggle - moved to top right */}
+      <button 
+        className="mobile-menu-toggle"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? <X className="menu-icon" /> : <Menu className="menu-icon" />}
+      </button>
 
       {/* Mobile Menu Backdrop */}
       {isMobileMenuOpen && (
