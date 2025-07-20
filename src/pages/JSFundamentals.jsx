@@ -28,6 +28,463 @@ function JSFundamentals() {
       <p>Core JavaScript concepts with interactive examples</p>
 
       <div className="concept-card">
+        <h2>JavaScript Syntax</h2>
+        <div className="explanation">JavaScript syntax defines the rules and structure for writing valid JavaScript code, including statements, expressions, and code organization.</div>
+        <p className="section-summary">Understanding the fundamental syntax rules of JavaScript. This includes how to write statements, use semicolons, organize code blocks, and follow JavaScript's syntax conventions.</p>
+        <div className="figma-analogy">
+          <strong>Figma Analogy:</strong> JavaScript syntax is like Figma's design rules - it defines how elements should be structured and organized to create valid, functional designs.
+        </div>
+        <div className="syntax-example">
+          <h4>Basic Syntax Rules:</h4>
+          <SyntaxExample
+            code={`// 1. Statements end with semicolons (optional but recommended)
+let name = "John";
+const age = 25;
+
+// 2. Code blocks use curly braces
+if (condition) {
+  // code here
+}
+
+// 3. Functions are declared with function keyword or arrow syntax
+function greet() {
+  return "Hello!";
+}
+
+const greetArrow = () => "Hello!";
+
+// 4. Variables are declared with let, const, or var
+let changeable = "can change";
+const constant = "cannot change";
+
+// 5. Comments use // for single line or /* */ for multi-line
+// This is a single line comment
+/* This is a 
+   multi-line comment */
+
+// 6. Strings can use single or double quotes
+let single = 'Hello';
+let double = "World";
+
+// 7. Template literals use backticks
+let template = \`Hello \${name}!\`;
+
+// 8. Objects use curly braces with key-value pairs
+let person = {
+  name: "John",
+  age: 25
+};
+
+// 9. Arrays use square brackets
+let colors = ["red", "blue", "green"];
+
+// 10. Indentation improves readability
+function complexFunction() {
+  if (condition) {
+    for (let i = 0; i < 10; i++) {
+      console.log(i);
+    }
+  }
+}`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Syntax Elements:</strong>
+              <ul>
+                <li><code>statement</code> - Complete instruction</li>
+                <li><code>expression</code> - Value-producing code</li>
+                <li><code>identifier</code> - Variable/function name</li>
+                <li><code>literal</code> - Direct value</li>
+                <li><code>operator</code> - Mathematical/logical symbol</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Syntax Results:</strong>
+              <ul>
+                <li><code>valid code</code> - Executable JavaScript</li>
+                <li><code>error</code> - Syntax error message</li>
+                <li><code>value</code> - Computed result</li>
+                <li><code>undefined</code> - No return value</li>
+                <li><code>function</code> - Callable code block</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="interactive-example">
+          <div className="code-panel">
+            <CodeExample
+              code={`// JavaScript Syntax Examples
+
+// 1. Variable Declaration Syntax
+let userName = "Sarah";
+const userAge = 28;
+var oldWay = "avoid this";
+
+// 2. Function Declaration Syntax
+function greetUser(name) {
+  return \`Hello, \${name}!\`;
+}
+
+const greetUserArrow = (name) => \`Hello, \${name}!\`;
+
+// 3. Conditional Statement Syntax
+if (userAge >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+
+// 4. Loop Syntax
+for (let i = 0; i < 5; i++) {
+  console.log(\`Count: \${i}\`);
+}
+
+// 5. Object Syntax
+const user = {
+  name: userName,
+  age: userAge,
+  greet() {
+    return \`Hi, I'm \${this.name}\`;
+  }
+};
+
+// 6. Array Syntax
+const colors = ["red", "blue", "green"];
+const numbers = [1, 2, 3, 4, 5];
+
+// 7. Template Literal Syntax
+const message = \`User \${userName} is \${userAge} years old\`;
+
+// 8. Destructuring Syntax
+const { name, age } = user;
+const [firstColor, secondColor] = colors;
+
+// React JSX Syntax
+function UserProfile() {
+  return (
+    <div className="user-profile">
+      <h1>{userName}</h1>
+      <p>Age: {userAge}</p>
+      <button onClick={() => alert(greetUser(userName))}>
+        Greet User
+      </button>
+    </div>
+  );
+}`}
+              explanation="JavaScript syntax provides the foundation for writing clean, readable, and maintainable code."
+            />
+          </div>
+          <div className="output-panel">
+            <h4>Syntax Validation Demo:</h4>
+            <div className="output-content">
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Variable Declaration:</label>
+                  <div className="result">
+                    <div>Name: {fundamentalUser.name}</div>
+                    <div>Age: {fundamentalUser.age}</div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Template Literal:</label>
+                  <div className="result">
+                    Hello, {fundamentalUser.name}! You are {fundamentalUser.age} years old.
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Object Destructuring:</label>
+                  <div className="result">
+                    <div>Extracted name: {fundamentalUser.name}</div>
+                    <div>Extracted age: {fundamentalUser.age}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="concept-card">
+        <h2>JavaScript Operators</h2>
+        <div className="explanation">Operators are symbols that perform operations on values, including arithmetic, comparison, logical, and assignment operations.</div>
+        <p className="section-summary">Understanding how to use different types of operators in JavaScript. Operators allow you to perform calculations, compare values, combine conditions, and assign values to variables.</p>
+        <div className="figma-analogy">
+          <strong>Figma Analogy:</strong> JavaScript operators are like Figma's mathematical functions and constraints - they help you calculate positions, sizes, and relationships between design elements.
+        </div>
+        <div className="syntax-example">
+          <h4>Operator Types:</h4>
+          <SyntaxExample
+            code={`// 1. Arithmetic Operators
+let a = 10, b = 5;
+let sum = a + b;        // Addition: 15
+let difference = a - b;  // Subtraction: 5
+let product = a * b;     // Multiplication: 50
+let quotient = a / b;    // Division: 2
+let remainder = a % b;   // Modulus: 0
+let power = a ** b;      // Exponentiation: 100000
+let increment = ++a;     // Pre-increment: 11
+let decrement = --b;     // Pre-decrement: 4
+
+// 2. Assignment Operators
+let x = 10;              // Simple assignment
+x += 5;                  // Addition assignment: x = x + 5
+x -= 3;                  // Subtraction assignment: x = x - 3
+x *= 2;                  // Multiplication assignment: x = x * 2
+x /= 4;                  // Division assignment: x = x / 4
+x %= 3;                  // Modulus assignment: x = x % 3
+
+// 3. Comparison Operators
+let num1 = 10, num2 = "10";
+let equal = num1 == num2;        // Equal (loose): true
+let strictEqual = num1 === num2; // Strict equal: false
+let notEqual = num1 != num2;     // Not equal (loose): false
+let strictNotEqual = num1 !== num2; // Strict not equal: true
+let greater = num1 > 5;          // Greater than: true
+let less = num1 < 20;            // Less than: true
+let greaterEqual = num1 >= 10;   // Greater or equal: true
+let lessEqual = num1 <= 10;      // Less or equal: true
+
+// 4. Logical Operators
+let isTrue = true, isFalse = false;
+let and = isTrue && isFalse;     // Logical AND: false
+let or = isTrue || isFalse;      // Logical OR: true
+let not = !isTrue;               // Logical NOT: false
+
+// 5. String Operators
+let firstName = "John";
+let lastName = "Doe";
+let fullName = firstName + " " + lastName;  // Concatenation: "John Doe"
+let greeting = \`Hello \${firstName}!\`;     // Template literal
+
+// 6. Conditional (Ternary) Operator
+let age = 18;
+let status = age >= 18 ? "Adult" : "Minor";  // Conditional: "Adult"
+
+// 7. Nullish Coalescing Operator
+let value = null;
+let defaultValue = value ?? "Default";  // Nullish coalescing: "Default"
+
+// 8. Optional Chaining Operator
+let user = { name: "John", address: { city: "NYC" } };
+let city = user?.address?.city;  // Optional chaining: "NYC"`}
+            language="javascript"
+          />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Operator Input:</strong>
+              <ul>
+                <li><code>operand1</code> (any) - First value</li>
+                <li><code>operand2</code> (any) - Second value</li>
+                <li><code>operator</code> (symbol) - Operation symbol</li>
+                <li><code>expression</code> (any) - Complex expression</li>
+                <li><code>condition</code> (boolean) - Logical condition</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Operator Output:</strong>
+              <ul>
+                <li><code>number</code> - Arithmetic result</li>
+                <li><code>boolean</code> - Comparison/logical result</li>
+                <li><code>string</code> - String operation result</li>
+                <li><code>any</code> - Assignment result</li>
+                <li><code>undefined</code> - Invalid operation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="interactive-example">
+          <div className="code-panel">
+            <CodeExample
+              code={`// JavaScript Operators in Action
+
+// 1. Arithmetic Operations
+const calculateMath = () => {
+  let a = 15, b = 3;
+  return {
+    addition: a + b,           // 18
+    subtraction: a - b,        // 12
+    multiplication: a * b,     // 45
+    division: a / b,           // 5
+    modulus: a % b,            // 0
+    power: a ** b,             // 3375
+    increment: ++a,            // 16
+    decrement: --b             // 2
+  };
+};
+
+// 2. Comparison Operations
+const compareValues = () => {
+  let num1 = 10, num2 = "10", num3 = 15;
+  return {
+    looseEqual: num1 == num2,      // true
+    strictEqual: num1 === num2,    // false
+    notEqual: num1 != num3,        // true
+    greaterThan: num3 > num1,      // true
+    lessThan: num1 < num3,         // true
+    greaterEqual: num1 >= 10,      // true
+    lessEqual: num1 <= 15          // true
+  };
+};
+
+// 3. Logical Operations
+const logicalOperations = () => {
+  let isLoggedIn = true;
+  let hasPermission = false;
+  let isAdmin = true;
+  
+  return {
+    and: isLoggedIn && hasPermission,     // false
+    or: isLoggedIn || hasPermission,      // true
+    not: !isLoggedIn,                     // false
+    complex: isLoggedIn && (hasPermission || isAdmin)  // true
+  };
+};
+
+// 4. String Operations
+const stringOperations = () => {
+  let firstName = "Sarah";
+  let lastName = "Johnson";
+  let age = 28;
+  
+  return {
+    concatenation: firstName + " " + lastName,  // "Sarah Johnson"
+    template: \`\${firstName} is \${age} years old\`,  // "Sarah is 28 years old"
+    length: firstName.length,                   // 5
+    uppercase: firstName.toUpperCase(),         // "SARAH"
+    lowercase: lastName.toLowerCase()           // "johnson"
+  };
+};
+
+// 5. Assignment Operations
+const assignmentOperations = () => {
+  let x = 10;
+  let y = 5;
+  
+  x += y;    // x = 15
+  y *= 2;    // y = 10
+  x -= 3;    // x = 12
+  y /= 2;    // y = 5
+  
+  return { x, y };
+};
+
+// 6. Conditional (Ternary) Operations
+const conditionalOperations = () => {
+  let age = 20;
+  let score = 85;
+  
+  return {
+    ageStatus: age >= 18 ? "Adult" : "Minor",           // "Adult"
+    grade: score >= 90 ? "A" : score >= 80 ? "B" : "C", // "B"
+    canVote: age >= 18 ? "Yes" : "No"                   // "Yes"
+  };
+};
+
+// React Usage Examples
+function OperatorDemo() {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  
+  const mathResult = calculateMath();
+  const comparisonResult = compareValues();
+  const logicalResult = logicalOperations();
+  
+  return (
+    <div>
+      <h2>Operator Examples</h2>
+      
+      {/* Arithmetic */}
+      <div>
+        <h3>Arithmetic: 15 + 3 = {mathResult.addition}</h3>
+        <h3>Power: 15³ = {mathResult.power}</h3>
+      </div>
+      
+      {/* Comparison */}
+      <div>
+        <h3>10 == "10": {comparisonResult.looseEqual.toString()}</h3>
+        <h3>10 === "10": {comparisonResult.strictEqual.toString()}</h3>
+      </div>
+      
+      {/* Logical */}
+      <div>
+        <h3>Complex Logic: {logicalResult.complex.toString()}</h3>
+      </div>
+      
+      {/* Conditional Rendering */}
+      {isVisible && <p>This is visible when isVisible is true</p>}
+      {count > 0 ? <p>Count is positive: {count}</p> : <p>Count is zero or negative</p>}
+      
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setIsVisible(!isVisible)}>Toggle Visibility</button>
+    </div>
+  );
+}`}
+              explanation="JavaScript operators provide powerful tools for manipulating data, making decisions, and controlling program flow."
+            />
+          </div>
+          <div className="output-panel">
+            <h4>Operator Demo:</h4>
+            <div className="output-content">
+              <div className="demo-controls">
+                <div className="demo-item">
+                  <label>Arithmetic Operations:</label>
+                  <div className="result">
+                    <div>15 + 3 = {15 + 3}</div>
+                    <div>15 - 3 = {15 - 3}</div>
+                    <div>15 * 3 = {15 * 3}</div>
+                    <div>15 / 3 = {15 / 3}</div>
+                    <div>15 % 3 = {15 % 3}</div>
+                    <div>15³ = {15 ** 3}</div>
+                  </div>
+                </div>
+                                 <div className="demo-item">
+                   <label>Comparison Operations:</label>
+                   <div className="result">
+                     <div>10 == "10": {(10 == "10").toString()}</div>
+                     <div>10 === "10": {(10 === "10").toString()}</div>
+                     <div>15 {'>'} 10: {(15 > 10).toString()}</div>
+                     <div>10 {'>='} 10: {(10 >= 10).toString()}</div>
+                   </div>
+                 </div>
+                <div className="demo-item">
+                  <label>Logical Operations:</label>
+                  <div className="result">
+                    <div>true && false: {(true && false).toString()}</div>
+                    <div>true || false: {(true || false).toString()}</div>
+                    <div>!true: {(!true).toString()}</div>
+                    <div>true && (false || true): {(true && (false || true)).toString()}</div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>String Operations:</label>
+                  <div className="result">
+                    <div>Concatenation: {"Hello" + " " + "World"}</div>
+                    <div>Template: {`Hello ${fundamentalUser.name}!`}</div>
+                    <div>Length: {"JavaScript".length}</div>
+                    <div>Uppercase: {"hello".toUpperCase()}</div>
+                  </div>
+                </div>
+                <div className="demo-item">
+                  <label>Conditional (Ternary):</label>
+                  <div className="result">
+                    <div>Age 20: {20 >= 18 ? "Adult" : "Minor"}</div>
+                    <div>Score 85: {85 >= 90 ? "A" : 85 >= 80 ? "B" : "C"}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="concept-card">
         <h2>Variables & Data Types</h2>
         <div className="explanation">Variables are containers for storing data values that can be changed throughout your program.</div>
         <p className="section-summary">Storing and managing data in JavaScript. Variables act as containers for different types of information that can be used and modified throughout your code.</p>

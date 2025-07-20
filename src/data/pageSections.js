@@ -1,6 +1,8 @@
 // Page sections data for accordion navigation
 export const pageSections = {
   'js-fundamentals': [
+    { title: 'JavaScript Syntax', type: 'section' },
+    { title: 'JavaScript Operators', type: 'section' },
     { title: 'Variables & Data Types', type: 'section' },
     { title: 'Objects', type: 'section' },
     { title: 'Functions', type: 'section' },
