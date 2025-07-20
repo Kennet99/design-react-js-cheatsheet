@@ -4229,6 +4229,43 @@ const handleEvent = (event) => {
 // onClick, onChange, onSubmit, onKeyDown, onMouseEnter, onMouseLeave`}
           />
         </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Event Handler Parameters:</strong>
+              <ul>
+                <li><code>event</code> (SyntheticEvent) - React's event object</li>
+                <li><code>event.target</code> (HTMLElement) - Element that triggered event</li>
+                <li><code>event.target.value</code> (string) - Input value (for onChange)</li>
+                <li><code>event.preventDefault()</code> - Prevent default behavior</li>
+              </ul>
+              <strong>Common Event Types:</strong>
+              <ul>
+                <li><code>onClick</code> - Mouse click events</li>
+                <li><code>onChange</code> - Input value changes</li>
+                <li><code>onSubmit</code> - Form submission</li>
+                <li><code>onKeyDown</code> - Keyboard key press</li>
+                <li><code>onMouseEnter/Leave</code> - Mouse hover events</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Event Handler Returns:</strong>
+              <ul>
+                <li><code>undefined</code> - Most common return value</li>
+                <li><code>boolean</code> - Return false to prevent default</li>
+                <li><code>Promise</code> - For async event handlers</li>
+              </ul>
+              <strong>Event Object Properties:</strong>
+              <ul>
+                <li><code>event.type</code> - Event type (e.g., "click")</li>
+                <li><code>event.currentTarget</code> - Element with event listener</li>
+                <li><code>event.nativeEvent</code> - Native browser event</li>
+                <li><code>event.stopPropagation()</code> - Stop event bubbling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className="interactive-example">
           <div className="code-panel">
             <CodeExample
@@ -5050,6 +5087,43 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 <Link to="/about">About</Link>
 <Link to="/contact">Contact</Link>`}
           />
+        </div>
+        <div className="io-specification">
+          <h4>Input/Output Specification:</h4>
+          <div className="io-grid">
+            <div className="io-input">
+              <strong>Router Components:</strong>
+              <ul>
+                <li><code>BrowserRouter</code> - Wraps entire app</li>
+                <li><code>Routes</code> - Container for all routes</li>
+                <li><code>Route</code> - Individual route definition</li>
+                <li><code>Link</code> - Navigation component</li>
+              </ul>
+              <strong>Route Parameters:</strong>
+              <ul>
+                <li><code>path</code> (string) - URL path pattern</li>
+                <li><code>element</code> (ReactNode) - Component to render</li>
+                <li><code>to</code> (string) - Destination URL for Link</li>
+                <li><code>replace</code> (boolean) - Replace history entry</li>
+              </ul>
+            </div>
+            <div className="io-output">
+              <strong>Navigation Hooks:</strong>
+              <ul>
+                <li><code>useNavigate()</code> - Returns navigate function</li>
+                <li><code>useParams()</code> - Returns route parameters</li>
+                <li><code>useLocation()</code> - Returns current location</li>
+                <li><code>useSearchParams()</code> - Returns query parameters</li>
+              </ul>
+              <strong>Navigation Functions:</strong>
+              <ul>
+                <li><code>navigate(path)</code> - Programmatic navigation</li>
+                <li><code>navigate(path, &#123; replace: true &#125;)</code> - Replace current entry</li>
+                <li><code>navigate(-1)</code> - Go back one step</li>
+                <li><code>navigate(1)</code> - Go forward one step</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="interactive-example">
           <div className="code-panel">
