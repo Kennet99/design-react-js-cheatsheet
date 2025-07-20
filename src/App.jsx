@@ -1440,8 +1440,8 @@ console.log(getRandomNumber());    // 0.123...`}
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Ternary operator
+          <SyntaxExample
+            code={`// Ternary operator
 condition ? valueIfTrue : valueIfFalse
 
 // Examples:
@@ -1452,7 +1452,8 @@ const buttonText = isLoading ? 'Loading...' : 'Submit';
 // In JSX:
 {isVisible ? <Component /> : null}
 {user ? <UserProfile /> : <LoginForm />}`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -1685,8 +1686,8 @@ const completedCount = tasks.reduce((count, task) =>
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// Logical AND operator
+          <SyntaxExample
+            code={`// Logical AND operator
 {condition && <Component />}
 
 // Examples:
@@ -1702,7 +1703,8 @@ const completedCount = tasks.reduce((count, task) =>
 // With expressions
 {count > 0 && <span>Items: {count}</span>}
 {name && <h1>Hello, {name}!</h1>}`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -1843,8 +1845,8 @@ function ReactCoreSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`// JSX combines HTML with JavaScript
+          <SyntaxExample
+            code={`// JSX combines HTML with JavaScript
 const element = (
   <div className="container">
     <h1>Hello, {userName}!</h1>
@@ -1860,7 +1862,8 @@ const element = (
 // 2. Use camelCase for attributes
 // 3. Use {} for JavaScript expressions
 // 4. Must return single parent element`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -2728,15 +2731,16 @@ function HooksSection() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`const [state, setState] = useState(initialValue);
+          <SyntaxExample
+            code={`const [state, setState] = useState(initialValue);
 
 // Examples:
 const [count, setCount] = useState(0);
 const [name, setName] = useState('');
 const [user, setUser] = useState({ name: '', email: '' });
 const [todos, setTodos] = useState([]);`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -2899,8 +2903,8 @@ function TodoApp() {
         </div>
         <div className="syntax-example">
           <h4>Basic Syntax:</h4>
-          <pre className="syntax-code">
-{`useEffect(() => {
+          <SyntaxExample
+            code={`useEffect(() => {
   // Effect code
 }, [dependencies]);
 
@@ -2910,7 +2914,8 @@ useEffect(() => {}, [dep]);        // Run when dep changes
 useEffect(() => {
   return () => cleanup();          // Cleanup function
 }, []);`}
-          </pre>
+            language="javascript"
+          />
         </div>
         <div className="interactive-example">
           <div className="code-panel">
@@ -6501,10 +6506,15 @@ function SyntaxHighlightedCode({ code, language = 'javascript', explanation }) {
     }
   }, [code])
 
+  // Detect if code contains JSX and use appropriate language
+  const detectedLanguage = code.includes('<') && code.includes('>') && code.includes('{') 
+    ? 'javascript' 
+    : language
+
   return (
     <div className="code-example">
       <pre>
-        <code ref={codeRef} className={`language-${language}`}>
+        <code ref={codeRef} className={`language-${detectedLanguage}`}>
           {code}
         </code>
       </pre>
@@ -6519,7 +6529,12 @@ function SyntaxHighlightedCode({ code, language = 'javascript', explanation }) {
 
 // Code Example Component (for backward compatibility)
 function CodeExample({ code, explanation, language = 'javascript' }) {
-  return <SyntaxHighlightedCode code={code} language={language} explanation={explanation} />
+  // Detect if code contains JSX and use appropriate language
+  const detectedLanguage = code.includes('<') && code.includes('>') && code.includes('{') 
+    ? 'javascript' 
+    : language
+  
+  return <SyntaxHighlightedCode code={code} language={detectedLanguage} explanation={explanation} />
 }
 
 // Syntax Example Component for syntax-code sections
@@ -6532,9 +6547,14 @@ function SyntaxExample({ code, language = 'javascript' }) {
     }
   }, [code])
 
+  // Detect if code contains JSX and use appropriate language
+  const detectedLanguage = code.includes('<') && code.includes('>') && code.includes('{') 
+    ? 'javascript' 
+    : language
+
   return (
     <pre className="syntax-code">
-      <code ref={codeRef} className={`language-${language}`}>
+      <code ref={codeRef} className={`language-${detectedLanguage}`}>
         {code}
       </code>
     </pre>
