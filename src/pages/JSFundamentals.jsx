@@ -29,48 +29,97 @@ function JSFundamentals() {
 
       <div className="concept-card">
         <h2>JavaScript Syntax</h2>
-        <div className="explanation">JavaScript syntax defines the rules and structure for writing valid JavaScript code, including statements, expressions, and code organization.</div>
-        <p className="section-summary">Understanding the fundamental syntax rules of JavaScript. This includes how to write statements, use semicolons, organize code blocks, and follow JavaScript's syntax conventions.</p>
-        <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> JavaScript syntax is like Figma's design rules - it defines how elements should be structured and organized to create valid, functional designs.
+        <div className="explanation">
+          JavaScript syntax defines the rules and structure for writing valid JavaScript code, including statements, expressions, and code organization. This section is based on the <a href="https://quickref.me/javascript.html" target="_blank" rel="noopener noreferrer">JavaScript Cheatsheet by QuickRef.ME</a>.
         </div>
+        <p className="section-summary">Below is a comprehensive list of JavaScript syntax basics, what they do, and simple code examples for each.</p>
         <div className="syntax-example">
-          <h4>Basic Syntax Rules:</h4>
-          <SyntaxExample
-            code={`// 1. On page script - Embed JavaScript directly within HTML
-<script>alert('Welcome to the Bookshop!');</script>
+          <div className="syntax-group">
+            <h4>Console Output</h4>
+            <p>Print messages or errors to the console.</p>
+            <SyntaxExample code={`console.log('Hello world!');
+console.warn('hello %s', 'QuickRef.ME');
+console.error(new Error('Oops!'));`} language="javascript" />
+          </div>
 
-// 2. Include external JS file - Link external JavaScript file
-<script src="scripts.js"></script>
+          <div className="syntax-group">
+            <h4>Numbers</h4>
+            <p>Declare and use numbers.</p>
+            <SyntaxExample code={`let amount = 6;
+let price = 4.99;`} language="javascript" />
+          </div>
 
-// 3. Delay - Execute function after specified delay
-setTimeout(() => { alert('Book special offers!'); }, 2000);
+          <div className="syntax-group">
+            <h4>Variables</h4>
+            <p>Store and reference values using <code>let</code>, <code>const</code>, or <code>var</code>.</p>
+            <SyntaxExample code={`let x = null;
+let name = "Tammy";
+const found = false;
+console.log(name, found, x);
+var a;
+console.log(a); // => undefined`} language="javascript" />
+          </div>
 
-// 4. Functions - Define reusable blocks of code
-function showGreeting() { 
-  alert('Welcome to Book Haven!'); 
-}
+          <div className="syntax-group">
+            <h4>Strings</h4>
+            <p>Declare and manipulate text values.</p>
+            <SyntaxExample code={`let single = 'Wheres my bandit hat?';
+let double = "Wheres my bandit hat?";
+console.log(single.length); // => 21`} language="javascript" />
+          </div>
 
-// 5. Edit DOM element - Modify HTML elements
-document.getElementById('title').innerHTML = 'Book Haven Sale';
+          <div className="syntax-group">
+            <h4>Arithmetic Operators</h4>
+            <p>Perform basic math operations.</p>
+            <SyntaxExample code={`5 + 5 // 10     Addition
+10 - 5 // 5     Subtraction
+5 * 10 // 50    Multiplication
+10 / 5 // 2     Division
+10 % 5 // 0     Modulo`} language="javascript" />
+          </div>
 
-// 6. Output - Display output via console, alert, or document
-console.log('Books loaded successfully');
+          <div className="syntax-group">
+            <h4>Comments</h4>
+            <p>Add notes or explanations to your code.</p>
+            <SyntaxExample code={`// This line will denote a comment
+/*  
+The below configuration must be 
+changed before deployment. 
+*/`} language="javascript" />
+          </div>
 
-// 7. Comments - Add single-line or multi-line comments
-// Single-line comment
-/* Multi-line comment */
+          <div className="syntax-group">
+            <h4>Assignment Operators</h4>
+            <p>Assign or update values in variables.</p>
+            <SyntaxExample code={`let number = 100;
+number = number + 10;
+number += 10;
+console.log(number); // => 120`} language="javascript" />
+          </div>
 
-// 8. Strict mode - Enforce stricter parsing and error handling
-'use strict';
+          <div className="syntax-group">
+            <h4>String Interpolation</h4>
+            <p>Combine variables and text using concatenation or template literals.</p>
+            <SyntaxExample code={`let age = 7;
+'Tommy is ' + age + ' years old.';
+` + '`Tommy is ${age} years old.`;' } language="javascript" />
+          </div>
 
-// 9. Values - Store data in variables
-let bookPrice = 19.99;
+          <div className="syntax-group">
+            <h4>let Keyword</h4>
+            <p>Declare a block-scoped variable that can be reassigned.</p>
+            <SyntaxExample code={`let count;
+console.log(count); // => undefined
+count = 10;
+console.log(count); // => 10`} language="javascript" />
+          </div>
 
-// 10. Operators - Perform operations on variables and values
-let totalPrice = bookPrice + 5;`}
-            language="javascript"
-          />
+          <div className="syntax-group">
+            <h4>const Keyword</h4>
+            <p>Declare a block-scoped constant that cannot be reassigned.</p>
+            <SyntaxExample code={`const numberOfColumns = 4;
+// numberOfColumns = 8; // TypeError`} language="javascript" />
+          </div>
         </div>
         <div className="io-specification">
           <h4>Input/Output Specification:</h4>
@@ -78,455 +127,212 @@ let totalPrice = bookPrice + 5;`}
             <div className="io-input">
               <strong>Syntax Elements:</strong>
               <ul>
-                <li><code>script tag</code> - HTML script embedding</li>
-                <li><code>external file</code> - Linked JavaScript file</li>
-                <li><code>function</code> - Reusable code block</li>
-                <li><code>DOM element</code> - HTML element reference</li>
                 <li><code>variable</code> - Data storage container</li>
+                <li><code>function</code> - Reusable code block</li>
+                <li><code>array</code> - List of values</li>
+                <li><code>object</code> - Key-value pairs</li>
+                <li><code>statement</code> - Code instruction</li>
               </ul>
             </div>
             <div className="io-output">
               <strong>Syntax Results:</strong>
               <ul>
                 <li><code>executed code</code> - Running JavaScript</li>
-                <li><code>DOM manipulation</code> - HTML element changes</li>
                 <li><code>console output</code> - Debug information</li>
-                <li><code>alert/notification</code> - User interface feedback</li>
                 <li><code>function return</code> - Computed result</li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="interactive-example">
-          <div className="code-panel">
-            <CodeExample
-              code={`// JavaScript Syntax Examples
-
-// 1. Basic Script Embedding
-<script>
-  console.log('Page loaded successfully');
-  alert('Welcome to our website!');
-</script>
-
-// 2. External File Inclusion
-<script src="app.js"></script>
-<script src="utils.js"></script>
-
-// 3. Function Declaration
-function calculateTotal(price, tax) {
-  return price + (price * tax);
-}
-
-// 4. DOM Manipulation
-document.getElementById('header').innerHTML = 'Welcome!';
-document.querySelector('.price').textContent = '$19.99';
-
-// 5. Event Handling
-document.getElementById('buyBtn').addEventListener('click', function() {
-  alert('Item added to cart!');
-});
-
-// 6. Conditional Statements
-if (bookPrice > 20) {
-  console.log('Eligible for free shipping');
-} else {
-  console.log('Shipping fee applies');
-}
-
-// 7. Switch Statement
-switch (day) {
-  case 1: console.log('Monday Deals'); break;
-  case 2: console.log('Tuesday Discounts'); break;
-  default: console.log('Regular Prices');
-}
-
-// 8. Loops
-for (let i = 0; i < 5; i++) {
-  console.log(\`Item \${i + 1}\`);
-}
-
-let i = 0;
-while (i < 5) {
-  console.log(i);
-  i++;
-}
-
-// 9. String Operations
-let bookTitle = 'JavaScript Guide';
-let len = bookTitle.length;
-let words = bookTitle.split(' ');
-let fullTitle = bookTitle.concat(' for Beginners');
-
-// 10. Object Creation and Access
-let book = { 
-  title: 'JavaScript Basics', 
-  author: 'Jane Doe', 
-  price: 19.99 
-};
-book.title;  // Access property
-book.price = 21.99;  // Assign new value
-
-// React JSX Integration
-function BookComponent() {
-  const [price, setPrice] = useState(19.99);
-  
-  return (
-    <div>
-      <h1>{book.title}</h1>
-      <p>Price: \${price}</p>
-      <button onClick={() => setPrice(price + 1)}>
-        Increase Price
-      </button>
-    </div>
-  );
-}`}
-              explanation="JavaScript syntax provides the foundation for writing clean, readable, and maintainable code with DOM manipulation and event handling capabilities."
-            />
-          </div>
-          <div className="output-panel">
-            <h4>Syntax Validation Demo:</h4>
-            <div className="output-content">
-              <div className="demo-controls">
-                <div className="demo-item">
-                  <label>String Operations:</label>
-                  <div className="result">
-                    <div>Length: {"JavaScript".length}</div>
-                    <div>Split: {JSON.stringify("Hello World".split(" "))}</div>
-                    <div>Concat: {"Hello" + " " + "World"}</div>
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>Conditional Logic:</label>
-                  <div className="result">
-                    <div>Price {'>'} 20: {fundamentalUser.age > 20 ? "Yes" : "No"}</div>
-                    <div>Age {'>='} 18: {fundamentalUser.age >= 18 ? "Adult" : "Minor"}</div>
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>Loop Simulation:</label>
-                  <div className="result">
-                    {[1, 2, 3, 4, 5].map(num => (
-                      <span key={num} style={{marginRight: '8px'}}>Item {num}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Interactive demo removed as requested */}
       </div>
 
       <div className="concept-card">
         <h2>JavaScript Operators</h2>
-        <div className="explanation">Operators are symbols that perform operations on values, including arithmetic, comparison, logical, and assignment operations.</div>
-        <p className="section-summary">Understanding how to use different types of operators in JavaScript. Operators allow you to perform calculations, compare values, combine conditions, and assign values to variables.</p>
-        <div className="figma-analogy">
-          <strong>Figma Analogy:</strong> JavaScript operators are like Figma's mathematical functions and constraints - they help you calculate positions, sizes, and relationships between design elements.
+        <div className="explanation">
+          Operators are symbols that perform operations on values, including arithmetic, comparison, logical, and assignment operations. This section is based on the <a href="https://www.30secondsofcode.org/js/s/operator-cheatsheet/" target="_blank" rel="noopener noreferrer">JavaScript Operator Cheatsheet by 30 seconds of code</a>.
         </div>
+        <p className="section-summary">Below is a comprehensive list of JavaScript operators, what they do, and simple code examples for each.</p>
         <div className="syntax-example">
-          <h4>Operator Types:</h4>
-          <SyntaxExample
-            code={`// 1. Arithmetic Operators
-let a = 10, b = 5;
-let sum = a + b;        // Addition: 15
-let difference = a - b;  // Subtraction: 5
-let product = a * b;     // Multiplication: 50
-let quotient = a / b;    // Division: 2
-let remainder = a % b;   // Modulus: 0
-let power = a ** b;      // Exponentiation: 100000
-let increment = ++a;     // Pre-increment: 11
-let decrement = --b;     // Pre-decrement: 4
-
-// 2. Assignment Operators
-let x = 10;              // Simple assignment
-x += 5;                  // Addition assignment: x = x + 5
-x -= 3;                  // Subtraction assignment: x = x - 3
-x *= 2;                  // Multiplication assignment: x = x * 2
-x /= 4;                  // Division assignment: x = x / 4
-x %= 3;                  // Modulus assignment: x = x % 3
-x **= 2;                 // Exponentiation assignment: x = x ** 2
-
-// 3. Comparison Operators
-let num1 = 10, num2 = "10";
-let equal = num1 == num2;        // Equal (loose): true
-let strictEqual = num1 === num2; // Strict equal: false
-let notEqual = num1 != num2;     // Not equal (loose): false
-let strictNotEqual = num1 !== num2; // Strict not equal: true
-let greater = num1 > 5;          // Greater than: true
-let less = num1 < 20;            // Less than: true
-let greaterEqual = num1 >= 10;   // Greater or equal: true
-let lessEqual = num1 <= 10;      // Less or equal: true
-
-// 4. Logical Operators
-let isTrue = true, isFalse = false;
-let and = isTrue && isFalse;     // Logical AND: false
-let or = isTrue || isFalse;      // Logical OR: true
-let not = !isTrue;               // Logical NOT: false
-
-// 5. Bitwise Operators
-let bitwiseAnd = 5 & 3;          // Bitwise AND: 1
-let bitwiseOr = 5 | 3;           // Bitwise OR: 7
-let bitwiseXor = 5 ^ 3;          // Bitwise XOR: 6
-let bitwiseNot = ~5;             // Bitwise NOT: -6
-let leftShift = 5 << 1;          // Left shift: 10
-let rightShift = 5 >> 1;         // Right shift: 2
-let zeroFillRightShift = 5 >>> 1; // Zero-fill right shift: 2
-
-// 6. String Operators
-let firstName = "John";
-let lastName = "Doe";
-let fullName = firstName + " " + lastName;  // Concatenation: "John Doe"
-let greeting = \`Hello \${firstName}!\`;     // Template literal
-
-// 7. Conditional (Ternary) Operator
-let age = 18;
-let status = age >= 18 ? "Adult" : "Minor";  // Conditional: "Adult"
-
-// 8. Nullish Coalescing Operator (??)
-let value = null;
-let defaultValue = value ?? "Default";  // Nullish coalescing: "Default"
-let zeroValue = 0 ?? "Default";         // Returns 0 (not null/undefined)
-
-// 9. Optional Chaining Operator (?.)
-let user = { name: "John", address: { city: "NYC" } };
-let city = user?.address?.city;  // Optional chaining: "NYC"
-let missingCity = user?.address?.country; // undefined (safe access)
-
-// 10. Spread Operator (...)
-let arr1 = [1, 2, 3];
-let arr2 = [...arr1, 4, 5];      // Spread array: [1, 2, 3, 4, 5]
-let obj1 = { name: "John" };
-let obj2 = { ...obj1, age: 25 }; // Spread object: { name: "John", age: 25 }
-
-// 11. Rest Parameters
-function sum(...numbers) {
-  return numbers.reduce((total, num) => total + num, 0);
-}
-let total = sum(1, 2, 3, 4, 5);  // Rest parameters: 15
-
-// 12. Destructuring Assignment
-let [first, second, ...rest] = [1, 2, 3, 4, 5]; // Array destructuring
-let { name, age, ...otherProps } = { name: "John", age: 25, city: "NYC" }; // Object destructuring`}
-            language="javascript"
-          />
-        </div>
-        <div className="io-specification">
-          <h4>Input/Output Specification:</h4>
-          <div className="io-grid">
-            <div className="io-input">
-              <strong>Operator Input:</strong>
-              <ul>
-                <li><code>operand1</code> (any) - First value</li>
-                <li><code>operand2</code> (any) - Second value</li>
-                <li><code>operator</code> (symbol) - Operation symbol</li>
-                <li><code>expression</code> (any) - Complex expression</li>
-                <li><code>condition</code> (boolean) - Logical condition</li>
-              </ul>
-            </div>
-            <div className="io-output">
-              <strong>Operator Output:</strong>
-              <ul>
-                <li><code>number</code> - Arithmetic result</li>
-                <li><code>boolean</code> - Comparison/logical result</li>
-                <li><code>string</code> - String operation result</li>
-                <li><code>any</code> - Assignment result</li>
-                <li><code>undefined</code> - Invalid operation</li>
-              </ul>
-            </div>
+          <div className="syntax-group">
+            <h4>Assignment Operator (=)</h4>
+            <p>Assigns a value to a variable.</p>
+            <SyntaxExample code={`let x = 5; // x is now 5`} language="javascript" />
           </div>
-        </div>
-        <div className="interactive-example">
-          <div className="code-panel">
-            <CodeExample
-              code={`// JavaScript Operators in Action
 
-// 1. Arithmetic Operations
-const calculateMath = () => {
-  let a = 15, b = 3;
-  return {
-    addition: a + b,           // 18
-    subtraction: a - b,        // 12
-    multiplication: a * b,     // 45
-    division: a / b,           // 5
-    modulus: a % b,            // 0
-    power: a ** b,             // 3375
-    increment: ++a,            // 16
-    decrement: --b             // 2
-  };
-};
-
-// 2. Comparison Operations
-const compareValues = () => {
-  let num1 = 10, num2 = "10", num3 = 15;
-  return {
-    looseEqual: num1 == num2,      // true
-    strictEqual: num1 === num2,    // false
-    notEqual: num1 != num3,        // true
-    greaterThan: num3 > num1,      // true
-    lessThan: num1 < num3,         // true
-    greaterEqual: num1 >= 10,      // true
-    lessEqual: num1 <= 15          // true
-  };
-};
-
-// 3. Logical Operations
-const logicalOperations = () => {
-  let isLoggedIn = true;
-  let hasPermission = false;
-  let isAdmin = true;
-  
-  return {
-    and: isLoggedIn && hasPermission,     // false
-    or: isLoggedIn || hasPermission,      // true
-    not: !isLoggedIn,                     // false
-    complex: isLoggedIn && (hasPermission || isAdmin)  // true
-  };
-};
-
-// 4. String Operations
-const stringOperations = () => {
-  let firstName = "Sarah";
-  let lastName = "Johnson";
-  let age = 28;
-  
-  return {
-    concatenation: firstName + " " + lastName,  // "Sarah Johnson"
-    template: \`\${firstName} is \${age} years old\`,  // "Sarah is 28 years old"
-    length: firstName.length,                   // 5
-    uppercase: firstName.toUpperCase(),         // "SARAH"
-    lowercase: lastName.toLowerCase()           // "johnson"
-  };
-};
-
-// 5. Assignment Operations
-const assignmentOperations = () => {
-  let x = 10;
-  let y = 5;
-  
-  x += y;    // x = 15
-  y *= 2;    // y = 10
-  x -= 3;    // x = 12
-  y /= 2;    // y = 5
-  
-  return { x, y };
-};
-
-// 6. Conditional (Ternary) Operations
-const conditionalOperations = () => {
-  let age = 20;
-  let score = 85;
-  
-  return {
-    ageStatus: age >= 18 ? "Adult" : "Minor",           // "Adult"
-    grade: score >= 90 ? "A" : score >= 80 ? "B" : "C", // "B"
-    canVote: age >= 18 ? "Yes" : "No"                   // "Yes"
-  };
-};
-
-// React Usage Examples
-function OperatorDemo() {
-  const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  
-  const mathResult = calculateMath();
-  const comparisonResult = compareValues();
-  const logicalResult = logicalOperations();
-  
-  return (
-    <div>
-      <h2>Operator Examples</h2>
-      
-      {/* Arithmetic */}
-      <div>
-        <h3>Arithmetic: 15 + 3 = {mathResult.addition}</h3>
-        <h3>Power: 15³ = {mathResult.power}</h3>
-      </div>
-      
-      {/* Comparison */}
-      <div>
-        <h3>10 == "10": {comparisonResult.looseEqual.toString()}</h3>
-        <h3>10 === "10": {comparisonResult.strictEqual.toString()}</h3>
-      </div>
-      
-      {/* Logical */}
-      <div>
-        <h3>Complex Logic: {logicalResult.complex.toString()}</h3>
-      </div>
-      
-      {/* Conditional Rendering */}
-      {isVisible && <p>This is visible when isVisible is true</p>}
-      {count > 0 ? <p>Count is positive: {count}</p> : <p>Count is zero or negative</p>}
-      
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setIsVisible(!isVisible)}>Toggle Visibility</button>
-    </div>
-  );
-}`}
-              explanation="JavaScript operators provide powerful tools for manipulating data, making decisions, and controlling program flow."
-            />
+          <div className="syntax-group">
+            <h4>Equality Comparison Operators (==, !=, ===, !==)</h4>
+            <p>Compare two values for equality or inequality. <code>==</code> and <code>!=</code> are loose (type-converting), <code>===</code> and <code>!==</code> are strict (no type conversion).</p>
+            <SyntaxExample code={`10 == '10';   // true (loose equality)
+10 != '10';   // false (loose inequality)
+10 === '10';  // false (strict equality)
+10 !== '10';  // true (strict inequality)`} language="javascript" />
           </div>
-          <div className="output-panel">
-            <h4>Operator Demo:</h4>
-            <div className="output-content">
-              <div className="demo-controls">
-                <div className="demo-item">
-                  <label>Arithmetic Operations:</label>
-                  <div className="result">
-                    <div>15 + 3 = {15 + 3}</div>
-                    <div>15 - 3 = {15 - 3}</div>
-                    <div>15 * 3 = {15 * 3}</div>
-                    <div>15 / 3 = {15 / 3}</div>
-                    <div>15 % 3 = {15 % 3}</div>
-                    <div>15³ = {15 ** 3}</div>
-                  </div>
-                </div>
-                                 <div className="demo-item">
-                   <label>Comparison Operations:</label>
-                   <div className="result">
-                     <div>10 == "10": {(10 == "10").toString()}</div>
-                     <div>10 === "10": {(10 === "10").toString()}</div>
-                     <div>15 {'>'} 10: {(15 > 10).toString()}</div>
-                     <div>10 {'>='} 10: {(10 >= 10).toString()}</div>
-                   </div>
-                 </div>
-                <div className="demo-item">
-                  <label>Logical Operations:</label>
-                  <div className="result">
-                    <div>true && false: {(true && false).toString()}</div>
-                    <div>true || false: {(true || false).toString()}</div>
-                    <div>!true: {(!true).toString()}</div>
-                    <div>true && (false || true): {(true && (false || true)).toString()}</div>
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>Bitwise Operations:</label>
-                  <div className="result">
-                    <div>5 & 3: {5 & 3}</div>
-                    <div>5 | 3: {5 | 3}</div>
-                    <div>5 ^ 3: {5 ^ 3}</div>
-                    <div>5 {'<<'} 1: {5 << 1}</div>
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>String Operations:</label>
-                  <div className="result">
-                    <div>Concatenation: {"Hello" + " " + "World"}</div>
-                    <div>Template: {`Hello ${fundamentalUser.name}!`}</div>
-                    <div>Length: {"JavaScript".length}</div>
-                    <div>Uppercase: {"hello".toUpperCase()}</div>
-                  </div>
-                </div>
-                <div className="demo-item">
-                  <label>Modern Operators:</label>
-                  <div className="result">
-                    <div>Nullish: {null ?? "Default"}</div>
-                    <div>Zero value: {0 ?? "Default"}</div>
-                    <div>Conditional: {20 >= 18 ? "Adult" : "Minor"}</div>
-                    <div>Spread: {JSON.stringify([...fundamentalColors, "yellow"])}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+          <div className="syntax-group">
+            <h4>Comparison Operators (&gt;, &lt;, &gt;=, &lt;=)</h4>
+            <p>Compare two values, like in math.</p>
+            <SyntaxExample code={`5 > 3;   // true
+5 < 3;   // false
+5 >= 5;  // true
+5 <= 4;  // false`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Math Operators (+, -, *, /, %, **, - (unary))</h4>
+            <p>Perform basic arithmetic operations.</p>
+            <SyntaxExample code={`const a = 5, b = 2;
+a + b;    // 7 (addition)
+a - b;    // 3 (subtraction)
+a * b;    // 10 (multiplication)
+a / b;    // 2.5 (division)
+a % b;    // 1 (modulo)
+a ** b;   // 25 (exponentiation)
+-a;       // -5 (negation)`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Math Assignment Operators (+=, -=, *=, /=, %=, **=)</h4>
+            <p>Combine assignment with math operations.</p>
+            <SyntaxExample code={`let a = 5, b = 2;
+a += b;   // 7
+a -= b;   // 5
+a *= b;   // 10
+a /= b;   // 5
+a %= b;   // 1
+a **= b;  // 25`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Increment &amp; Decrement Operators (++/--)</h4>
+            <p>Shorthand for adding or subtracting 1. Prefix (<code>++a</code>) changes before use, postfix (<code>a++</code>) after use.</p>
+            <SyntaxExample code={`let a = 5, b = 5;
+let c = ++a; // a=6, c=6
+let d = b++; // b=6, d=5
+let e = --a; // a=5, e=5
+let f = b--; // b=5, f=6`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>String Concatenation Operator (+)</h4>
+            <p>Joins two strings together.</p>
+            <SyntaxExample code={`const str1 = 'Hello';
+const str2 = 'World';
+const greeting = str1 + ' ' + str2; // 'Hello World'`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Logical Operators (&&, ||, !)</h4>
+            <p>Combine or negate boolean values.</p>
+            <SyntaxExample code={`const a = true, b = false;
+a && b; // false (AND)
+a || b; // true (OR)
+!a;     // false (NOT)`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Logical Assignment Operators (&&=, ||=)</h4>
+            <p>Combine logical operations with assignment.</p>
+            <SyntaxExample code={`let a = true, b = false, c = true;
+a &&= b; // a is now false
+b ||= c; // b is now true`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Double Negation (!!)</h4>
+            <p>Converts a value to its boolean equivalent.</p>
+            <SyntaxExample code={`const str = 'Hello';
+!!str; // true
+const num = 0;
+!!num; // false`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Ternary Operator (?:)</h4>
+            <p>Shorthand for <code>if...else</code> statements.</p>
+            <SyntaxExample code={`const age = 18;
+const canVote = age >= 18 ? 'Yes' : 'No'; // 'Yes'`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Spread Operator (...)</h4>
+            <p>Expands an iterable (like an array or object) into its elements.</p>
+            <SyntaxExample code={`const arr = [1, 2, 3];
+const newArr = [...arr, 4, 5]; // [1, 2, 3, 4, 5]
+const obj = { a: 1, b: 2 };
+const newObj = { ...obj, c: 3 }; // { a: 1, b: 2, c: 3 }`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Bitwise Operators (&, |, ^, ~, <code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&gt;&gt;&gt;</code>)</h4>
+            <p>Operate on the binary representations of numbers.</p>
+            <SyntaxExample code={`const a = 5; // 0101
+const b = 3; // 0011
+a & b;   // 1 (AND)
+a | b;   // 7 (OR)
+a ^ b;   // 6 (XOR)
+~a;      // -6 (NOT)
+a << 1;  // 10 (left shift)
+a >> 1;  // 2 (right shift)
+a >>> 1; // 2 (unsigned right shift)`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Bitwise Assignment Operators (&=, |=, ^=, <code>&lt;&lt;=</code>, <code>&gt;&gt;=</code>, <code>&gt;&gt;&gt;=</code>)</h4>
+            <p>Combine bitwise operations with assignment.</p>
+            <SyntaxExample code={`let a = 5, b = 3;
+a &= b;   // 1
+a |= b;   // 3
+a ^= b;   // 0
+a <<= 1;  // 0
+a >>= 1;  // 0
+a >>>= 1; // 0`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Nullish Coalescing Operator (??)</h4>
+            <p>Returns the right-hand value if the left is <code>null</code> or <code>undefined</code>.</p>
+            <SyntaxExample code={`const a = null, b = 5;
+const c = a ?? b; // 5
+const d = 0;
+const e = d ?? b; // 0`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Nullish Assignment Operator (??=)</h4>
+            <p>Assigns the right-hand value only if the left is <code>null</code> or <code>undefined</code>.</p>
+            <SyntaxExample code={`let a = null, b = 5;
+a ??= b; // a is now 5
+let c = 0;
+c ??= b; // c is still 0`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Property Access Operator (.)</h4>
+            <p>Accesses properties of objects.</p>
+            <SyntaxExample code={`const obj = { a: 1 };
+const value = obj.a; // 1`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Optional Chaining Operator (?.)</h4>
+            <p>Safely access deeply nested properties without errors if a property is missing.</p>
+            <SyntaxExample code={`const obj = { a: { b: { c: 1 } } };
+const value = obj?.a?.b?.c;   // 1
+const value2 = obj?.a?.b?.d;  // undefined`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Comma Operator (,)</h4>
+            <p>Evaluates each operand and returns the value of the last one.</p>
+            <SyntaxExample code={`const a = (1, 2, 3); // a is 3`} language="javascript" />
+          </div>
+
+          <div className="syntax-group">
+            <h4>Arrow Function Operator (<code>=&gt;</code>)</h4>
+            <p>Shorthand for writing function expressions.</p>
+            <SyntaxExample code={`const add = (a, b) => a + b;
+add(2, 3); // 5`} language="javascript" />
           </div>
         </div>
       </div>
