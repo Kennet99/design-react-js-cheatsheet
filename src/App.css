@@ -627,8 +627,8 @@
   overflow-x: auto;
   white-space: pre-wrap;
   border: 1.5px solid #6366f1;
-  margin: 1.2rem 0 1.2rem 0;
   box-shadow: 0 1px 4px rgba(30,41,59,0.08);
+  margin: 0;
 }
 
 /* Add more spacing between code blocks and sections */
@@ -1309,15 +1309,15 @@
   border: 1.5px solid #c7d2fe;
   display: flex;
   flex-direction: column;
-  gap: 2.2rem; /* increased gap between operator groups */
+  gap: 1rem; /* tighter gap between syntax groups */
 }
 
 /* Group h4, p, and code together for each operator */
 .syntax-group {
   display: flex;
   flex-direction: column;
-  gap: 0.18rem; /* tight spacing between h4, p, and code */
-  margin-bottom: 0;
+  gap: 0.18rem;
+  margin-bottom: 2rem;
 }
 
 .syntax-group h4 {
@@ -1326,6 +1326,7 @@
 
 .syntax-group p {
   margin: 0;
+  margin-bottom: 0.5rem;
 }
 
 .syntax-example h4 {
@@ -1348,8 +1349,8 @@
   overflow-x: auto;
   white-space: pre-wrap;
   border: 1.5px solid #6366f1;
-  margin: 1.2rem 0 1.2rem 0;
   box-shadow: 0 1px 4px rgba(30,41,59,0.08);
+  margin: 0;
 }
 
 /* VS Code Dark Mode with Authentic JSX Syntax Highlighting */
