@@ -1168,7 +1168,16 @@ function ComponentName({ prop1, prop2, children }) {
 <ComponentName prop1="value1" prop2="value2">
   Child content
 </ComponentName>
-`,language:"javascript"}),n.jsx("h4",{children:"Passing Functions as Props (Parent/Child Example):"}),n.jsx(A,{code:`function Parent() {
+`,language:"javascript"}),n.jsxs("div",{className:"syntax-example",children:[n.jsx("h4",{children:"Default props"}),n.jsx(A,{code:`// Default props
+ComponentName.defaultProps = {
+  prop1: 'default value'
+};
+
+// Props validation
+ComponentName.propTypes = {
+  prop1: PropTypes.string.isRequired,
+  prop2: PropTypes.number
+};`,language:"javascript"})]}),n.jsxs("div",{className:"syntax-example",children:[n.jsx("h4",{children:"Passing Functions as Props (Parent/Child Example):"}),n.jsx(A,{code:`function Parent() {
   function showMessage() {
     alert("Hello from parent!");
   }
@@ -1178,16 +1187,7 @@ function ComponentName({ prop1, prop2, children }) {
 function Child({ onShowMessage }) {
   // Calls function passed from parent
   return <button onClick={onShowMessage}>Show Message</button>;
-}`,language:"javascript"}),n.jsxs("p",{style:{marginTop:"-1rem",marginBottom:"1.5rem",color:"#64748b"},children:[n.jsx("strong",{children:"Explanation:"})," You can pass functions as props from parent to child. The child can then call the function, allowing the parent to control what happens. This is a core pattern for parent-child communication in React."]}),n.jsxs("div",{className:"syntax-example",children:[n.jsx("h4",{children:"Default props"}),n.jsx(A,{code:`// Default props
-ComponentName.defaultProps = {
-  prop1: 'default value'
-};
-
-// Props validation
-ComponentName.propTypes = {
-  prop1: PropTypes.string.isRequired,
-  prop2: PropTypes.number
-};`,language:"javascript"})]})]}),n.jsxs("div",{className:"io-specification",children:[n.jsx("h4",{children:"Input/Output Specification:"}),n.jsxs("div",{className:"io-grid",children:[n.jsxs("div",{className:"io-input",children:[n.jsx("strong",{children:"Props Input:"}),n.jsxs("ul",{children:[n.jsxs("li",{children:[n.jsx("code",{children:"propName"})," (any) - Component property"]}),n.jsxs("li",{children:[n.jsx("code",{children:"prop1, prop2"})," (any) - Multiple properties"]}),n.jsxs("li",{children:[n.jsx("code",{children:"children"})," (JSX) - Child components"]}),n.jsxs("li",{children:[n.jsx("code",{children:"defaultValue"})," (any) - Default prop value"]}),n.jsxs("li",{children:[n.jsx("code",{children:"callback"})," (function) - Function prop"]})]})]}),n.jsxs("div",{className:"io-output",children:[n.jsx("strong",{children:"Props Usage:"}),n.jsxs("ul",{children:[n.jsxs("li",{children:[n.jsx("code",{children:"any"})," - Property value usage"]}),n.jsxs("li",{children:[n.jsx("code",{children:"string"})," - Text content rendering"]}),n.jsxs("li",{children:[n.jsx("code",{children:"className"})," - Dynamic CSS classes"]}),n.jsxs("li",{children:[n.jsx("code",{children:"boolean"})," - Conditional rendering"]}),n.jsxs("li",{children:[n.jsx("code",{children:"function"})," - Event handler binding"]})]})]})]})]}),n.jsxs("div",{className:"interactive-example",children:[n.jsx("div",{className:"code-panel",children:n.jsx(G,{code:`// 1. Basic props
+}`,language:"javascript"}),n.jsxs("p",{style:{marginTop:"-1rem",marginBottom:"1.5rem",color:"#64748b"},children:[n.jsx("strong",{children:"Explanation:"})," You can pass functions as props from parent to child. The child can then call the function, allowing the parent to control what happens. This is a core pattern for parent-child communication in React."]})]})]}),n.jsxs("div",{className:"io-specification",children:[n.jsx("h4",{children:"Input/Output Specification:"}),n.jsxs("div",{className:"io-grid",children:[n.jsxs("div",{className:"io-input",children:[n.jsx("strong",{children:"Props Input:"}),n.jsxs("ul",{children:[n.jsxs("li",{children:[n.jsx("code",{children:"propName"})," (any) - Component property"]}),n.jsxs("li",{children:[n.jsx("code",{children:"prop1, prop2"})," (any) - Multiple properties"]}),n.jsxs("li",{children:[n.jsx("code",{children:"children"})," (JSX) - Child components"]}),n.jsxs("li",{children:[n.jsx("code",{children:"defaultValue"})," (any) - Default prop value"]}),n.jsxs("li",{children:[n.jsx("code",{children:"callback"})," (function) - Function prop"]})]})]}),n.jsxs("div",{className:"io-output",children:[n.jsx("strong",{children:"Props Usage:"}),n.jsxs("ul",{children:[n.jsxs("li",{children:[n.jsx("code",{children:"any"})," - Property value usage"]}),n.jsxs("li",{children:[n.jsx("code",{children:"string"})," - Text content rendering"]}),n.jsxs("li",{children:[n.jsx("code",{children:"className"})," - Dynamic CSS classes"]}),n.jsxs("li",{children:[n.jsx("code",{children:"boolean"})," - Conditional rendering"]}),n.jsxs("li",{children:[n.jsx("code",{children:"function"})," - Event handler binding"]})]})]})]})]}),n.jsxs("div",{className:"interactive-example",children:[n.jsx("div",{className:"code-panel",children:n.jsx(G,{code:`// 1. Basic props
 function Button({ text, variant, size, disabled }) {
   return (
     <button 
